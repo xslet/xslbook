@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="xslbook" basedir=".">
+
+ <property name="dir.src"   location="src"/>
+ <property name="dir.dist"  location="dist"/>
+ <property name="dir.test"  location="test"/>
+ <property name="dir.build" location="build_aux"/>
+
+ <property name="dir.src.xsl" location="${dir.src}/xsl"/>
+ <property name="dir.src.css" location="${dir.src}/scss"/>
+ <property name="dir.src.js"  location="${dir.src}/js"/>
+
+ <property name="dir.build.dl"  location="${dir.build}/downloads"/>
+ <property name="dir.build.lib" location="${dir.build}/lib"/>
+ <property name="dir.build.bin" location="${dir.build}/bin"/>
+ <property name="dir.build.xsl" location="${dir.build}/xsl"/>
+ <property name="dir.build.js"  location="${dir.build}/js"/>
+
+ <target name="build">
+  <antcall target="clean"/>
+  <antcall target="merge-xsl"/>
+  <antcall target="make-xsl-lib-for-test"/>
+  <antcall target="build-scss"/>
+  <antcall target="build-js"/>
+ </target>
+
+ <target name="clean">
+  <delete>
+   <fileset dir="${dir.dist}" includes="**/*.xsl"/>
+  </delete>
+ </target>
+
+ <target name="merge-xsl">
+  <path id="extjars">
+   <fileset dir="${dir.build.lib}">
+    <include name="**/*.jar"/>
+   </fileset>
+  </path>
+  <java classname="net.sf.saxon.Transform">
+   <arg line="-o:${dir.dist}"/>
+   <arg line="-s:${dir.src.xsl}"/>
+   <arg line="-xsl:${dir.build.xsl}/merge-xsl-files.xsl"/>
+   <arg line="-strip:all"/>
+   <classpath refid="extjars"/>
+  </java>
+ </target>
+
+ <target name="make-xsl-lib-for-test">
+  <path id="extjars">
+   <fileset dir="${dir.build.lib}">
+    <include name="**/*.jar"/>
+   </fileset>
+  </path>
+  <java classname="net.sf.saxon.Transform">
+   <arg line="-o:${dir.test}/lib"/>
+   <arg line="-s:${dir.src.xsl}/lib"/>
+   <arg line="-xsl:${dir.build.xsl}/make-lib-for-test.xsl"/>
+   <arg line="-strip:all"/>
+   <classpath refid="extjars"/>
+  </java>
+ </target>
+
+ <target name="build-scss">
+  <property name="prefix" value="build_aux/js"/>
+  <exec executable="npm">
+   <arg line="run sass:build"/>
+   <arg line="--prefix ${prefix}"/>
+  </exec>
+ </target>
+
+ <target name="build-js">
+  <property name="prefix" value="build_aux/js"/>
+  <exec executable="npm">
+   <arg line="run js:build"/>
+   <arg line="--prefix ${prefix}"/>
+  </exec>
+ </target>
+
+ <target name="setup">
+  <mkdir dir="${dir.src.xsl}"/>
+  <mkdir dir="${dir.src.css}"/>
+  <mkdir dir="${dir.src.js}"/>
+  <mkdir dir="${dir.dist}"/>
+  <mkdir dir="${dir.test}"/>
+  <mkdir dir="${dir.build.dl}"/>
+  <mkdir dir="${dir.build.lib}"/>
+  <mkdir dir="${dir.build.bin}"/>
+  <mkdir dir="${dir.build.xsl}"/>
+  <mkdir dir="${dir.build.js}"/>
+  <antcall target="get-saxon"/>
+  <antcall target="get-tomcat"/>
+ </target>
+
+ <target name="npm-install">
+  <property name="prefix" value="build_aux/js"/>
+  <exec executable="npm">
+   <arg line="install"/>
+   <arg line="--prefix ${prefix}"/>
+  </exec>
+ </target>
+
+ <property name="dir.saxon" location="${dir.build.lib}/SaxonHE9-9-0-2J"/>
+
+ <target name="get-saxon">
+  <property name="url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/9.9/SaxonHE9-9-0-2J.zip/download"/>
+  <property name="zip" location="${dir.build.dl}/SaxonHE9-9-0-2J.zip"/>
+  <property name="dir.unzip" location="${dir.saxon}"/>
+  <get src="${url}" dest="${zip}"/>
+  <unzip src="${zip}" dest="${dir.unzip}"/>
+ </target>
+
+
+ <property name="dir.tomcat" location="${dir.build.bin}/apache-tomcat-9.0.14"/>
+
+ <target name="get-tomcat">
+  <property name="url" value="http://ftp.riken.jp/net/apache/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.zip"/>
+  <property name="zip" location="${dir.build.dl}/apache-tomcat-9.0.14.zip"/>
+  <property name="dir.unzip" location="${dir.build.bin}"/>
+  <get src="${url}" dest="${zip}"/>
+  <unzip src="${zip}" dest="${dir.unzip}"/>
+  <chmod perm="ugo+rx" dir="${dir.tomcat}/bin" includes="**/*.sh"/>
+ </target>
+
+ <target name="start">
+  <condition property="cmd" value="startup.bat" else="startup.sh">
+   <os family="windows"/>
+  </condition>
+  <exec executable="${dir.tomcat}/bin/${cmd}"/>
+ </target>
+
+ <target name="stop">
+  <condition property="cmd" value="shutdown.bat" else="shutdown.sh">
+   <os family="windows"/>
+  </condition>
+  <exec executable="${dir.tomcat}/bin/${cmd}"/>
+ </target>
+
+ <target name="deploy" depends="build">
+  <property name="dir.deploy"
+   location="${dir.tomcat}/webapps/${ant.project.name}"/>
+  <mkdir dir="${dir.deploy}"/>
+  <delete>
+   <fileset dir="${dir.deploy}" includes="**/*"/>
+  </delete>
+  <copy todir="${dir.deploy}">
+   <fileset dir="${dir.dist}"/>
+   <fileset dir="${dir.test}"/>
+  </copy>
+ </target>
+
+ <target name="wait-for-update">
+  <waitfor>
+   <not>
+    <uptodate targetfile="${dir.dist}/xslbook.xsl">
+     <srcfiles dir="${dir.src}" includes="**/*"/>
+     <srcfiles dir="${dir.test}" includes="**/*"/>
+    </uptodate>
+   </not>
+  </waitfor>
+  <antcall target="deploy"/>
+  <touch file="${dir.dist}/xslbook.xsl"/>
+  <fail/>
+ </target>
+
+ <target name="watch">
+  <retry retrycount="1000000">
+   <antcall target="wait-for-update"/>
+  </retry>
+ </target>
+
+ <target name="help">
+  <echo><![CDATA[
+ant <target>
+
+TARGET)
+  setup  : Make directories and download modules used for build.
+  build  : Execute `clean`, `merge` and `deploy` tasks.
+  clean  : Clean files in `dist` directory.
+  merge  : Merge XSL files into a distributable file.
+  deploy : Deploy distributable files and test files to Tomcat.
+  watch  : Watch source files updated, then deploy.
+  start  : Start tomcat.
+  stop   : Stop tomcat.
+]]></echo>
+ </target>
+
+</project>
