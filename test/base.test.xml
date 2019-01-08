@@ -2,4 +2,10 @@
 <?xml-stylesheet type="application/xml" href="xslbook.xsl"?>
 
 <xslbook id="pageId">
+ <script rpath="assert.js"/>
+ <script rpath="base.test.js"/>
+
+ <title>Base</title>
+ <body>This is the body of the page.</body>
+
 </xslbook>
