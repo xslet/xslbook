@@ -86,6 +86,7 @@
       </xsx:when>
       <xsx:otherwise>
        <span style="color:#d00">FAIL</span>
+       <style>h2 { background-color: #f00 }</style>
       </xsx:otherwise>
      </xsx:choose>
     </div>
