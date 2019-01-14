@@ -26,12 +26,7 @@
     <xsl:with-param name="chapter_type" select="$_chapter_type"/>
     <xsl:with-param name="chapter_index" select="$_chapter_index"/>
    </xsl:call-template>
-   <xsl:apply-templates select="body[1]">
-    <xsl:with-param name="data_url" select="$_data_url"/>
-    <xsl:with-param name="chapter_type" select="$_chapter_type"/>
-    <xsl:with-param name="chapter_index" select="$_chapter_index"/>
-   </xsl:apply-templates>
-   <xsl:apply-templates select="clause">
+   <xsl:apply-templates select="body|toc|clause">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$_chapter_type"/>
     <xsl:with-param name="chapter_index" select="$_chapter_index"/>
@@ -126,12 +121,7 @@
     <xsl:with-param name="chapter_type" select="$chapter_type"/>
     <xsl:with-param name="chapter_index" select="$chapter_index"/>
    </xsl:call-template>
-   <xsl:apply-templates select="body[1]">
-    <xsl:with-param name="data_url" select="$_data_url"/>
-    <xsl:with-param name="chapter_type" select="$chapter_type"/>
-    <xsl:with-param name="chapter_index" select="$chapter_index"/>
-   </xsl:apply-templates>
-   <xsl:apply-templates select="section">
+   <xsl:apply-templates select="body|toc|section">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$chapter_type"/>
     <xsl:with-param name="chapter_index" select="$chapter_index"/>
@@ -175,12 +165,7 @@
     <xsl:with-param name="chapter_type" select="$chapter_type"/>
     <xsl:with-param name="chapter_index" select="$chapter_index"/>
    </xsl:call-template>
-   <xsl:apply-templates select="body[1]">
-    <xsl:with-param name="data_url" select="$_data_url"/>
-    <xsl:with-param name="chapter_type" select="$chapter_type"/>
-    <xsl:with-param name="chapter_index" select="$chapter_index"/>
-   </xsl:apply-templates>
-   <xsl:apply-templates select="section">
+   <xsl:apply-templates select="body|toc|section">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$chapter_type"/>
     <xsl:with-param name="chapter_index" select="$chapter_index"/>

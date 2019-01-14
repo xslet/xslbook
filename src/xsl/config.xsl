@@ -11,4 +11,9 @@
  <xsl:param name="bk:clause_index_format">1.</xsl:param>
  <xsl:param name="bk:section_index_format">1.</xsl:param>
 
+ <xsl:param name="bk:default_toc_target">
+  <xsl:text>|preface|chapter|appendix|postface|clause|</xsl:text>
+ </xsl:param>
+ <xsl:param name="bk:default_toc_title">Table of contents</xsl:param>
+
 </xsl:stylesheet>

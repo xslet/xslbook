@@ -42,10 +42,7 @@
      <xsl:call-template name="bk:write_book_title">
       <xsl:with-param name="data_url" select="$_data_url"/>
      </xsl:call-template>
-     <xsl:apply-templates select="body[1]">
-      <xsl:with-param name="data_url" select="$_data_url"/>
-     </xsl:apply-templates>
-     <xsl:apply-templates select="toc|preface|chapter|appendix|postface">
+     <xsl:apply-templates select="body|toc|preface|chapter|appendix|postface">
       <xsl:with-param name="data_url" select="$_data_url"/>
      </xsl:apply-templates>
     </section>
@@ -139,6 +136,7 @@
      <xsl:value-of select="@id"/>
     </xsl:when>
     <xsl:otherwise>
+     <xsl:text>idxbk</xsl:text>
      <xsl:variable name="_tag_name" select="name()"/>
      <xsl:value-of select="$_tag_name"/>
      <xsl:number level="any" format="1" count="*[name() = $_tag_name]"/>

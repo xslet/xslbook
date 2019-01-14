@@ -7,4 +7,28 @@ body {
   color: #333;
 }
 
+.chapter > .title > .index:after {
+  content: " ";
+}
+
+.appendix > .title > .index:after {
+  content: " ";
+}
+
+.clause > .title > .index:after {
+  content: " ";
+}
+
+.clause > .title > .index:after {
+  content: " ";
+}
+
+.section > .title > .index:after {
+  content: " ";
+}
+
+.section > .title > .index:after {
+  content: " ";
+}
+
 /*# sourceMappingURL=xslbook.css.map */
