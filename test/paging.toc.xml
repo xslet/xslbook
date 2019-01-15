@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="xslbook.xsl"?>
+
+<xslbook toc="paging.toc.xml">
+ <script rpath="assert.js"/>
+ <script rpath="paging.toc.js"/>
+
+ <title>Paging (Toc)</title>
+ <body>This is the body of the page.</body>
+
+ <toc>
+  <page href="./paging.toc.xml"/>
+  <page href="./paging.test.xml"/>
+  <part>
+   <title>Part 1</title>
+   <page href="./paging.last.xml"/>
+  </part>
+ </toc>
+
+ <preface>
+  <title>Preface</title>
+  <clause>
+   <title>Preface (1.1)</title>
+   <section>
+    <title>Preface (1.1.1)</title>
+   </section>
+  </clause>
+ </preface>
+
+ <chapter>
+  <title>Chapter (1)</title>
+ </chapter>
+
+ <chapter>
+  <title>Chapter (2)</title>
+  <clause>
+   <title>Chapter (2.1)</title>
+   <section>
+    <title>Chapter (2.1.1)</title>
+    <section>
+     <title>Chapter (2.1.1.1)</title>
+    </section>
+   </section>
+  </clause>
+ </chapter>
+
+</xslbook>

@@ -1,18 +1,20 @@
 window.addEventListener('load', function() {
-  document.body.innerHTML += '<hr/>';
-  checkStructureAndId();
-  checkIndex();
-  checkTitle();
-  checkBody();
+  try {
+    write('<hr/>');
+    checkStructureAndId();
+    checkIndex();
+    checkTitle();
+    checkBody();
+  } catch (e) {
+    fail(e);
+  }
 });
 
 function checkStructureAndId() {
-  var arr = [];
-  visitSections(document.querySelector('.xslbook'), function(child, depth) {
-    arr.push(depth + ':' +
-      child.tagName + '.' + child.className + '#' + child.id);
-  });
-  assertArrayEqual('Structure', arr, [
+  var xslbook = document.querySelector('.xslbook');
+  assertTreeEqual('Structure', xslbook, 'section', function(o, depth) {
+    return depth + ':' + o.tagName + '.' + o.className + '#' + o.id;
+  }, [
     '1:SECTION.preface#idxbkpreface1',
     '2:SECTION.clause#idxbkclause1',
     '3:SECTION.section#idxbksection1',
@@ -38,13 +40,12 @@ function checkStructureAndId() {
 }
 
 function checkIndex() {
-  var arr = [];
-  visitSections(document.querySelector('.xslbook'), function(child, depth) {
-    var elm = get(':scope > .title > .index', child) || {};
-    arr.push('.' + child.className + '#' + child.id + ' = [' +
-      elm.textContent + ']');
-  });
-  assertArrayEqual('Section indexies', arr, [
+  var xslbook = document.querySelector('.xslbook');
+  assertTreeEqual('Section indexies', xslbook, 'section', function(o, depth) {
+    var title = o.querySelector(S(':scope > .title'));
+    var index = title.querySelector(S(':scope > .index'));
+    return '.' + o.className + '#' + o.id + ' = [' + index.textContent + ']';
+  }, [
     '.preface#idxbkpreface1 = []',
     '.clause#idxbkclause1 = []',
     '.section#idxbksection1 = []',
@@ -70,13 +71,12 @@ function checkIndex() {
 }
 
 function checkTitle() {
-  var arr = [];
-  visitSections(document.querySelector('.xslbook'), function(child, depth) {
-    var elm = get(':scope > .title > .label', child) || {};
-    arr.push('.' + child.className + '#' + child.id + ' = [' +
-      elm.textContent + ']');
-  });
-  assertArrayEqual('Section titles', arr, [
+  var xslbook = document.querySelector('.xslbook');
+  assertTreeEqual('Section titles', xslbook, 'section', function(o, depth) {
+    var title = o.querySelector(S(':scope > .title'));
+    var label = title.querySelector(S(':scope > .label'));
+    return '.' + o.className + '#' + o.id + ' = [' + label.textContent + ']';
+  }, [
     '.preface#idxbkpreface1 = [Preface 1]',
     '.clause#idxbkclause1 = [Preface 1.1]',
     '.section#idxbksection1 = [Preface 1.1.1]',
@@ -102,13 +102,11 @@ function checkTitle() {
 }
 
 function checkBody() {
-  var arr = [];
-  visitSections(document.querySelector('.xslbook'), function(child, depth) {
-    var elm = get(':scope > .body', child) || {};
-    arr.push('.' + child.className + '#' + child.id + ' = [' +
-      elm.textContent + ']');
-  });
-  assertArrayEqual('Section bodies', arr, [
+  var xslbook = document.querySelector('.xslbook');
+  assertTreeEqual('Section bodies', xslbook, 'section', function(o, depth) {
+    var body = o.querySelector(S(':scope > .body')) || {};
+    return '.' + o.className + '#' + o.id + ' = [' + body.textContent + ']';
+  }, [
     '.preface#idxbkpreface1 = [This is the body of the preface 1.]',
     '.clause#idxbkclause1 = [This is the body of the preface 1.1.]',
     '.section#idxbksection1 = [This is the body of the preface 1.1.1.]',
@@ -131,20 +129,4 @@ function checkBody() {
     '.clause#idxbkclause7 = [This is the body of the postface 1.1.]',
     '.postface#ggg = [This is the body of the postface 2.]',
   ]);
-}
-
-
-function visitSections(parent, fn, depth) {
-  depth = depth || 1;
-  var children = parent.querySelectorAll(':scope > section');
-  for (var i = 0, n= children.length; i < n; i++) {
-    var child = children[i];
-    fn(child, depth);
-    visitSections(child, fn, depth + 1);
-  }
-}
-
-function get(selector, parent) {
-  parent = parent || document;
-  return parent.querySelector(selector);
 }

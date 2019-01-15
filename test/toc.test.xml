@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="xslbook.xsl"?>
+<?xml-stylesheet type="application/xml" href="xslbook.xsl"?>
 
 <xslbook>
  <script rpath="assert.js"/>
@@ -29,7 +29,7 @@
  <chapter>
   <title>Chapter 1</title>
   <body>This is the body of the chapter 1.</body>
-  <toc/>
+  <toc target="clause|section"/>
   <clause>
    <title>Chapter 1.1</title>
    <body>This is the body of the chapter 1.1.</body>
@@ -39,7 +39,7 @@
     <section>
      <title>Chapter 1.1.1.1</title>
      <body>This is the body of the chapter 1.1.1.1.</body>
-     <toc>
+     <toc target="section">
       <title/>
      </toc>
      <section>
@@ -117,8 +117,9 @@
   <body>This is the body of the postface 2.</body>
  </postface>
 
-
  <toc/>
+
+ <toc target="preface|chapter|appendix|postface|clause|section"/>
 
  <toc target="chapter" id="aaa">
   <title>only chapter</title>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="xslbook.xsl"?>
+
+<xslbook toc="paging.toc.xml">
+ <script rpath="assert.js"/>
+ <script rpath="paging.last.js"/>
+
+ <title>Paging (Last)</title>
+ <body>This is the body of the page.</body>
+
+ <toc target="chapter|appendix|clause|section"/>
+
+ <chapter>
+  <title>Chapter (5)</title>
+  <toc target="clause|section" id="aaa">
+   <title>Clause &amp; Section (id=aaa)</title>
+  </toc>
+  <clause>
+   <title>Clause (5.1)</title>
+   <toc target="clause|section" id="bbb">
+    <title>Clause &amp; Section (id=bbb)</title>
+   </toc>
+   <section>
+    <title>Section (5.1.1)</title>
+    <toc target="clause|section">
+     <title>Clause &amp; Section</title>
+    </toc>
+    <section>
+     <title>Section (5.1.1.1)</title>
+    </section>
+    <section>
+     <title>Section (5.1.1.2)</title>
+    </section>
+   </section>
+   <section>
+    <title>Section (5.1.2)</title>
+   </section>
+  </clause>
+  <clause>
+   <title>Clause (5.2)</title>
+   <section>
+    <title>Section (5.2.1)</title>
+   </section>
+   <section>
+    <title>Section (5.2.2)</title>
+   </section>
+  </clause>
+ </chapter>
+
+ <appendix>
+  <title>Appendix (3)</title>
+  <clause>
+   <title>Clause (3.1)</title>
+   <section>
+    <title>Section (3.1.1)</title>
+   </section>
+   <section>
+    <title>Section (3.1.2)</title>
+   </section>
+  </clause>
+  <clause>
+   <title>Clause (3.2)</title>
+   <section>
+    <title>Section (3.2.1)</title>
+   </section>
+   <section>
+    <title>Section (3.2.2)</title>
+   </section>
+  </clause>
+ </appendix>
+
+ <chapter>
+  <title>Chpater (6)</title>
+ </chapter>
+
+ <appendix>
+  <title>Appendix (4)</title>
+ </appendix>
+</xslbook>

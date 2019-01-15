@@ -1,6 +1,8 @@
 $font-stack: Helvetica, sans-serif;
 $font-size: 13px;
 $font-color: #333;
+$link-color: #00d;
+$disabled-color: #aaa;
 
 html {
   font-size: $font-size;
@@ -9,4 +11,11 @@ html {
 body {
   font-family: $font-stack;
   color: $font-color;
+}
+
+a {
+  color: $link-color;
+}
+a.disabled {
+  color: $disabled-color;
 }

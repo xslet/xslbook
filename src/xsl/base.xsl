@@ -38,7 +38,7 @@
    </header>
    <main>
     <section class="xslbook">
-     <xsl:call-template name="set_id"/>
+     <xsl:call-template name="bk:set_id"/>
      <xsl:call-template name="bk:write_book_title">
       <xsl:with-param name="data_url" select="$_data_url"/>
      </xsl:call-template>
@@ -129,20 +129,24 @@
   <script src="{concat($bk:xsl_dir, '/xslbook.js')}"></script>
  </xsl:template>
 
- <xsl:template name="set_id">
+ <xsl:template name="bk:set_id">
   <xsl:attribute name="id">
-   <xsl:choose>
-    <xsl:when test="boolean(@id)">
-     <xsl:value-of select="@id"/>
-    </xsl:when>
-    <xsl:otherwise>
-     <xsl:text>idxbk</xsl:text>
-     <xsl:variable name="_tag_name" select="name()"/>
-     <xsl:value-of select="$_tag_name"/>
-     <xsl:number level="any" format="1" count="*[name() = $_tag_name]"/>
-    </xsl:otherwise>
-   </xsl:choose>
+   <xsl:call-template name="bk:get_id"/>
   </xsl:attribute>
+ </xsl:template>
+
+ <xsl:template name="bk:get_id">
+  <xsl:choose>
+   <xsl:when test="boolean(@id)">
+    <xsl:value-of select="@id"/>
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:text>idxbk</xsl:text>
+    <xsl:variable name="_tag_name" select="local-name()"/>
+    <xsl:value-of select="$_tag_name"/>
+    <xsl:number level="any" format="1" count="*[local-name() = $_tag_name]"/>
+   </xsl:otherwise>
+  </xsl:choose>
  </xsl:template>
 
  <xsl:template match="body">

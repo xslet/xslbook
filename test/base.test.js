@@ -1,15 +1,19 @@
 window.addEventListener('load', function() {
-  document.body.innerHTML += '<hr/>';
-  checkWindowTitle();
-  checkCssLinks();
-  checkScriptLinks();
-  checkXslbookId();
-  checkPageTitle();
-  checkPageBody();
+  try {
+    write('<hr/>');
+    checkWindowTitle();
+    checkCssLinks();
+    checkScriptLinks();
+    checkXslbookId();
+    checkPageTitle();
+    checkPageBody();
+  } catch (e) {
+    fail(e);
+  }
 });
 
 function checkWindowTitle() {
-  var title = document.querySelector('html > head > title').textContent;
+  var title = document.querySelector('title').textContent;
   assertEqual('Window title', title, 'Base');
 }
 
@@ -31,19 +35,21 @@ function checkScriptLinks() {
 }
 
 function checkXslbookId() {
-  var sections = document.querySelectorAll('section.xslbook');
+  var sections = document.querySelectorAll('.xslbook');
   var cnt = sections.length;
-  var id = sections[0].id;
   assertEqual('Count of section.xslbook elements', cnt , 1);
+  var id = sections[0].id;
   assertEqual('ID of section.xslbook[0]', id, 'pageId');
 }
 
 function checkPageTitle() {
-  var title = document.querySelector('section.xslbook > h1.title').textContent;
+  var xslbook = document.querySelector('.xslbook');
+  var title = xslbook.querySelector(S(':scope > .title')).textContent;
   assertEqual('Page title', title, 'Base');
 }
 
 function checkPageBody() {
-  var body = document.querySelector('section.xslbook > div.body').textContent;
+  var xslbook = document.querySelector('.xslbook');
+  var body = xslbook.querySelector(S(':scope > .body')).textContent;
   assertEqual('Page body', body, 'This is the body of the page.');
 }

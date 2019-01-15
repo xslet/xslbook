@@ -20,7 +20,7 @@
    </xsl:call-template>
   </xsl:variable>
   <section class="{$_chapter_type}">
-   <xsl:call-template name="set_id"/>
+   <xsl:call-template name="bk:set_id"/>
    <xsl:call-template name="bk:write_chapter_title">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$_chapter_type"/>
@@ -37,6 +37,7 @@
  <xsl:template name="bk:get_chapter_index">
   <xsl:param name="data_url"/>
   <xsl:param name="chapter_type"/>
+  <xsl:param name="page_index" select="$bk:page_index"/>
   <xsl:choose>
    <xsl:when test="$chapter_type = 'preface'">
     <xsl:if test="string-length($bk:preface_index_format) &gt; 0">
@@ -44,6 +45,12 @@
       <xsl:with-param name="index_format" select="$bk:preface_index_format"/>
       <xsl:with-param name="index_in_page">
        <xsl:number level="multiple" format="1" count="preface"/>
+      </xsl:with-param>
+      <xsl:with-param name="count_until_prev_page">
+       <xsl:call-template name="bk:count_until_prev_page">
+        <xsl:with-param name="chapter_type" select="$chapter_type"/>
+        <xsl:with-param name="page_index" select="$page_index"/>
+       </xsl:call-template>
       </xsl:with-param>
      </xsl:call-template>
     </xsl:if>
@@ -55,6 +62,12 @@
       <xsl:with-param name="index_in_page">
        <xsl:number level="multiple" format="1" count="postface"/>
       </xsl:with-param>
+      <xsl:with-param name="count_until_prev_page">
+       <xsl:call-template name="bk:count_until_prev_page">
+        <xsl:with-param name="chapter_type" select="$chapter_type"/>
+        <xsl:with-param name="page_index" select="$page_index"/>
+       </xsl:call-template>
+      </xsl:with-param>
      </xsl:call-template>
     </xsl:if>
    </xsl:when>
@@ -65,6 +78,12 @@
       <xsl:with-param name="index_in_page">
        <xsl:number level="multiple" format="1" count="appendix"/>
       </xsl:with-param>
+      <xsl:with-param name="count_until_prev_page">
+       <xsl:call-template name="bk:count_until_prev_page">
+        <xsl:with-param name="chapter_type" select="$chapter_type"/>
+        <xsl:with-param name="page_index" select="$page_index"/>
+       </xsl:call-template>
+      </xsl:with-param>
      </xsl:call-template>
     </xsl:if>
    </xsl:when>
@@ -74,6 +93,12 @@
       <xsl:with-param name="index_format" select="$bk:chapter_index_format"/>
       <xsl:with-param name="index_in_page">
        <xsl:number level="multiple" format="1" count="chapter"/>
+      </xsl:with-param>
+      <xsl:with-param name="count_until_prev_page">
+       <xsl:call-template name="bk:count_until_prev_page">
+        <xsl:with-param name="chapter_type" select="$chapter_type"/>
+        <xsl:with-param name="page_index" select="$page_index"/>
+       </xsl:call-template>
       </xsl:with-param>
      </xsl:call-template>
     </xsl:if>
@@ -115,7 +140,7 @@
    </xsl:call-template>
   </xsl:variable>
   <section class="clause">
-   <xsl:call-template name="set_id"/>
+   <xsl:call-template name="bk:set_id"/>
    <xsl:call-template name="bk:write_clause_title">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$chapter_type"/>
@@ -159,7 +184,7 @@
    </xsl:call-template>
   </xsl:variable>
   <section class="section">
-   <xsl:call-template name="set_id"/>
+   <xsl:call-template name="bk:set_id"/>
    <xsl:call-template name="bk:write_section_title">
     <xsl:with-param name="data_url" select="$_data_url"/>
     <xsl:with-param name="chapter_type" select="$chapter_type"/>

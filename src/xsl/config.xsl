@@ -15,5 +15,8 @@
   <xsl:text>|preface|chapter|appendix|postface|clause|</xsl:text>
  </xsl:param>
  <xsl:param name="bk:default_toc_title">Table of contents</xsl:param>
+ <xsl:param name="bk:default_navi_prev">previous</xsl:param>
+ <xsl:param name="bk:default_navi_next">next</xsl:param>
+ <xsl:param name="bk:default_navi_toc">table of contents</xsl:param>
 
 </xsl:stylesheet>

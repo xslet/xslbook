@@ -1,23 +1,29 @@
 window.addEventListener('load', function() {
-  document.body.innerHTML += '<hr/>';
-  checkToc();
+  try {
+    write('<hr/>');
+    checkToc();
+  } catch (e) {
+    fail(e);
+  }
 });
 
 function checkToc() {
-  var tocs = document.querySelectorAll('.toc');
-  assertEqual('Count of toc', tocs.length, 7);
+  var ua = xslet.platform.ua;
+  var tocs = ua.MSIE ? document.getElementsByClassName('toc') :
+    document.querySelectorAll('.toc');
+  assertEqual('Count of toc', tocs.length, 8);
   var i = 0;
+
   assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc1');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'Table of contents');
-  var arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'Table of contents');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var title = div.querySelector(S(':scope > .title'));
+    var index = title.querySelector(S(':scope > .index')).textContent;
+    var label = title.querySelector(S(':scope > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:clause:1.1.:Chapter 1.1',
     '2:section:1.1.1.:Chapter 1.1.1',
     '3:section:1.1.1.1.:Chapter 1.1.1.1',
@@ -32,14 +38,14 @@ function checkToc() {
   i++;
   assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc2');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'), '');
-  arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, '');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var title = div.querySelector(S(':scope > .title'));
+    var index = title.querySelector(S(':scope > .index')).textContent;
+    var label = title.querySelector(S(':scope > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:section:1.1.1.1.1.:Chapter 1.1.1.1.1',
     '1:section:1.1.1.1.2.:Chapter 1.1.1.1.2',
   ]);
@@ -47,15 +53,20 @@ function checkToc() {
   i++;
   assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc3');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'Table of contents');
-  var arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'Table of contents');
+
+  i++;
+  assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc4');
+  assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'Table of contents');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var title = div.querySelector(S(':scope > .title'));
+    var index = title.querySelector(S(':scope > .index')).textContent;
+    var label = title.querySelector(S(':scope > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:preface::Preface 1',
     '2:clause::Preface 1.1',
     '3:section::Preface 1.1.1',
@@ -85,15 +96,14 @@ function checkToc() {
   i++;
   assertEqual('toc[' + i + ']', tocs[i].id, 'aaa');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'only chapter');
-  arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'only chapter');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var title = div.querySelector(S(':scope > .title'));
+    var index = title.querySelector(S(':scope > .index')).textContent;
+    var label = title.querySelector(S(':scope > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:chapter:1.:Chapter 1',
     '1:chapter:2.:Chapter 2',
     '1:chapter:3.:Chapter 3',
@@ -102,15 +112,13 @@ function checkToc() {
   i++;
   assertEqual('toc[' + i + ']', tocs[i].id, 'bbb');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'preface, chapter, appendix and postface');
-  arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'preface, chapter, appendix and postface');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var index = div.querySelector(S(':scope > .title > .index')).textContent;
+    var label = div.querySelector(S(':scope > .title > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:preface::Preface 1',
     '1:preface::Preface 2',
     '1:chapter:1.:Chapter 1',
@@ -123,17 +131,15 @@ function checkToc() {
   ]);
 
   i++;
-  assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc6');
+  assertEqual('toc[' + i + ']', tocs[i].id, 'idxbktoc7');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'chapter, appendix, clause and section');
-  arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'chapter, appendix, clause and section');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var index = div.querySelector(S(':scope > .title > .index')).textContent;
+    var label = div.querySelector(S(':scope > .title > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:chapter:1.:Chapter 1',
     '2:clause:1.1.:Chapter 1.1',
     '3:section:1.1.1.:Chapter 1.1.1',
@@ -156,15 +162,13 @@ function checkToc() {
   i++;
   assertEqual('toc[' + i + ']', tocs[i].id, 'ccc');
   assertEqual('+-- tagName', tocs[i].tagName, 'NAV');
-  assertEqual('+-- title', text(tocs[i], ':scope > .title'),
-    'clause and section in chapter');
-  arr = [];
-  visit(tocs[i], function(div, depth) {
-    var index = div.querySelector(':scope > .title > .index').textContent;
-    var label = div.querySelector(':scope > .title > .label').textContent;
-    arr.push(depth + ':' + div.className + ':' + index + ':' + label);
-  });
-  assertArrayEqual('+-- tree', arr, [
+  assertEqual('+-- title', tocs[i].querySelector(S(':scope > .title'))
+    .textContent, 'clause and section in chapter');
+  assertTreeEqual('+-- tree', tocs[i], 'div', function(div, depth) {
+    var index = div.querySelector(S(':scope > .title > .index')).textContent;
+    var label = div.querySelector(S(':scope > .title > .label')).textContent;
+    return depth + ':' + div.className + ':' + index + ':' + label;
+  }, [
     '1:clause:1.1.:Chapter 1.1',
     '2:section:1.1.1.:Chapter 1.1.1',
     '3:section:1.1.1.1.:Chapter 1.1.1.1',
@@ -176,20 +180,4 @@ function checkToc() {
     '2:section:1.2.2.:Chapter 1.2.2',
     '1:clause:2.1.:Chapter 2.1',
   ]);
-}
-
-function get(elem, selector) {
-  return elem.querySelector(selector);
-}
-function text(elem, selector) {
-  return get(elem, selector).textContent;
-}
-function visit(parent, fn, depth) {
-  depth = depth || 1;
-  var children = parent.querySelectorAll(':scope > div');
-  for (var i = 0, n= children.length; i < n; i++) {
-    var child = children[i];
-    fn(child, depth);
-    visit(child, fn, depth + 1);
-  }
 }
