@@ -25,15 +25,8 @@
    <xsl:variable name="_index">
     <xsl:choose>
      <xsl:when test="system-property('xsl:vendor') = 'Transformiix'">
-      <!-- Firefox -->
       <xsl:call-template name="bk:_get_page_index_by_gid"/>
      </xsl:when>
-     <!-- IE and Edge
-     <xsl:when test="system-property('xsl:vendor') = 'Microsoft'"/>
-     -->
-     <!-- Chrome, Vivaldi, Safari
-     <xsl:when test="system-property('xsl:vendor') = 'libxslt'"/>
-     -->
     </xsl:choose>
    </xsl:variable>
    <xsl:choose>
@@ -41,11 +34,6 @@
      <xsl:value-of select="$_index"/>
     </xsl:when>
     <xsl:otherwise>
-     <!--
-     `generateid` function returns different value by an url with anchor from
-     by same url without anchor. So this function try to identify a page with
-     a concatinated string of titles.
-     -->
      <xsl:call-template name="bk:_get_page_index_by_titles"/>
     </xsl:otherwise>
    </xsl:choose>

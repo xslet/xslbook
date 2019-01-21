@@ -1,0 +1,56 @@
+html {
+  font-size: 13px;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: #333;
+}
+
+a {
+  color: #00d;
+}
+
+a.disabled {
+  color: #aaa;
+}
+
+.chapter > .title > .index:after {
+  content: " ";
+}
+
+.appendix > .title > .index:after {
+  content: " ";
+}
+
+.clause > .title > .index:after {
+  content: " ";
+}
+
+.clause > .title > .index:after {
+  content: " ";
+}
+
+.section > .title > .index:after {
+  content: " ";
+}
+
+.section > .title > .index:after {
+  content: " ";
+}
+
+.navi {
+  text-align: center;
+}
+.navi .go-page {
+  color: #aaa;
+}
+.navi .go-page:not(:first-of-type) {
+  padding-left: 0.5rem;
+}
+.navi .go-page:not(:last-of-type) {
+  padding-right: 0.5rem;
+  border-right: solid 1px #333;
+}
+
+/*# sourceMappingURL=xslbook.css.map */

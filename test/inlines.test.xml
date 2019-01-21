@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="xslbook.xsl"?>
+
+<xslbook>
+ <script rpath="assert.js"/>
+
+ <title>Inlines</title>
+
+ <chapter>
+  <title>Line break</title>
+  <body>
+   <p>
+This sentence contains<br/>a line break.
+   </p>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Bold</title>
+  <body>
+   <p>
+This sentence contains a <b>BOLD</b> text.
+   </p>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Italic</title>
+  <body>
+   <p>
+This sentence contains a <i>italic</i> text.
+   </p>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Underline</title>
+  <body>
+   <p>
+This sentence contains a <u>underlined</u> text.
+   </p>
+  </body>
+ </chapter>
+
+</xslbook>
