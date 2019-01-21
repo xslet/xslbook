@@ -6,6 +6,7 @@
  <property name="dir.dist"  location="dist"/>
  <property name="dir.test"  location="test"/>
  <property name="dir.build" location="build_aux"/>
+ <property name="dir.docs"  location="docs"/>
 
  <property name="dir.src.xsl" location="${dir.src}/xsl"/>
  <property name="dir.src.css" location="${dir.src}/scss"/>
@@ -90,6 +91,8 @@
   <mkdir dir="${dir.build.js}"/>
   <antcall target="get-saxon"/>
   <antcall target="get-tomcat"/>
+  <antcall target="npm-install"/>
+  <antcall target="deploy"/>
  </target>
 
  <target name="npm-install">
@@ -140,12 +143,19 @@
   <property name="dir.deploy"
    location="${dir.tomcat}/webapps/${ant.project.name}"/>
   <mkdir dir="${dir.deploy}"/>
+  <mkdir dir="${dir.docs}/res"/>
   <delete>
    <fileset dir="${dir.deploy}" includes="**/*"/>
+   <fileset dir="${dir.docs}/res" includes="**/*"/>
   </delete>
   <copy todir="${dir.deploy}">
-   <fileset dir="${dir.dist}"/>
    <fileset dir="${dir.test}"/>
+  </copy>
+  <copy todir="${dir.deploy}/res">
+   <fileset dir="${dir.dist}"/>
+  </copy>
+  <copy todir="${dir.docs}/res">
+   <fileset dir="${dir.dist}"/>
   </copy>
  </target>
 

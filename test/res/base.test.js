@@ -20,7 +20,7 @@ function checkWindowTitle() {
 function checkCssLinks() {
   var links = document.querySelectorAll('link');
   assertEqual('Count of link elements', links.length, 1);
-  assertEqual('Css file', links[0].getAttribute('href'), './xslbook.css');
+  assertEqual('Css file', links[0].getAttribute('href'), 'res/xslbook.css');
 }
 
 function checkScriptLinks() {
@@ -29,9 +29,9 @@ function checkScriptLinks() {
   var src0 = scripts[0].getAttribute('src');
   var src1 = scripts[1].getAttribute('src');
   var src2 = scripts[2].getAttribute('src');
-  assertEqual('Script file[0]', src0, './xslbook.js');
-  assertEqual('Script file[1]', src1, './assert.js');
-  assertEqual('Script file[2]', src2, './base.test.js');
+  assertEqual('Script file[0]', src0, 'res/xslbook.js');
+  assertEqual('Script file[1]', src1, 'res/assert.js');
+  assertEqual('Script file[2]', src2, 'res/base.test.js');
 }
 
 function checkXslbookId() {
