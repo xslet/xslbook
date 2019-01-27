@@ -8,10 +8,10 @@
  <xsl:namespace-alias result-prefix="xsl" stylesheet-prefix="xsx"/>
 
  <xsl:template match="/">
-  <xsl:result-document href="lib.test.xsl">
+  <xsl:result-document href="util.test.xsl">
    <xsx:stylesheet version="1.0">
     <xsl:merge>
-     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/lib')"
+     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/util')"
        select="xsl:stylesheet/xsl:param">
       <xsl:merge-key select="name"/>
      </xsl:merge-source>
@@ -22,7 +22,7 @@
      </xsl:merge-action>
     </xsl:merge>
     <xsl:merge>
-     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/lib')"
+     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/util')"
        select="xsl:stylesheet/xsl:template">
       <xsl:merge-key select="name|match"/>
       <xsl:merge-key select="mode"/>
@@ -60,7 +60,7 @@
   <xsx:template match="assert-equal[@name='{@name}']">
    <xsx:variable name="result">
     <xsx:call-template name="{@name}"
-     xmlns:ut="https://github.com/sttk/xslet/2019/xslutil">
+     xmlns:util="https://github.com/sttk/xslet/2019/util">
      <xsl:for-each select="xsl:param">
       <xsx:with-param name="{@name}" select="{@name}"/>
      </xsl:for-each>

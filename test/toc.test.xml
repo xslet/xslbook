@@ -3,7 +3,7 @@
 
 <xslbook>
  <script rpath="assert.js"/>
- <script rpath="toc.test.js"/>
+ <script href="./js/toc.test.js"/>
 
  <title>Table of content</title>
  <body>This is the body of the page.</body>

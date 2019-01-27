@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xsl:stylesheet version="1.0"
- xmlns:ut="https://github.com/sttk/xslet/2019/xslutil"
+ xmlns:util="https://github.com/sttk/xslet/2019/util"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
- <xsl:template name="ut:get_xsl_url">
+ <xsl:template name="util:get_xsl_url">
   <xsl:param name="pi" select="/processing-instruction('xml-stylesheet')"/>
   <xsl:variable name="QUOT">"</xsl:variable>
   <xsl:variable name="APOS">'</xsl:variable>

@@ -1,21 +1,26 @@
-$font-stack: Helvetica, sans-serif;
-$font-size: 13px;
-$font-color: #333;
-$link-color: #00d;
-$disabled-color: #aaa;
-
 html {
   font-size: $font-size;
 }
 
 body {
-  font-family: $font-stack;
+  font-family: $font-family;
   color: $font-color;
+  background-color: $background-color;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+main {
+  background-color: $sheet-color;
+  border: solid 1px #ccc;
+  padding: 2rem 4rem 3rem 4rem;
+  margin: 0.2rem 0rem 0.5rem;
+  box-shadow: 6px 6px 5px rgba(112, 112, 112, 1.0);
 }
 
 a {
   color: $link-color;
-}
-a.disabled {
-  color: $disabled-color;
+
+  &.disabled {
+    color: $disabled-color;
+  }
 }

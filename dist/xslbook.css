@@ -1,56 +1,278 @@
 html {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, arial, sans-serif;
   color: #333;
+  background-color: #ddd;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+main {
+  background-color: white;
+  border: solid 1px #ccc;
+  padding: 2rem 4rem 3rem 4rem;
+  margin: 0.2rem 0rem 0.5rem;
+  box-shadow: 6px 6px 5px #707070;
 }
 
 a {
-  color: #00d;
+  color: #00e;
 }
-
 a.disabled {
-  color: #aaa;
+  color: #999;
 }
 
-.chapter > .title > .index:after {
+.xslbook > .title {
+  font-size: 2rem;
+  color: #37a;
+}
+.xslbook > .preface > .title {
+  font-size: 1.5rem;
+  color: #37a;
+}
+.xslbook > .preface > .clause > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook > .preface > .clause > .section > .title {
+  font-size: 1.2rem;
+  color: #37a;
+}
+.xslbook > .preface > .clause > .section .section > .title {
+  font-size: 1.1rem;
+  color: #37a;
+}
+.xslbook > .chapter > .title {
+  font-size: 1.5rem;
+  color: #37a;
+}
+.xslbook > .chapter > .title > .index::after {
+  content: " ";
+}
+.xslbook > .chapter > .clause > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook > .chapter > .clause > .title > .index::after {
+  content: " ";
+}
+.xslbook > .chapter > .clause > .section > .title {
+  font-size: 1.2rem;
+  color: #37a;
+}
+.xslbook > .chapter > .clause > .section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .chapter > .clause > .section .section > .title {
+  font-size: 1.1rem;
+  color: #37a;
+}
+.xslbook > .chapter > .clause > .section .section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .appendix > .title {
+  font-size: 1.5rem;
+  color: #37a;
+}
+.xslbook > .appendix > .title > .index::after {
+  content: " ";
+}
+.xslbook > .appendix > .clause > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook > .appendix > .clause > .title > .index::after {
+  content: " ";
+}
+.xslbook > .appendix > .clause > .section > .title {
+  font-size: 1.2rem;
+  color: #37a;
+}
+.xslbook > .appendix > .clause > .section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .appendix > .clause > .section .section > .title {
+  font-size: 1.1rem;
+  color: #37a;
+}
+.xslbook > .appendix > .clause > .section .section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .postface > .title {
+  font-size: 1.5rem;
+  color: #37a;
+}
+.xslbook > .postface > .clause > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook > .postface > .clause > .section > .title {
+  font-size: 1.2rem;
+  color: #37a;
+}
+.xslbook > .postface > .clause > .section .section > .title {
+  font-size: 1.1rem;
+  color: #37a;
+}
+
+.xslbook > .toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook > .toc > .body {
+  margin-left: 1rem;
+}
+.xslbook > .toc > .body .toc-preface > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-chapter > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-chapter > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-clause > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-appendix > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-appendix > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-clause > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-section > .title > .index::after {
+  content: " ";
+}
+.xslbook > .toc > .body .toc-postface > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook > .toc > .body .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+.toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.toc .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.toc .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+.toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.toc .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.toc .toc-clause > .title > .index::after {
+  content: " ";
+}
+.toc .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+.toc .toc-section > .title > .index::after {
   content: " ";
 }
 
-.appendix > .title > .index:after {
+.toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.toc .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.toc .toc-clause > .title > .index::after {
+  content: " ";
+}
+.toc .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+.toc .toc-section > .title > .index::after {
   content: " ";
 }
 
-.clause > .title > .index:after {
-  content: " ";
+.toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
 }
-
-.clause > .title > .index:after {
-  content: " ";
+.toc .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
 }
-
-.section > .title > .index:after {
-  content: " ";
-}
-
-.section > .title > .index:after {
-  content: " ";
+.toc .toc-section > .title {
+  font-size: 1rem;
+  line-height: 1.4rem;
 }
 
 .navi {
   text-align: center;
 }
-.navi .go-page {
-  color: #aaa;
+.navi > .navi-page {
+  color: #999;
 }
-.navi .go-page:not(:first-of-type) {
+.navi > .navi-page:not(:first-of-type) {
   padding-left: 0.5rem;
 }
-.navi .go-page:not(:last-of-type) {
+.navi > .navi-page:not(:last-of-type) {
   padding-right: 0.5rem;
   border-right: solid 1px #333;
+}
+
+p {
+  margin: 0.75rem 0rem;
+  padding: 0rem;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=xslbook.css.map */

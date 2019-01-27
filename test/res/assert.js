@@ -64,5 +64,9 @@ function fail(e) {
 }
 
 function S(selector) {
-  return selector.replace(/\s*:scope\s*>/, '').trim();
+  var ua = xslet.platform.ua;
+  if (ua.MSIE || ua.EDGE) {
+    return selector.replace(/\s*:scope\s*>/, '').trim();
+  }
+  return selector;
 }

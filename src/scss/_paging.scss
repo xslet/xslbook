@@ -1,17 +1,16 @@
-
 .navi {
   text-align: center;
 
-  .go-page {
+  & > .navi-page {
     color: $disabled_color;
-  }
 
-  .go-page:not(:first-of-type) {
-    padding-left: 0.5rem;
-  }
+    &:not(:first-of-type) {
+      padding-left: 0.5rem;
+    }
 
-  .go-page:not(:last-of-type) {
-    padding-right: 0.5rem;
-    border-right: solid 1px $font-color;
+    &:not(:last-of-type) {
+      padding-right: 0.5rem;
+      border-right: solid 1px $font-color;
+    }
   }
 }

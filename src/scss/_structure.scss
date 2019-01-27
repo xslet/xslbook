@@ -1,24 +1,39 @@
+@mixin title-style($font-size, $index-after) {
+  & > .title {
+    font-size: $font-size;
+    color: $title-color;
 
-.chapter > .title > .index:after {
-  content: ' ';
+    @if $index-after != '' {
+      & > .index::after {
+        content: $index-after;
+      }
+    }
+  }
 }
 
-.appendix > .title > .index:after {
-  content: ' ';
-}
+.xslbook {
+  @include title-style(2rem, '');
 
-.clause > .title > .index:after {
-  content: ' ';
-}
+  @each $chapter-name, $index-after
+    in (preface, ''),
+       (chapter, ' '),
+       (appendix, ' '),
+       (postface, '') {
 
-.clause > .title > .index:after {
-  content: ' ';
-}
+    & > .#{$chapter-name} {
+      @include title-style(1.5rem, $index-after);
 
-.section > .title > .index:after {
-  content: ' ';
-}
+      & > .clause {
+        @include title-style(1.3rem, $index-after);
 
-.section > .title > .index:after {
-  content: ' ';
+        & > .section {
+          @include title-style(1.2rem, $index-after);
+
+          .section {
+            @include title-style(1.1rem, $index-after);
+          }
+        }
+      }
+    }
+  }
 }

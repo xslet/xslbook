@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="application/xml" href="res/xslbook.xsl"?>
-<xslbook>
- <title>Test</title>
+
+<xslbook toc="index.xml">
+ <title>xslbook - The XSL applet for Web book</title>
+ <body>
+  <p>by xslet project</p>
+  <hr/>
+ </body>
+
+ <preface>
+  <title>What is this?</title>
+  <body>
+   <p>
+xslbook is an applet to display a book-style document on a Web browser with XSLT/CSS/Javascript technology.
+   </p>
+   <p>
+This transforms XML documents into HTML documents with a built-in XSLT processor in a Web browser, and needs no other conversion tools.
+If you use Firefox, Edge or IE, you can open local xslbook documents directly.
+If you use Chrome or Safari, you need to open them via a Web browser because Chrome and Safari forbid these local file access for their security policy.
+   </p>
+   <p>
+You write only content in a XML file of a xslbook document. Layout and view style of a document is written in a XSL file and a CSS file.
+This enables you to concentrate to determine chapter structure and write sentences of the document.
+   </p>
+   <p>
+The layout and view style of a xslbook document can be changed as you like.
+XSLT can extends a XSL file by importing to another XSL file with <code>xsl:import</code>, and CSS can also extends a CSS file by importing to another CSS file with <code>@import</code>.
+You can customize appearance of a document by this way. Moreover, since xslbook provides the way to use multiple CSS files and Javascript files, you can create a document having rich functions.
+xslbook has functions of chapter numbering, generating table of contents and page control by default.
+   </p>
+   <p>
+The xslbook aims at a tool to create practical documents by using only markup writing.
+   </p>
+  </body>
+ </preface>
+
+ <toc>
+  <page href="index.xml"/>
+  <page href="usage.xml"/>
+ </toc>
+
 </xslbook>

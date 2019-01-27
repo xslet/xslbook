@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xml" href="lib.test.xsl"?>
+<?xml-stylesheet type="text/xml" href="util.test.xsl"?>
 
-<unit-test title="ut:get_xsl_url">
+<unit-test title="util:get_xsl_url">
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi></pi>
    <expect></expect>
   </assert-equal>
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi>&lt;?xml-stylesheet type="text/xsl" href="path/to/style.xsl"?&gt;</pi>
    <expect>path/to/style.xsl</expect>
   </assert-equal>
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi>&lt;?xml-stylesheet type="text/xsl" href="http://domain/path/style.xsl"?&gt;</pi>
    <expect>http://domain/path/style.xsl</expect>
   </assert-equal>
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi>&lt;?xml-stylesheet type='text/xsl' href='path/to/style.xsl'?&gt;</pi>
    <expect>path/to/style.xsl</expect>
   </assert-equal>
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi>&lt;?xml-stylesheet type="text/xsl" href  =  "path/to/style.xsl"  ?&gt;</pi>
    <expect>path/to/style.xsl</expect>
   </assert-equal>
 
-  <assert-equal name="ut:get_xsl_url">
+  <assert-equal name="util:get_xsl_url">
    <pi>&lt;?xml-stylesheet type='text/xsl' href = 'path/to/style.xsl'  ?&gt;</pi>
    <expect>path/to/style.xsl</expect>
   </assert-equal>

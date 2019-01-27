@@ -3,42 +3,35 @@
 
 <xslbook>
  <script rpath="assert.js"/>
+ <script href="js/inlines.test.js"/>
 
  <title>Inlines</title>
 
  <chapter>
   <title>Line break</title>
   <body>
-   <p>
-This sentence contains<br/>a line break.
-   </p>
+   <p>This sentence contains<br/>a line break.</p>
   </body>
  </chapter>
 
  <chapter>
   <title>Bold</title>
   <body>
-   <p>
-This sentence contains a <b>BOLD</b> text.
-   </p>
+   <p>This sentence contains a <b>BOLD</b> text.</p>
   </body>
  </chapter>
 
  <chapter>
   <title>Italic</title>
   <body>
-   <p>
-This sentence contains a <i>italic</i> text.
-   </p>
+   <p>This sentence contains a <i>italic</i> text.</p>
   </body>
  </chapter>
 
  <chapter>
   <title>Underline</title>
   <body>
-   <p>
-This sentence contains a <u>underlined</u> text.
-   </p>
+   <p>This sentence contains a <u>underlined</u> text.</p>
   </body>
  </chapter>
 

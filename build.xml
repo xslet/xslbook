@@ -21,7 +21,7 @@
  <target name="build">
   <antcall target="clean"/>
   <antcall target="merge-xsl"/>
-  <antcall target="make-xsl-lib-for-test"/>
+  <antcall target="make-xsl-util-test"/>
   <antcall target="build-scss"/>
   <antcall target="build-js"/>
  </target>
@@ -47,16 +47,16 @@
   </java>
  </target>
 
- <target name="make-xsl-lib-for-test">
+ <target name="make-xsl-util-test">
   <path id="extjars">
    <fileset dir="${dir.build.lib}">
     <include name="**/*.jar"/>
    </fileset>
   </path>
   <java classname="net.sf.saxon.Transform">
-   <arg line="-o:${dir.test}/lib"/>
-   <arg line="-s:${dir.src.xsl}/lib"/>
-   <arg line="-xsl:${dir.build.xsl}/make-lib-for-test.xsl"/>
+   <arg line="-o:${dir.test}/util"/>
+   <arg line="-s:${dir.src.xsl}/util"/>
+   <arg line="-xsl:${dir.build.xsl}/make-util-test.xsl"/>
    <arg line="-strip:all"/>
    <classpath refid="extjars"/>
   </java>

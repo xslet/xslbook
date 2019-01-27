@@ -3,18 +3,15 @@
 
 <xslbook>
  <script rpath="assert.js"/>
+ <script href="./js/blocks.test.js"/>
 
  <title>Blocks</title>
 
  <chapter>
   <title>Paragraph</title>
   <body>
-   <p>
-This is a paragraph.
-   </p>
-   <p>
-This is a paragraph, too.
-   </p>
+   <p>This is a paragraph.</p>
+   <p>This is a paragraph, too.</p>
   </body>
  </chapter>
 

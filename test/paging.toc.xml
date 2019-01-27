@@ -3,7 +3,7 @@
 
 <xslbook toc="paging.toc.xml">
  <script rpath="assert.js"/>
- <script rpath="paging.toc.js"/>
+ <script href="./js/paging.toc.js"/>
 
  <title>Paging (Toc)</title>
  <body>This is the body of the page.</body>

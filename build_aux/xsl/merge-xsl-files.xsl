@@ -18,7 +18,7 @@
        select="xsl:stylesheet/xsl:param">
       <xsl:merge-key select="name"/>
      </xsl:merge-source>
-     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/lib')"
+     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/util')"
        select="xsl:stylesheet/xsl:param">
       <xsl:merge-key select="name"/>
      </xsl:merge-source>
@@ -32,7 +32,7 @@
       <xsl:merge-key select="name|match"/>
       <xsl:merge-key select="mode"/>
      </xsl:merge-source>
-     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/lib')"
+     <xsl:merge-source for-each-source="uri-collection('../../src/xsl/util')"
        select="xsl:stylesheet/xsl:template">
       <xsl:merge-key select="name|match"/>
       <xsl:merge-key select="mode"/>

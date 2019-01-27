@@ -31,7 +31,7 @@ function checkScriptLinks() {
   var src2 = scripts[2].getAttribute('src');
   assertEqual('Script file[0]', src0, 'res/xslbook.js');
   assertEqual('Script file[1]', src1, 'res/assert.js');
-  assertEqual('Script file[2]', src2, 'res/base.test.js');
+  assertEqual('Script file[2]', src2, 'js/base.test.js');
 }
 
 function checkXslbookId() {

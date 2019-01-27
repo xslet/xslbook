@@ -1,0 +1,60 @@
+@mixin toc-title-style($font-size, $index-after) {
+  & > .title {
+    font-size: $font-size;
+    line-height: 1.4rem;
+
+    @if $index-after != '' {
+      & > .index::after {
+        content: $index-after;
+      }
+    }
+  }
+}
+
+.xslbook {
+  & > .toc {
+    @include title-style(1.3rem, '');
+
+    & > .body {
+      margin-left: 1rem;
+
+      @each $chapter-name, $index-after
+        in (preface, ''),
+           (chapter, ' '),
+           (appendix, ' '),
+           (postface, '') {
+
+        .toc-#{$chapter-name} {
+          @include toc-title-style(1.1rem, $index-after);
+        }
+
+        .toc-clause {
+          @include toc-title-style(1.1rem, $index-after);
+        }
+
+        .toc-section {
+          @include toc-title-style(1rem, $index-after);
+        }
+      }
+    }
+  }
+}
+
+@each $chapter-name, $index-after
+  in (preface, ''),
+     (chapter, ' '),
+     (appendix, ' '),
+     (postface, '') {
+
+  .toc {
+    @include title-style(1.3rem, '');
+
+    .toc-clause {
+      @include toc-title-style(1.1rem, $index-after);
+    }
+
+    .toc-section {
+      @include toc-title-style(1rem, $index-after);
+    }
+  }
+}
