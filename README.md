@@ -4,7 +4,7 @@ An XSLT applet which displays a book-style document on Web browser.
 
 ## Links
 
-* [Document of xslbook](./docs/index.xml)
+* [Document of xslbook](https://xslet.github.io/xslbook/index.html)
 
 ## License
 
