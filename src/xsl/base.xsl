@@ -171,7 +171,7 @@
     <xsl:text>idxbk</xsl:text>
     <xsl:variable name="_tag_name" select="local-name()"/>
     <xsl:value-of select="$_tag_name"/>
-    <xsl:number level="any" format="1" count="*[local-name() = $_tag_name]"/>
+    <xsl:number level="any" format="1" count="*[name() = $_tag_name]"/>
    </xsl:otherwise>
   </xsl:choose>
  </xsl:template>

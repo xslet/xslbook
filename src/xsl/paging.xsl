@@ -102,12 +102,12 @@
   <span class="navi-page navi-previous">
    <xsl:choose>
     <xsl:when test="string-length($book:previous_page_url) = 0">
-     <a class="link disabled">
+     <a class="disabled">
       <xsl:value-of select="$book:default_navi_prev"/>
      </a>
     </xsl:when>
     <xsl:otherwise>
-     <a class="link" href="{$book:previous_page_url}">
+     <a href="{$book:previous_page_url}">
       <xsl:value-of select="$book:default_navi_prev"/>
      </a>
     </xsl:otherwise>
@@ -119,12 +119,12 @@
   <span class="navi-page navi-next">
    <xsl:choose>
     <xsl:when test="string-length($book:next_page_url) = 0">
-     <a class="link disabled">
+     <a class="disabled">
       <xsl:value-of select="$book:default_navi_next"/>
      </a>
     </xsl:when>
     <xsl:otherwise>
-     <a class="link" href="{$book:next_page_url}">
+     <a href="{$book:next_page_url}">
       <xsl:value-of select="$book:default_navi_next"/>
      </a>
     </xsl:otherwise>
@@ -134,7 +134,7 @@
 
  <xsl:template name="book:write_navi_toc">
   <span class="navi-page navi-toc">
-   <a class="link" href="{$book:toc_url}">
+   <a href="{$book:toc_url}">
     <xsl:value-of select="$book:default_navi_toc"/>
    </a>
   </span>
@@ -146,7 +146,7 @@
   <xsl:choose>
    <xsl:when test="string-length($book:toc_url) &gt; 0">
     <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
-     <xsl:value-of select="count(document((.//page)[position() &lt; $page_index]/@href, /)/xslbook/*[local-name() = $chapter_type])"/>
+     <xsl:value-of select="count(document((.//page)[position() &lt; $page_index]/@href, /)/xslbook/*[name() = $chapter_type])"/>
     </xsl:for-each>
    </xsl:when>
    <xsl:otherwise>

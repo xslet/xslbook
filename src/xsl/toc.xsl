@@ -72,7 +72,7 @@
   <xsl:for-each select="part|page">
    <xsl:variable name="_gid" select="generate-id()"/>
    <xsl:choose>
-    <xsl:when test="local-name() = 'part'">
+    <xsl:when test="name() = 'part'">
      <div class="toc-part">
       <xsl:call-template name="book:write_toc_of_part">
        <xsl:with-param name="data_url" select="$data_url"/>
@@ -111,7 +111,7 @@
   <xsl:param name="page_index" select="$book:page_index"/>
   <xsl:param name="page_url" select="$book:page_url"/>
   <xsl:choose>
-   <xsl:when test="local-name() = 'xslbook'">
+   <xsl:when test="name() = 'xslbook'">
     <xsl:call-template name="book:control_toc_of_chapter">
      <xsl:with-param name="data_url" select="$data_url"/>
      <xsl:with-param name="toc_target" select="$toc_target"/>
@@ -119,7 +119,7 @@
      <xsl:with-param name="page_url" select="$page_url"/>
     </xsl:call-template>
    </xsl:when>
-   <xsl:when test="local-name(..) = 'xslbook'">
+   <xsl:when test="name(..) = 'xslbook'">
     <xsl:call-template name="book:control_toc_of_clause">
      <xsl:with-param name="data_url" select="$data_url"/>
      <xsl:with-param name="toc_target" select="$toc_target"/>
@@ -128,7 +128,7 @@
      <xsl:with-param name="page_url" select="$page_url"/>
     </xsl:call-template>
    </xsl:when>
-   <xsl:when test="local-name() = 'clause' or local-name() = 'section'">
+   <xsl:when test="name() = 'clause' or name() = 'section'">
     <xsl:call-template name="book:control_toc_of_section">
      <xsl:with-param name="data_url" select="$data_url"/>
      <xsl:with-param name="toc_target" select="$toc_target"/>
@@ -176,11 +176,11 @@
   <xsl:param name="chapter_id"/>
   <xsl:param name="chapter_type"/>
   <xsl:param name="chapter_index"/>
-  <a class="title link">
+  <a class="title">
    <xsl:attribute name="href">
     <xsl:value-of select="concat($page_url, '#', $chapter_id)"/>
    </xsl:attribute>
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$chapter_index"/>
    </span>
    <span class="label">
@@ -200,7 +200,7 @@
    <xsl:variable name="_chapter_id">
     <xsl:call-template name="book:get_id"/>
    </xsl:variable>
-   <xsl:variable name="_chapter_type" select="local-name()"/>
+   <xsl:variable name="_chapter_type" select="name()"/>
    <xsl:variable name="_chapter_index">
     <xsl:call-template name="book:get_chapter_index">
      <xsl:with-param name="data_url" select="$data_url"/>
@@ -246,11 +246,11 @@
   <xsl:param name="chapter_type"/>
   <xsl:param name="clause_id"/>
   <xsl:param name="clause_index"/>
-  <a class="title link">
+  <a class="title">
    <xsl:attribute name="href">
     <xsl:value-of select="concat($page_url, '#', $clause_id)"/>
    </xsl:attribute>
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$clause_index"/>
    </span>
    <span class="label">
@@ -318,11 +318,11 @@
   <xsl:param name="chapter_type"/>
   <xsl:param name="section_id"/>
   <xsl:param name="section_index"/>
-  <a class="title link">
+  <a class="title">
    <xsl:attribute name="href">
     <xsl:value-of select="concat($page_url, '#', $section_id)"/>
    </xsl:attribute>
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$section_index"/>
    </span>
    <span class="label">

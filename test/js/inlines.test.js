@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
     checkBold();
     checkItalic();
     checkUnderline();
+    checkSuperscriptAndSubscript();
+    checkHorizontalLine();
   } catch (e) {
     fail(e);
   }
@@ -36,4 +38,21 @@ function checkUnderline() {
     '.xslbook > .chapter:nth-of-type(4) > .body > p');
   assertEqual('Underline', para.innerHTML,
     'This sentence contains a <u>underlined</u> text.');
+}
+
+function checkSuperscriptAndSubscript() {
+  var para = document.querySelector(
+    '.xslbook > .chapter:nth-of-type(5) > .body > p');
+  assertEqual('Superscript &amp; Subscript', para.innerHTML,
+    'This sentence contains a <sup>superscript</sup> and ' +
+    'a <sub>subscript</sub> text.');
+}
+
+function checkHorizontalLine() {
+  var para = document.querySelector(
+    '.xslbook > .chapter:nth-of-type(6) > .body > p');
+  assertEqual('Horizontal line', para.innerHTML,
+   'This sentence is upper of a horizontal line.' +
+   '<hr>' +
+   'This sentence is lower of a horizontal line.');
 }

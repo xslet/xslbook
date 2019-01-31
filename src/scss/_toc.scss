@@ -1,60 +1,61 @@
-@mixin toc-title-style($font-size, $index-after) {
+@mixin toc-title-style($_font-size) {
   & > .title {
-    font-size: $font-size;
+    font-size: $_font-size;
     line-height: 1.4rem;
-
-    @if $index-after != '' {
-      & > .index::after {
-        content: $index-after;
-      }
-    }
   }
 }
 
 .xslbook {
   & > .toc {
-    @include title-style(1.3rem, '');
+    @include title-style(1.3rem, $title-color);
 
     & > .body {
-      margin-left: 1rem;
+      margin-left: 0.5rem;
 
-      @each $chapter-name, $index-after
-        in (preface, ''),
-           (chapter, ' '),
-           (appendix, ' '),
-           (postface, '') {
-
-        .toc-#{$chapter-name} {
-          @include toc-title-style(1.1rem, $index-after);
+      @each $_chapter-type in $chapter-configs {
+        .toc-#{$_chapter-type} {
+          @include toc-title-style(1.1rem);
         }
+      }
 
-        .toc-clause {
-          @include toc-title-style(1.1rem, $index-after);
-        }
+      .toc-clause {
+        @include toc-title-style(1.1rem);
+      }
 
-        .toc-section {
-          @include toc-title-style(1rem, $index-after);
+      .toc-section {
+        @include toc-title-style(1.1rem);
+      }
+
+      .toc-part {
+        @include title-style(1.2rem, $title-color);
+
+        & > .title {
+          margin-left: -0.3rem;
         }
       }
     }
   }
-}
 
-@each $chapter-name, $index-after
-  in (preface, ''),
-     (chapter, ' '),
-     (appendix, ' '),
-     (postface, '') {
+  @each $_chapter-type in $chapter-configs {
 
-  .toc {
-    @include title-style(1.3rem, '');
+    .#{$_chapter-type} {
 
-    .toc-clause {
-      @include toc-title-style(1.1rem, $index-after);
-    }
+      .toc {
+        @include title-style(1.3rem, $title-color);
+        margin-left: 0.5rem;
 
-    .toc-section {
-      @include toc-title-style(1rem, $index-after);
+        & > .body {
+          margin-left: 0.5rem;
+
+          .toc-clause {
+            @include toc-title-style(1.1rem);
+          }
+
+          .toc-section {
+            @include toc-title-style(1.1rem);
+          }
+        }
+      }
     }
   }
 }

@@ -19,4 +19,9 @@
  <xsl:param name="book:default_navi_next">next</xsl:param>
  <xsl:param name="book:default_navi_toc">table of contents</xsl:param>
 
+ <xsl:param name="book:label_of_nolink">(No link)</xsl:param>
+ <xsl:param name="book:popup_of_nolink">
+  <xsl:text>There is no linked element</xsl:text>
+ </xsl:param>
+
 </xsl:stylesheet>

@@ -11,7 +11,7 @@
     <xsl:with-param name="data_url" select="$data_url"/>
    </xsl:call-template>
   </xsl:variable>
-  <xsl:variable name="_chapter_type" select="local-name()"/>
+  <xsl:variable name="_chapter_type" select="name()"/>
   <xsl:variable name="_chapter_index">
    <xsl:call-template name="book:get_chapter_index">
     <xsl:with-param name="data_url" select="$_data_url"/>
@@ -120,7 +120,7 @@
   <xsl:param name="chapter_type"/>
   <xsl:param name="chapter_index"/>
   <h2 class="title">
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$chapter_index"/>
    </span>
    <span class="label">
@@ -160,7 +160,7 @@
   <xsl:param name="chapter_type"/>
   <xsl:param name="chapter_index"/>
   <h3 class="title">
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$chapter_index"/>
     <xsl:if test="string-length($chapter_index) &gt; 0">
      <xsl:number level="multiple" count="clause"
@@ -204,7 +204,7 @@
   <xsl:param name="chapter_type"/>
   <xsl:param name="chapter_index"/>
   <h4 class="title">
-   <span class="index">
+   <span class="index index-in-{$chapter_type}">
     <xsl:value-of select="$chapter_index"/>
     <xsl:if test="string-length($chapter_index) &gt; 0">
      <xsl:number level="multiple" count="clause|section"

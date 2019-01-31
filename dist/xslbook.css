@@ -24,97 +24,140 @@ a.disabled {
   color: #999;
 }
 
+.index-in-preface + .label::before {
+  content: "";
+}
+
+.index-in-chapter + .label::before {
+  content: " ";
+}
+
+.index-in-appendix + .label::before {
+  content: " ";
+}
+
+.index-in-postface + .label::before {
+  content: "";
+}
+
 .xslbook > .title {
   font-size: 2rem;
   color: #37a;
+}
+.xslbook > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .preface > .title {
   font-size: 1.5rem;
   color: #37a;
 }
+.xslbook > .preface > .body {
+  margin-left: 0.3rem;
+}
 .xslbook > .preface > .clause > .title {
   font-size: 1.3rem;
   color: #37a;
+}
+.xslbook > .preface > .clause > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .preface > .clause > .section > .title {
   font-size: 1.2rem;
   color: #37a;
 }
+.xslbook > .preface > .clause > .section > .body {
+  margin-left: 0.3rem;
+}
 .xslbook > .preface > .clause > .section .section > .title {
   font-size: 1.1rem;
   color: #37a;
+}
+.xslbook > .preface > .clause > .section .section > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .chapter > .title {
   font-size: 1.5rem;
   color: #37a;
 }
-.xslbook > .chapter > .title > .index::after {
-  content: " ";
+.xslbook > .chapter > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .chapter > .clause > .title {
   font-size: 1.3rem;
   color: #37a;
 }
-.xslbook > .chapter > .clause > .title > .index::after {
-  content: " ";
+.xslbook > .chapter > .clause > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .chapter > .clause > .section > .title {
   font-size: 1.2rem;
   color: #37a;
 }
-.xslbook > .chapter > .clause > .section > .title > .index::after {
-  content: " ";
+.xslbook > .chapter > .clause > .section > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .chapter > .clause > .section .section > .title {
   font-size: 1.1rem;
   color: #37a;
 }
-.xslbook > .chapter > .clause > .section .section > .title > .index::after {
-  content: " ";
+.xslbook > .chapter > .clause > .section .section > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .appendix > .title {
   font-size: 1.5rem;
   color: #37a;
 }
-.xslbook > .appendix > .title > .index::after {
-  content: " ";
+.xslbook > .appendix > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .appendix > .clause > .title {
   font-size: 1.3rem;
   color: #37a;
 }
-.xslbook > .appendix > .clause > .title > .index::after {
-  content: " ";
+.xslbook > .appendix > .clause > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .appendix > .clause > .section > .title {
   font-size: 1.2rem;
   color: #37a;
 }
-.xslbook > .appendix > .clause > .section > .title > .index::after {
-  content: " ";
+.xslbook > .appendix > .clause > .section > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .appendix > .clause > .section .section > .title {
   font-size: 1.1rem;
   color: #37a;
 }
-.xslbook > .appendix > .clause > .section .section > .title > .index::after {
-  content: " ";
+.xslbook > .appendix > .clause > .section .section > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .postface > .title {
   font-size: 1.5rem;
   color: #37a;
 }
+.xslbook > .postface > .body {
+  margin-left: 0.3rem;
+}
 .xslbook > .postface > .clause > .title {
   font-size: 1.3rem;
   color: #37a;
+}
+.xslbook > .postface > .clause > .body {
+  margin-left: 0.3rem;
 }
 .xslbook > .postface > .clause > .section > .title {
   font-size: 1.2rem;
   color: #37a;
 }
+.xslbook > .postface > .clause > .section > .body {
+  margin-left: 0.3rem;
+}
 .xslbook > .postface > .clause > .section .section > .title {
   font-size: 1.1rem;
   color: #37a;
+}
+.xslbook > .postface > .clause > .section .section > .body {
+  margin-left: 0.3rem;
 }
 
 .xslbook > .toc > .title {
@@ -122,61 +165,19 @@ a.disabled {
   color: #37a;
 }
 .xslbook > .toc > .body {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .xslbook > .toc > .body .toc-preface > .title {
   font-size: 1.1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-clause > .title {
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-section > .title {
-  font-size: 1rem;
   line-height: 1.4rem;
 }
 .xslbook > .toc > .body .toc-chapter > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.xslbook > .toc > .body .toc-chapter > .title > .index::after {
-  content: " ";
-}
-.xslbook > .toc > .body .toc-clause > .title {
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-clause > .title > .index::after {
-  content: " ";
-}
-.xslbook > .toc > .body .toc-section > .title {
-  font-size: 1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-section > .title > .index::after {
-  content: " ";
-}
 .xslbook > .toc > .body .toc-appendix > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-appendix > .title > .index::after {
-  content: " ";
-}
-.xslbook > .toc > .body .toc-clause > .title {
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-clause > .title > .index::after {
-  content: " ";
-}
-.xslbook > .toc > .body .toc-section > .title {
-  font-size: 1rem;
-  line-height: 1.4rem;
-}
-.xslbook > .toc > .body .toc-section > .title > .index::after {
-  content: " ";
 }
 .xslbook > .toc > .body .toc-postface > .title {
   font-size: 1.1rem;
@@ -187,71 +188,86 @@ a.disabled {
   line-height: 1.4rem;
 }
 .xslbook > .toc > .body .toc-section > .title {
-  font-size: 1rem;
-  line-height: 1.4rem;
-}
-
-.toc > .title {
-  font-size: 1.3rem;
-  color: #37a;
-}
-.toc .toc-clause > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-section > .title {
-  font-size: 1rem;
-  line-height: 1.4rem;
+.xslbook > .toc > .body .toc-part > .title {
+  font-size: 1.2rem;
+  color: #37a;
 }
-
-.toc > .title {
+.xslbook > .toc > .body .toc-part > .title {
+  margin-left: -0.3rem;
+}
+.xslbook .preface .toc {
+  margin-left: 0.5rem;
+}
+.xslbook .preface .toc > .title {
   font-size: 1.3rem;
   color: #37a;
 }
-.toc .toc-clause > .title {
+.xslbook .preface .toc > .body {
+  margin-left: 0.5rem;
+}
+.xslbook .preface .toc > .body .toc-clause > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-clause > .title > .index::after {
-  content: " ";
-}
-.toc .toc-section > .title {
-  font-size: 1rem;
+.xslbook .preface .toc > .body .toc-section > .title {
+  font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-section > .title > .index::after {
-  content: " ";
+.xslbook .chapter .toc {
+  margin-left: 0.5rem;
 }
-
-.toc > .title {
+.xslbook .chapter .toc > .title {
   font-size: 1.3rem;
   color: #37a;
 }
-.toc .toc-clause > .title {
+.xslbook .chapter .toc > .body {
+  margin-left: 0.5rem;
+}
+.xslbook .chapter .toc > .body .toc-clause > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-clause > .title > .index::after {
-  content: " ";
-}
-.toc .toc-section > .title {
-  font-size: 1rem;
+.xslbook .chapter .toc > .body .toc-section > .title {
+  font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-section > .title > .index::after {
-  content: " ";
+.xslbook .appendix .toc {
+  margin-left: 0.5rem;
 }
-
-.toc > .title {
+.xslbook .appendix .toc > .title {
   font-size: 1.3rem;
   color: #37a;
 }
-.toc .toc-clause > .title {
+.xslbook .appendix .toc > .body {
+  margin-left: 0.5rem;
+}
+.xslbook .appendix .toc > .body .toc-clause > .title {
   font-size: 1.1rem;
   line-height: 1.4rem;
 }
-.toc .toc-section > .title {
-  font-size: 1rem;
+.xslbook .appendix .toc > .body .toc-section > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook .postface .toc {
+  margin-left: 0.5rem;
+}
+.xslbook .postface .toc > .title {
+  font-size: 1.3rem;
+  color: #37a;
+}
+.xslbook .postface .toc > .body {
+  margin-left: 0.5rem;
+}
+.xslbook .postface .toc > .body .toc-clause > .title {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.xslbook .postface .toc > .body .toc-section > .title {
+  font-size: 1.1rem;
   line-height: 1.4rem;
 }
 
@@ -273,6 +289,11 @@ p {
   margin: 0.75rem 0rem;
   padding: 0rem;
   line-height: 1.5rem;
+}
+
+.nolink {
+  color: #a68;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=xslbook.css.map */

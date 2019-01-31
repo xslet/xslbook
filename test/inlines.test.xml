@@ -35,4 +35,18 @@
   </body>
  </chapter>
 
+ <chapter>
+  <title>Superscript &amp; Subscript</title>
+  <body>
+   <p>This sentence contains a <sup>superscript</sup> and a <sub>subscript</sub> text.</p>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Horizontal line</title>
+  <body>
+   <p>This sentence is upper of a horizontal line.<hr/>This sentence is lower of a horizontal line.</p>
+  </body>
+ </chapter>
+
 </xslbook>

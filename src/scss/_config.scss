@@ -6,3 +6,9 @@ $disabled-color: #999;
 $title-color: #37a;
 $sheet-color: white;
 $background-color: #ddd;
+
+$chapter-configs: /* (chapter-type, content-after-index) */
+  (preface, '')
+  (chapter, ' ')
+  (appendix, ' ')
+  (postface, '');
