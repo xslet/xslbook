@@ -16,7 +16,7 @@
  <property name="dir.build.lib" location="${dir.build}/lib"/>
  <property name="dir.build.bin" location="${dir.build}/bin"/>
  <property name="dir.build.xsl" location="${dir.build}/xsl"/>
- <property name="dir.build.js"  location="${dir.build}/js"/>
+ <property name="dir.build.js"  location="${dir.src}/js"/>
 
  <target name="build">
   <antcall target="clean"/>
@@ -63,7 +63,7 @@
  </target>
 
  <target name="build-scss">
-  <property name="prefix" value="build_aux/js"/>
+  <property name="prefix" value="${dir.build.js}"/>
   <exec executable="npm">
    <arg line="run sass:build"/>
    <arg line="--prefix ${prefix}"/>
@@ -71,7 +71,7 @@
  </target>
 
  <target name="build-js">
-  <property name="prefix" value="build_aux/js"/>
+  <property name="prefix" value="${dir.build.js}"/>
   <exec executable="npm">
    <arg line="run js:build"/>
    <arg line="--prefix ${prefix}"/>
@@ -96,7 +96,7 @@
  </target>
 
  <target name="npm-install">
-  <property name="prefix" value="build_aux/js"/>
+  <property name="prefix" value="${dir.build.js}"/>
   <exec executable="npm">
    <arg line="install"/>
    <arg line="--prefix ${prefix}"/>
