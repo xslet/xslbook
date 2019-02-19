@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="util.test.xsl"?>
+
+<unit-test title="util:validate-string">
+
+  <assert-equal name="util:validate_string">
+   <value>abcdefg</value>
+   <forbidden>;</forbidden>
+   <default>hijklmn</default>
+   <expect>abcdefg</expect>
+  </assert-equal>
+
+  <assert-equal name="util:validate_string">
+   <value>abcdefg</value>
+   <forbidden>b</forbidden>
+   <expect></expect>
+  </assert-equal>
+
+  <assert-equal name="util:validate_string">
+   <value>abcdefg</value>
+   <forbidden>b</forbidden>
+   <default>hijklmn</default>
+   <expect>hijklmn</expect>
+  </assert-equal>
+
+  <assert-equal name="util:validate_string">
+   <value>abcdefg</value>
+   <forbidden>imcn</forbidden>
+   <default>hijklmn</default>
+   <expect>hijklmn</expect>
+  </assert-equal>
+
+</unit-test>

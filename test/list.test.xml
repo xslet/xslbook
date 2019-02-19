@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="res/xslbook.xsl"?>
+
+<xslbook>
+ <script rpath="assert.js"/>
+ <script url="js/list.test.js"/>
+
+ <title>List</title>
+
+ <body>
+  <p>This is an upper text of a list.</p>
+  <list>
+   <item>Item 1</item>
+   <item>Item 2</item>
+   <item>Item 3</item>
+  </list>
+  <p>This is an lower text of a list.</p>
+ </body>
+
+ <chapter>
+  <title>List with @type</title>
+
+  <clause>
+   <title>@type and @mark is not specified</title>
+   <body>
+    <list>
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='none'</title>
+   <body>
+    <list type="none">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='disc'</title>
+   <body>
+    <list type="disc">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='circle'</title>
+   <body>
+    <list type="circle">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='square'</title>
+   <body>
+    <list type="square">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='decimal'</title>
+   <body>
+    <list type="decimal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='cjk-decimal'</title>
+   <body>
+    <list type="cjk-decimal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='decimal-leading-zero'</title>
+   <body>
+    <list type="decimal-leading-zero">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lower-roman'</title>
+   <body>
+    <list type="lower-roman">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='upper-roman'</title>
+   <body>
+    <list type="upper-roman">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lower-greek'</title>
+   <body>
+    <list type="lower-greek">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lower-alpha'</title>
+   <body>
+    <list type="lower-alpha">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lower-latin'</title>
+   <body>
+    <list type="lower-latin">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='upper-alpha'</title>
+   <body>
+    <list type="upper-alpha">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='upper-latin'</title>
+   <body>
+    <list type="upper-latin">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='arabic-indic'</title>
+   <body>
+    <list type="arabic-indic">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='armenian'</title>
+   <body>
+    <list type="armenian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='bengali'</title>
+   <body>
+    <list type="bengali">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='cambodian'</title>
+   <body>
+    <list type="cambodian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='cjk-earthly-branch'</title>
+   <body>
+    <list type="cjk-earthly-branch">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='cjk-heavenly-stem'</title>
+   <body>
+    <list type="cjk-heavenly-stem">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='cjk-ideographic'</title>
+   <body>
+    <list type="cjk-ideographic">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='devangari'</title>
+   <body>
+    <list type="devangari">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='ethiopic-numeric'</title>
+   <body>
+    <list type="ethiopic-numeric">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='georgian'</title>
+   <body>
+    <list type="georgian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='gujarati'</title>
+   <body>
+    <list type="gujarati">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='gurumukhi'</title>
+   <body>
+    <list type="gurumukhi">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='hebrew'</title>
+   <body>
+    <list type="hebrew">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='hiragana'</title>
+   <body>
+    <list type="hiragana">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='hiragana-iroha'</title>
+   <body>
+    <list type="hiragana-iroha">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='japanese-formal'</title>
+   <body>
+    <list type="japanese-formal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='japanese-informal'</title>
+   <body>
+    <list type="japanese-informal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='kannada'</title>
+   <body>
+    <list type="kannada">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='katakana'</title>
+   <body>
+    <list type="katakana">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='katakana-iroha'</title>
+   <body>
+    <list type="katakana-iroha">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='khmer'</title>
+   <body>
+    <list type="khmer">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='korean-hangul-formal'</title>
+   <body>
+    <list type="korean-hangul-formal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='korean-hanja-formal'</title>
+   <body>
+    <list type="korean-hanja-formal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='korean-hanja-informal'</title>
+   <body>
+    <list type="korean-hanja-informal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lao'</title>
+   <body>
+    <list type="lao">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='lower-armenian'</title>
+   <body>
+    <list type="lower-armenian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='malayalam'</title>
+   <body>
+    <list type="malayalam">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='mongolian'</title>
+   <body>
+    <list type="mongolian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='myanmar'</title>
+   <body>
+    <list type="myanmar">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='oriya'</title>
+   <body>
+    <list type="oriya">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='persian'</title>
+   <body>
+    <list type="persian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='simp-chinese-formal'</title>
+   <body>
+    <list type="simp-chinese-formal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='simp-chinese-informal'</title>
+   <body>
+    <list type="simp-chinese-informal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='tamil'</title>
+   <body>
+    <list type="tamil">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='telugu'</title>
+   <body>
+    <list type="telugu">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='thai'</title>
+   <body>
+    <list type="thai">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='tibetan'</title>
+   <body>
+    <list type="tibetan">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='trad-chinese-formal'</title>
+   <body>
+    <list type="trad-chinese-formal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='trad-chinese-informal'</title>
+   <body>
+    <list type="trad-chinese-informal">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='upper-armenian'</title>
+   <body>
+    <list type="upper-armenian">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='disclosure-open'</title>
+   <body>
+    <list type="disclosure-open">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type='disclosure-closed'</title>
+   <body>
+    <list type="disclosure-closed">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type is any string ('- ')</title>
+   <body>
+    <list type="'- '">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type is any string ('▶︎ ')</title>
+   <body>
+    <list type="'▶︎ '">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@type is any string ('\1F44D ')</title>
+   <body>
+    <list type="'&#x1F44D; '">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>Prevent style injection (@type='circle; color: red;' => invalid)</title>
+   <body>
+    <list type="circle; color: red;">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+ </chapter>
+
+ <chapter>
+  <title>List with @mark</title>
+
+  <clause>
+   <title>@mark='1.'</title>
+   <body>
+    <list mark="1.">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='(1)'</title>
+   <body>
+    <list mark="(1)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='[1]'</title>
+   <body>
+    <list mark="[1]">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='1)'</title>
+   <body>
+    <list mark="1)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='A.'</title>
+   <body>
+    <list mark="A.">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='(A)'</title>
+   <body>
+    <list mark="(A)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='[A]'</title>
+   <body>
+    <list mark="[A]">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='A)'</title>
+   <body>
+    <list mark="A)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='a.'</title>
+   <body>
+    <list mark="a.">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='(a)'</title>
+   <body>
+    <list mark="(a)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='[a]'</title>
+   <body>
+    <list mark="[a]">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='a)'</title>
+   <body>
+    <list mark="a)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='i.'</title>
+   <body>
+    <list mark="i.">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='(i)'</title>
+   <body>
+    <list mark="(i)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='[i]'</title>
+   <body>
+    <list mark="[i]">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='i)'</title>
+   <body>
+    <list mark="i)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='I.'</title>
+   <body>
+    <list mark="I.">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='(I)'</title>
+   <body>
+    <list mark="(I)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='[I]'</title>
+   <body>
+    <list mark="[I]">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+  <clause>
+   <title>@mark='I)'</title>
+   <body>
+    <list mark="I)">
+     <item>Item 1</item>
+     <item>Item 2</item>
+     <item>Item 3</item>
+    </list>
+   </body>
+  </clause>
+
+ </chapter>
+</xslbook>

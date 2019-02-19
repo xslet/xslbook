@@ -1,0 +1,50 @@
+.list {
+  margin: 0px;
+  padding: 0px 0px 0px 2rem;
+
+  & > .item {
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.5rem;
+  }
+
+  &[data-mark]:not([data-mark=""]) {
+    list-style: none;
+    padding-left: 0rem;
+
+    li[data-index]:not([data-index=""]):before {
+      content: attr(data-index);
+      text-align: right;
+      padding-right: 0.2rem;
+      min-width: 2rem;
+      display: inline-block;
+    }
+  }
+
+  /* Enable only decimal
+  &[data-mark="1."] {
+    list-style-type: decimal;
+  }
+  &[data-mark="(1)"] {
+    counter-reset: i;
+    list-style: none;
+    padding-left: 0.6rem;
+  }
+  &[data-mark="(1)"] li:before {
+    content: "(" counters(i, "") ") ";
+    counter-increment: i;
+  }
+  */
+  /* Supported only Firefox
+  &[data-mark="(1)"] {
+    list-style: cs-decimal-parenthesis;
+  }
+  */
+}
+
+@counter-style cs-decimal-parenthesis {
+  system: extends decimal;
+  prefix: '(';
+  suffix: ') ';
+}
+
