@@ -118,8 +118,8 @@
 
  <xsl:template match="/xslbook/css">
   <xsl:choose>
-   <xsl:when test="boolean(@href)">
-    <link rel="stylesheet" href="{@href}"/>
+   <xsl:when test="boolean(@url)">
+    <link rel="stylesheet" href="{@url}"/>
    </xsl:when>
    <xsl:when test="boolean(@rpath)">
     <link rel="stylesheet" href="{concat($book:xsl_dir, '/', @rpath)}"/>
@@ -129,8 +129,8 @@
 
  <xsl:template match="/xslbook/script">
   <xsl:choose>
-   <xsl:when test="boolean(@href)">
-    <script src="{@href}"></script>
+   <xsl:when test="boolean(@url)">
+    <script src="{@url}"></script>
    </xsl:when>
    <xsl:when test="boolean(@rpath)">
     <script src="{concat($book:xsl_dir, '/', @rpath)}"></script>

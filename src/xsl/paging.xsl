@@ -43,7 +43,7 @@
   <xsl:variable name="_this_gid" select="generate-id(/)"/>
   <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
    <xsl:for-each select=".//page">
-    <xsl:if test="generate-id(document(@href,/)) = $_this_gid">
+    <xsl:if test="generate-id(document(@url,/)) = $_this_gid">
      <xsl:value-of select="position()"/>
     </xsl:if>
    </xsl:for-each>
@@ -57,7 +57,7 @@
   <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
    <xsl:for-each select=".//page">
     <xsl:variable name="_titles">
-     <xsl:apply-templates select="document(@href,/)//title"/>
+     <xsl:apply-templates select="document(@url,/)//title"/>
     </xsl:variable>
     <xsl:if test="$_titles = $_this_titles">
      <xsl:value-of select="position()"/>
@@ -68,19 +68,19 @@
 
  <xsl:param name="book:page_url">
   <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
-   <xsl:value-of select="(.//page)[position() = $book:page_index]/@href"/>
+   <xsl:value-of select="(.//page)[position() = $book:page_index]/@url"/>
   </xsl:for-each>
  </xsl:param>
 
  <xsl:param name="book:previous_page_url">
   <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
-   <xsl:value-of select="(.//page)[position() = $book:page_index - 1]/@href"/>
+   <xsl:value-of select="(.//page)[position() = $book:page_index - 1]/@url"/>
   </xsl:for-each>
  </xsl:param>
 
  <xsl:param name="book:next_page_url">
   <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
-   <xsl:value-of select="(.//page)[position() = $book:page_index + 1]/@href"/>
+   <xsl:value-of select="(.//page)[position() = $book:page_index + 1]/@url"/>
   </xsl:for-each>
  </xsl:param>
 
@@ -146,7 +146,7 @@
   <xsl:choose>
    <xsl:when test="string-length($book:toc_url) &gt; 0">
     <xsl:for-each select="document($book:toc_url,/)/xslbook/toc[1]">
-     <xsl:value-of select="count(document((.//page)[position() &lt; $page_index]/@href, /)/xslbook/*[name() = $chapter_type])"/>
+     <xsl:value-of select="count(document((.//page)[position() &lt; $page_index]/@url, /)/xslbook/*[name() = $chapter_type])"/>
     </xsl:for-each>
    </xsl:when>
    <xsl:otherwise>

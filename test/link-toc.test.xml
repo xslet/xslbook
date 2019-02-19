@@ -3,7 +3,7 @@
 
 <xslbook toc="link-toc.toc.xml">
  <script rpath="assert.js"/>
- <script href="js/link-toc.test.js"/>
+ <script url="js/link-toc.test.js"/>
 
  <title>Link with TOC</title>
 

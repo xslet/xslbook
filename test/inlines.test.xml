@@ -3,7 +3,7 @@
 
 <xslbook>
  <script rpath="assert.js"/>
- <script href="js/inlines.test.js"/>
+ <script url="js/inlines.test.js"/>
 
  <title>Inlines</title>
 

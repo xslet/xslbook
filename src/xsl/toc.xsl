@@ -87,8 +87,8 @@
     </xsl:when>
     <xsl:otherwise>
      <xsl:variable name="_page_index" select="count(//*[generate-id() = $_gid]/preceding::page) +1"/>
-     <xsl:variable name="_page_url" select="@href"/>
-     <xsl:for-each select="document(@href,/)/xslbook">
+     <xsl:variable name="_page_url" select="@url"/>
+     <xsl:for-each select="document(@url,/)/xslbook">
       <xsl:call-template name="book:control_toc_in_page">
        <xsl:with-param name="data_url" select="$data_url"/>
        <xsl:with-param name="toc_target" select="$toc_target"/>

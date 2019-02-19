@@ -3,7 +3,7 @@
 
 <xslbook id="pageId">
  <script rpath="assert.js"/>
- <script href="js/base.test.js"/>
+ <script url="js/base.test.js"/>
 
  <title>Base</title>
  <body>This is the body of the page.</body>

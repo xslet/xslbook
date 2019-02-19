@@ -3,15 +3,15 @@
 
 <xslbook>
  <script rpath="assert.js"/>
- <script href="js/link.test.js"/>
+ <script url="js/link.test.js"/>
 
  <title>Link (with no toc)</title>
 
  <chapter id="ch1">
   <title>Link to URL</title>
   <body>
-   <p><link href="https://xslet.github.io/xslbook/index.html">This</link> is a link to a URL by @href, and has a label.</p>
-   <p><link href="https://xslet.github.io/xslbook/index.html"/> is a link to a URL by @href, and has no label.</p>
+   <p><link url="https://xslet.github.io/xslbook/index.html">This</link> is a link to a URL by @url, and has a label.</p>
+   <p><link url="https://xslet.github.io/xslbook/index.html"/> is a link to a URL by @url, and has no label.</p>
   </body>
  </chapter>
 

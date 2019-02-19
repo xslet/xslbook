@@ -17,7 +17,7 @@ xslbook is an applet to display a book-style document on a Web browser with XSLT
    <p>
 This transforms XML documents into HTML documents with a built-in XSLT processor in a Web browser, and needs no other conversion tools.
 If you use Firefox, Edge or IE, you can open local xslbook documents directly.
-If you use Chrome or Safari, you need to open them via a Web server because Chrome and Safari forbid these local file access for their security policy.
+If you use Chrome or Safari, you need to open them via a Web server because Chrome and Safari forbid such local file access for their security policy.
    </p>
    <p>
 You write only content in a XML file of a xslbook document. Layout and view style of a document is written in a XSL file and a CSS file.
@@ -36,8 +36,8 @@ The xslbook aims at a tool to create practical documents by only markup writing.
  </preface>
 
  <toc>
-  <page href="index.xml"/>
-  <page href="usage.xml"/>
+  <page url="index.xml"/>
+  <page url="usage.xml"/>
  </toc>
 
 </xslbook>

@@ -18,9 +18,9 @@
   </xsl:variable>
   <xsl:variable name="_only" select="@only"/>
   <xsl:choose>
-   <xsl:when test="boolean(@href)">
-    <xsl:call-template name="book:write_link_by_href">
-     <xsl:with-param name="href" select="@href"/>
+   <xsl:when test="boolean(@url)">
+    <xsl:call-template name="book:write_link_by_url">
+     <xsl:with-param name="url" select="@url"/>
      <xsl:with-param name="label" select="$_label"/>
     </xsl:call-template>
    </xsl:when>
@@ -160,10 +160,10 @@
   <xsl:param name="label"/>
   <xsl:param name="only"/>
   <xsl:variable name="_page"
-    select="/xslbook/toc//page[document(@href,/)//*[@id=$refid]]/@href"/>
+    select="/xslbook/toc//page[document(@url,/)//*[@id=$refid]]/@url"/>
   <xsl:variable name="_page_index">
    <xsl:for-each select="/xslbook/toc//page">
-    <xsl:if test="@href = $_page">
+    <xsl:if test="@url = $_page">
      <xsl:value-of select="position()"/>
     </xsl:if>
    </xsl:for-each>
@@ -219,16 +219,16 @@
   </a>
  </xsl:template>
 
- <xsl:template name="book:write_link_by_href">
-  <xsl:param name="href"/>
+ <xsl:template name="book:write_link_by_url">
+  <xsl:param name="url"/>
   <xsl:param name="label"/>
-  <a class="link" href="{$href}">
+  <a class="link" href="{$url}">
    <xsl:choose>
     <xsl:when test="string-length($label) &gt; 0">
      <xsl:value-of select="$label"/>
     </xsl:when>
     <xsl:otherwise>
-     <xsl:value-of select="$href"/>
+     <xsl:value-of select="$url"/>
     </xsl:otherwise>
    </xsl:choose>
   </a>

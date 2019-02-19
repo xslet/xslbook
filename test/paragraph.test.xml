@@ -3,7 +3,7 @@
 
 <xslbook>
  <script rpath="assert.js"/>
- <script href="./js/blocks.test.js"/>
+ <script url="./js/blocks.test.js"/>
 
  <title>Paragraph</title>
 

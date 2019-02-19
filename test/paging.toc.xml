@@ -3,17 +3,17 @@
 
 <xslbook toc="paging.toc.xml">
  <script rpath="assert.js"/>
- <script href="./js/paging.toc.js"/>
+ <script url="./js/paging.toc.js"/>
 
  <title>Paging (Toc)</title>
  <body>This is the body of the page.</body>
 
  <toc>
-  <page href="./paging.toc.xml"/>
-  <page href="./paging.test.xml"/>
+  <page url="./paging.toc.xml"/>
+  <page url="./paging.test.xml"/>
   <part>
    <title>Part 1</title>
-   <page href="./paging.last.xml"/>
+   <page url="./paging.last.xml"/>
   </part>
  </toc>
 
