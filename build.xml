@@ -18,6 +18,13 @@
  <property name="dir.build.xsl" location="${dir.build}/xsl"/>
  <property name="dir.build.js"  location="${dir.src}/js"/>
 
+ <condition property="npm.cmd" value="cmd" else="npm">
+  <os family="windows"/>
+ </condition>
+ <condition property="npm.arg" value="/c npm" else="">
+  <os family="windows"/>
+ </condition>
+
  <target name="build">
   <antcall target="clean"/>
   <antcall target="merge-xsl"/>
@@ -64,7 +71,8 @@
 
  <target name="build-scss">
   <property name="prefix" value="${dir.build.js}"/>
-  <exec executable="npm">
+  <exec executable="${npm.cmd}">
+   <arg line="${npm.arg}"/>
    <arg line="run sass:build"/>
    <arg line="--prefix ${prefix}"/>
   </exec>
@@ -72,7 +80,8 @@
 
  <target name="build-js">
   <property name="prefix" value="${dir.build.js}"/>
-  <exec executable="npm">
+  <exec executable="${npm.cmd}">
+   <arg line="${npm.arg}"/>
    <arg line="run js:build"/>
    <arg line="--prefix ${prefix}"/>
   </exec>
@@ -97,7 +106,8 @@
 
  <target name="npm-install">
   <property name="prefix" value="${dir.build.js}"/>
-  <exec executable="npm">
+  <exec executable="${npm.cmd}">
+   <arg line="${npm.arg}"/>
    <arg line="install"/>
    <arg line="--prefix ${prefix}"/>
   </exec>
