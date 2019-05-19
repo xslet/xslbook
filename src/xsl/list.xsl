@@ -32,6 +32,16 @@
     <xsl:otherwise>1</xsl:otherwise>
    </xsl:choose>
   </xsl:variable>
+  <xsl:variable name="_sep">
+   <xsl:choose>
+    <xsl:when test="boolean(@separator)">
+     <xsl:value-of select="@separator"/>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:text>:</xsl:text>
+    </xsl:otherwise>
+   </xsl:choose>
+  </xsl:variable>
   <ul class="list" data-mark="{$_mark}" start="{$_start}">
    <xsl:call-template name="book:set_id"/>
    <xsl:for-each select="item">
@@ -42,7 +52,7 @@
      <xsl:call-template name="book:set_id"/>
      <xsl:apply-templates>
       <xsl:with-param name="data_url" select="$data_url"/>
-      <xsl:with-param name="separator" select="@separator"/>
+      <xsl:with-param name="separator" select="$_sep"/>
      </xsl:apply-templates>
     </li>
    </xsl:for-each>
@@ -65,6 +75,16 @@
     </xsl:otherwise>
    </xsl:choose>
   </xsl:variable>
+  <xsl:variable name="_sep">
+   <xsl:choose>
+    <xsl:when test="boolean(@separator)">
+     <xsl:value-of select="@separator"/>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:text>:</xsl:text>
+    </xsl:otherwise>
+   </xsl:choose>
+  </xsl:variable>
   <ul class="list" style="list-style-type:{$_type};">
    <xsl:call-template name="book:set_id"/>
    <xsl:if test="boolean(@start)">
@@ -82,7 +102,7 @@
      <xsl:call-template name="book:set_id"/>
      <xsl:apply-templates>
       <xsl:with-param name="data_url" select="$data_url"/>
-      <xsl:with-param name="separator" select="@separator"/>
+      <xsl:with-param name="separator" select="$_sep"/>
      </xsl:apply-templates>
     </li>
    </xsl:for-each>
@@ -100,7 +120,11 @@
 
  <xsl:template match="list/item/body">
   <xsl:param name="data_url"/>
+  <xsl:param name="separator"/>
   <span class="body">
+   <xsl:attribute name="data-separator">
+    <xsl:value-of select="$separator"/>
+   </xsl:attribute>
    <xsl:apply-templates>
     <xsl:with-param name="data_url" select="$data_url"/>
    </xsl:apply-templates>

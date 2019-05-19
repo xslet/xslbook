@@ -251,7 +251,7 @@ p {
   padding: 0rem;
   line-height: 1.5rem; }
 
-.list {
+ul.list {
   margin: 0px;
   padding: 0px 0px 0px 2rem;
   /* Enable only decimal
@@ -273,14 +273,20 @@ p {
     list-style: cs-decimal-parenthesis;
   }
   */ }
-  .list > .item {
+  ul.list > li.item {
     margin: 0px;
     padding: 0px;
     line-height: 1.5rem; }
-  .list[data-mark]:not([data-mark=""]) {
+    ul.list > li.item > span.title {
+      display: inline-block;
+      white-space: nowrap; }
+    ul.list > li.item > span.body:before {
+      content: " " attr(data-separator) " ";
+      white-space: nowrap; }
+  ul.list[data-mark]:not([data-mark=""]) {
     list-style: none;
     padding-left: 0rem; }
-    .list[data-mark]:not([data-mark=""]) li[data-index]:not([data-index=""]):before {
+    ul.list[data-mark]:not([data-mark=""]) li[data-index]:not([data-index=""]):before {
       content: attr(data-index);
       text-align: right;
       padding-right: 0.2rem;

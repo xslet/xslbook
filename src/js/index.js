@@ -1,5 +1,7 @@
 'use strict';
 
+require('./list-title.js');
+
 /* global window */
 
 var xslet = {};

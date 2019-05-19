@@ -1,11 +1,21 @@
-.list {
+ul.list {
   margin: 0px;
   padding: 0px 0px 0px 2rem;
 
-  & > .item {
+  & > li.item {
     margin: 0px;
     padding: 0px;
     line-height: 1.5rem;
+
+    & > span.title {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    & > span.body:before {
+      content: " " attr(data-separator) " ";
+      white-space: nowrap;
+    }
   }
 
   &[data-mark]:not([data-mark=""]) {

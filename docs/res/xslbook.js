@@ -1,6 +1,8 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.xslet = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
+require('./list-title.js');
+
 /* global window */
 
 var xslet = {};
@@ -9,7 +11,34 @@ xslet.platform = require('@xslet/platform')(window);
 
 module.exports = xslet;
 
-},{"@xslet/platform":7}],2:[function(require,module,exports){
+},{"./list-title.js":2,"@xslet/platform":8}],2:[function(require,module,exports){
+'use strict';
+
+window.addEventListener('load', function() {
+  var titles = document.querySelectorAll('ul.list > li.item > span.title');
+  var map = {};
+  for (var i = 0; i < titles.length; i++) {
+    var title = titles[i];
+    var ul = title.parentNode.parentNode;
+    if (!map[ul.id]) {
+      map[ul.id] = [];
+    }
+    map[ul.id].push(title);
+  }
+  Object.keys(map).forEach(function(key) {
+    var arr = map[key], maxWidth = 0, j, span;
+    for (j = 0; j < arr.length; j++) {
+      span = arr[j];
+      maxWidth = Math.max(maxWidth, span.offsetWidth);
+    }
+    for (j = 0; j < arr.length; j++) {
+      span = arr[j];
+      span.style.width = maxWidth + 'px';
+    }
+  });
+});
+
+},{}],3:[function(require,module,exports){
 'use strict';
 
 function compareVersions(obj, name, version) {
@@ -55,7 +84,7 @@ function compareVersions(obj, name, version) {
 
 module.exports = compareVersions;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 var compareVersions = require('./compare-versions');
@@ -107,7 +136,7 @@ function createComparable() {
 
 module.exports = createComparable;
 
-},{"./compare-versions":2}],4:[function(require,module,exports){
+},{"./compare-versions":3}],5:[function(require,module,exports){
 'use strict';
 
 var createComparable = require('./create-comparable');
@@ -185,7 +214,7 @@ function detectOS(useragent) {
 
 module.exports = detectOS;
 
-},{"./create-comparable":3,"./get-version":6,"./set-name-and-version":9}],5:[function(require,module,exports){
+},{"./create-comparable":4,"./get-version":7,"./set-name-and-version":10}],6:[function(require,module,exports){
 'use strict';
 
 var createComparable = require('./create-comparable');
@@ -281,7 +310,7 @@ function detectUA(useragent) {
 
 module.exports = detectUA;
 
-},{"./create-comparable":3,"./get-version":6,"./set-name-and-version":9}],6:[function(require,module,exports){
+},{"./create-comparable":4,"./get-version":7,"./set-name-and-version":10}],7:[function(require,module,exports){
 'use strict';
 
 function getVersion(useragent, key, num) {
@@ -308,7 +337,7 @@ function getVersion(useragent, key, num) {
 
 module.exports = getVersion;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var detectUA = require('./detect-ua');
@@ -336,7 +365,7 @@ function createPlatform(window) {
 
 module.exports = createPlatform;
 
-},{"./detect-os":4,"./detect-ua":5,"./set-html-tag-class":8}],8:[function(require,module,exports){
+},{"./detect-os":5,"./detect-ua":6,"./set-html-tag-class":9}],9:[function(require,module,exports){
 'use strict';
 
 function setHtmlTagClass(htmlTag, ua, os) {
@@ -363,7 +392,7 @@ function setHtmlTagClass(htmlTag, ua, os) {
 
 module.exports = setHtmlTagClass;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 function setNameAndVersion(obj, candids, name, version) {
