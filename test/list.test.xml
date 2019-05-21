@@ -2,9 +2,6 @@
 <?xml-stylesheet type="application/xml" href="res/xslbook.xsl"?>
 
 <xslbook>
- <script rpath="assert.js"/>
- <script url="js/list.test.js"/>
-
  <title>List</title>
 
  <body>

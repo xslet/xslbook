@@ -1,4 +1,4 @@
-ul.list {
+ul.list, ul.dict {
   margin: 0px;
   padding: 0px 0px 0px 2rem;
 
@@ -9,11 +9,6 @@ ul.list {
 
     & > span.title {
       display: inline-block;
-      white-space: nowrap;
-    }
-
-    & > span.body:before {
-      content: " " attr(data-separator) " ";
       white-space: nowrap;
     }
   }
@@ -58,3 +53,19 @@ ul.list {
   suffix: ') ';
 }
 
+ul.list > li.item > span.body:before {
+  content: " " attr(data-separator) " ";
+  white-space: nowrap;
+}
+
+ul.dict > li.item > span.title:after {
+  content: " " attr(data-separator) " ";
+  white-space: nowrap;
+}
+
+ul.dict > li.item > div.body {
+  margin-left: 1rem;
+}
+ul.dict[data-mark]:not([data-mark=""]) > li.item > div.body {
+  margin-left: 3rem;
+}

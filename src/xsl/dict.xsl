@@ -5,23 +5,23 @@
  xmlns:util="https://github.com/sttk/xslet/2019/util"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
- <xsl:template match="list">
+ <xsl:template match="dict">
   <xsl:param name="data_url"/>
   <xsl:choose>
    <xsl:when test="boolean(@type)">
-    <xsl:call-template name="book:list_with_style_type">
+    <xsl:call-template name="book:dict_with_style_type">
      <xsl:with-param name="data_url" select="$data_url"/>
     </xsl:call-template>
    </xsl:when>
    <xsl:otherwise>
-    <xsl:call-template name="book:list_with_mark">
+    <xsl:call-template name="book:dict_with_mark">
      <xsl:with-param name="data_url" select="$data_url"/>
     </xsl:call-template>
    </xsl:otherwise>
   </xsl:choose>
  </xsl:template>
 
- <xsl:template name="book:list_with_mark">
+ <xsl:template name="book:dict_with_mark">
   <xsl:param name="data_url"/>
   <xsl:variable name="_mark" select="@mark"/>
   <xsl:variable name="_start">
@@ -37,10 +37,9 @@
     <xsl:when test="boolean(@separator)">
      <xsl:value-of select="@separator"/>
     </xsl:when>
-    <xsl:otherwise>:</xsl:otherwise>
    </xsl:choose>
   </xsl:variable>
-  <ul class="list" data-mark="{$_mark}" start="{$_start}">
+  <ul class="dict" data-mark="{$_mark}" start="{$_start}">
    <xsl:call-template name="book:set_id"/>
    <xsl:for-each select="item">
     <xsl:variable name="_index">
@@ -57,7 +56,7 @@
   </ul>
  </xsl:template>
 
- <xsl:template name="book:list_with_style_type">
+ <xsl:template name="book:dict_with_style_type">
   <xsl:param name="data_url"/>
   <xsl:variable name="_type">
    <xsl:choose>
@@ -78,10 +77,9 @@
     <xsl:when test="boolean(@separator)">
      <xsl:value-of select="@separator"/>
     </xsl:when>
-    <xsl:otherwise>:</xsl:otherwise>
    </xsl:choose>
   </xsl:variable>
-  <ul class="list" style="list-style-type:{$_type};">
+  <ul class="dict" style="list-style-type:{$_type};">
    <xsl:call-template name="book:set_id"/>
    <xsl:if test="boolean(@start)">
     <xsl:attribute name="start">
@@ -105,19 +103,10 @@
   </ul>
  </xsl:template>
 
- <xsl:template match="list/item/title[1]">
-  <xsl:param name="data_url"/>
-  <span class="title">
-   <xsl:apply-templates>
-    <xsl:with-param name="data_url" select="$data_url"/>
-   </xsl:apply-templates>
-  </span>
- </xsl:template>
-
- <xsl:template match="list/item/body[1]">
+ <xsl:template match="dict/item/title[1]">
   <xsl:param name="data_url"/>
   <xsl:param name="separator"/>
-  <span class="body">
+  <span class="title">
    <xsl:attribute name="data-separator">
     <xsl:value-of select="$separator"/>
    </xsl:attribute>
@@ -125,6 +114,15 @@
     <xsl:with-param name="data_url" select="$data_url"/>
    </xsl:apply-templates>
   </span>
+ </xsl:template>
+
+ <xsl:template match="dict/item/body">
+  <xsl:param name="data_url"/>
+  <div class="body">
+   <xsl:apply-templates>
+    <xsl:with-param name="data_url" select="$data_url"/>
+   </xsl:apply-templates>
+  </div>
  </xsl:template>
 
 </xsl:stylesheet>

@@ -251,7 +251,7 @@ p {
   padding: 0rem;
   line-height: 1.5rem; }
 
-ul.list {
+ul.list, ul.dict {
   margin: 0px;
   padding: 0px 0px 0px 2rem;
   /* Enable only decimal
@@ -273,20 +273,17 @@ ul.list {
     list-style: cs-decimal-parenthesis;
   }
   */ }
-  ul.list > li.item {
+  ul.list > li.item, ul.dict > li.item {
     margin: 0px;
     padding: 0px;
     line-height: 1.5rem; }
-    ul.list > li.item > span.title {
+    ul.list > li.item > span.title, ul.dict > li.item > span.title {
       display: inline-block;
       white-space: nowrap; }
-    ul.list > li.item > span.body:before {
-      content: " " attr(data-separator) " ";
-      white-space: nowrap; }
-  ul.list[data-mark]:not([data-mark=""]) {
+  ul.list[data-mark]:not([data-mark=""]), ul.dict[data-mark]:not([data-mark=""]) {
     list-style: none;
     padding-left: 0rem; }
-    ul.list[data-mark]:not([data-mark=""]) li[data-index]:not([data-index=""]):before {
+    ul.list[data-mark]:not([data-mark=""]) li[data-index]:not([data-index=""]):before, ul.dict[data-mark]:not([data-mark=""]) li[data-index]:not([data-index=""]):before {
       content: attr(data-index);
       text-align: right;
       padding-right: 0.2rem;
@@ -297,6 +294,20 @@ ul.list {
   system: extends decimal;
   prefix: '(';
   suffix: ') '; }
+
+ul.list > li.item > span.body:before {
+  content: " " attr(data-separator) " ";
+  white-space: nowrap; }
+
+ul.dict > li.item > span.title:after {
+  content: " " attr(data-separator) " ";
+  white-space: nowrap; }
+
+ul.dict > li.item > div.body {
+  margin-left: 1rem; }
+
+ul.dict[data-mark]:not([data-mark=""]) > li.item > div.body {
+  margin-left: 3rem; }
 
 .nolink {
   color: #a68;
