@@ -199,4 +199,120 @@
    </body>
   </clause>
  </chapter>
+
+ <chapter>
+  <title>Nested dictionary (@type &#38; separator))</title>
+  <body>
+   <dict type="'&#x1F44D; '" separator=" : ">
+    <item>
+     <title>Level 1-1</title>
+     <item>
+      <title>Level 2-1</title>
+      <item>
+       <title>Level 3-1</title>
+       <body>Description 3-1</body>
+      </item>
+      <item>
+       <title>Level 3-2</title>
+       <body>Description 3-2</body>
+      </item>
+     </item>
+     <item>
+      <title>Level 2-2</title>
+      <item>
+       <title>Level 3-3</title>
+       <body>Description 3-3</body>
+      </item>
+      <item>
+       <title>Level 3-4</title>
+       <body>Description 3-4</body>
+      </item>
+     </item>
+    </item>
+    <item>
+     <title>Level 1-2</title>
+     <item>
+      <title>Level 2-3</title>
+      <item>
+       <title>Level 3-5</title>
+       <body>Description 3-5</body>
+      </item>
+      <item>
+       <title>Level 3-6</title>
+       <body>Description 3-6</body>
+      </item>
+     </item>
+     <item>
+      <title>Level 2-4</title>
+      <item>
+       <title>Level 3-7</title>
+       <body>Description 3-7</body>
+      </item>
+      <item>
+       <title>Level 3-8</title>
+       <body>Description 3-8</body>
+      </item>
+     </item>
+    </item>
+   </dict>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Nested dictionary (@mark &#38; separator))</title>
+  <body>
+   <dict separator="&#x1F44D; " mark="(1)">
+    <item>
+     <title>Level 1-1</title>
+     <item>
+      <title>Level 2-1</title>
+      <item>
+       <title>Level 3-1</title>
+       <body>Description 3-1</body>
+      </item>
+      <item>
+       <title>Level 3-2</title>
+       <body>Description 3-2</body>
+      </item>
+     </item>
+     <item>
+      <title>Level 2-2</title>
+      <item>
+       <title>Level 3-3</title>
+       <body>Description 3-3</body>
+      </item>
+      <item>
+       <title>Level 3-4</title>
+       <body>Description 3-4</body>
+      </item>
+     </item>
+    </item>
+    <item>
+     <title>Level 1-2</title>
+     <item>
+      <title>Level 2-3</title>
+      <item>
+       <title>Level 3-5</title>
+       <body>Description 3-5</body>
+      </item>
+      <item>
+       <title>Level 3-6</title>
+       <body>Description 3-6</body>
+      </item>
+     </item>
+     <item>
+      <title>Level 2-4</title>
+      <item>
+       <title>Level 3-7</title>
+       <body>Description 3-7</body>
+      </item>
+      <item>
+       <title>Level 3-8</title>
+       <body>Description 3-8</body>
+      </item>
+     </item>
+    </item>
+   </dict>
+  </body>
+ </chapter>
 </xslbook>

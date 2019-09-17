@@ -309,6 +309,9 @@ ul.dict > li.item > div.body {
 ul.dict[data-mark]:not([data-mark=""]) > li.item > div.body {
   margin-left: 3rem; }
 
+li.item > ul.dict[data-mark]:not([data-mark=""]) {
+  margin-left: 2rem; }
+
 .nolink {
   color: #a68;
   text-decoration: underline; }

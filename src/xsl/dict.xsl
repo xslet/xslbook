@@ -41,19 +41,37 @@
   </xsl:variable>
   <ul class="dict" data-mark="{$_mark}" start="{$_start}">
    <xsl:call-template name="book:set_id"/>
-   <xsl:for-each select="item">
-    <xsl:variable name="_index">
-     <xsl:number count="item" format="{$_mark}"/>
-    </xsl:variable>
-    <li class="item" data-index="{$_index}">
-     <xsl:call-template name="book:set_id"/>
-     <xsl:apply-templates>
-      <xsl:with-param name="data_url" select="$data_url"/>
-      <xsl:with-param name="separator" select="$_sep"/>
-     </xsl:apply-templates>
-    </li>
-   </xsl:for-each>
+   <xsl:apply-templates select="item">
+    <xsl:with-param name="data_url" select="$data_url"/>
+    <xsl:with-param name="separator" select="$_sep"/>
+    <xsl:with-param name="mark" select="$_mark"/>
+   </xsl:apply-templates>
   </ul>
+ </xsl:template>
+
+ <xsl:template match="dict[not(boolean(@type))]//item">
+  <xsl:param name="data_url"/>
+  <xsl:param name="separator"/>
+  <xsl:param name="mark"/>
+  <xsl:variable name="_index">
+   <xsl:number level="multiple" count="item" format="{$mark}"/>
+  </xsl:variable>
+  <li class="item" data-index="{$_index}">
+   <xsl:call-template name="book:set_id"/>
+   <xsl:apply-templates select="title|body">
+    <xsl:with-param name="data_url" select="$data_url"/>
+    <xsl:with-param name="separator" select="$separator"/>
+   </xsl:apply-templates>
+   <xsl:if test="boolean(item)">
+    <ul class="dict" data-mark="{$mark}" start="1">
+     <xsl:apply-templates select="item">
+      <xsl:with-param name="data_url" select="$data_url"/>
+      <xsl:with-param name="separator" select="$separator"/>
+      <xsl:with-param name="mark" select="$mark"/>
+     </xsl:apply-templates>
+    </ul>
+   </xsl:if>
+  </li>
  </xsl:template>
 
  <xsl:template name="book:dict_with_style_type">
@@ -91,19 +109,37 @@
      <xsl:value-of select="@reversed"/>
     </xsl:attribute>
    </xsl:if>
-   <xsl:for-each select="item">
-    <li class="item">
-     <xsl:call-template name="book:set_id"/>
-     <xsl:apply-templates>
-      <xsl:with-param name="data_url" select="$data_url"/>
-      <xsl:with-param name="separator" select="$_sep"/>
-     </xsl:apply-templates>
-    </li>
-   </xsl:for-each>
+   <xsl:apply-templates select="item">
+    <xsl:with-param name="data_url" select="$data_url"/>
+    <xsl:with-param name="separator" select="$_sep"/>
+    <xsl:with-param name="type" select="$_type"/>
+   </xsl:apply-templates>
   </ul>
  </xsl:template>
 
- <xsl:template match="dict/item/title[1]">
+ <xsl:template match="dict[boolean(@type)]//item">
+  <xsl:param name="data_url"/>
+  <xsl:param name="separator"/>
+  <xsl:param name="type"/>
+  <li class="item">
+   <xsl:call-template name="book:set_id"/>
+   <xsl:apply-templates select="title|body">
+    <xsl:with-param name="data_url" select="$data_url"/>
+    <xsl:with-param name="separator" select="$separator"/>
+   </xsl:apply-templates>
+   <xsl:if test="boolean(item)">
+    <ul class="dict" style="list-style-type:{$type};">
+     <xsl:apply-templates select="item">
+      <xsl:with-param name="data_url" select="$data_url"/>
+      <xsl:with-param name="separator" select="$separator"/>
+      <xsl:with-param name="type" select="$type"/>
+     </xsl:apply-templates>
+    </ul>
+   </xsl:if>
+  </li>
+ </xsl:template>
+
+ <xsl:template match="dict//item/title[1]">
   <xsl:param name="data_url"/>
   <xsl:param name="separator"/>
   <span class="title">
@@ -116,7 +152,7 @@
   </span>
  </xsl:template>
 
- <xsl:template match="dict/item/body">
+ <xsl:template match="dict//item/body">
   <xsl:param name="data_url"/>
   <div class="body">
    <xsl:apply-templates>
