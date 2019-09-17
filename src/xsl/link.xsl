@@ -142,6 +142,8 @@
      <xsl:with-param name="page_index" select="$page_index"/>
     </xsl:call-template>
    </xsl:when>
+   <xsl:when test="$element_name = 'xslbook'">
+   </xsl:when>
    <xsl:otherwise>
     <xsl:call-template name="book:get_chapter_index">
      <xsl:with-param name="data_url" select="$data_url"/>
