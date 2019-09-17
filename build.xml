@@ -124,11 +124,11 @@
  </target>
 
 
- <property name="dir.tomcat" location="${dir.build.bin}/apache-tomcat-9.0.16"/>
+ <property name="dir.tomcat" location="${dir.build.bin}/apache-tomcat-9.0.24"/>
 
  <target name="get-tomcat">
-  <property name="url" value="http://ftp.jaist.ac.jp/pub/apache/tomcat/tomcat-9/v9.0.16/bin/apache-tomcat-9.0.16.zip"/>
-  <property name="zip" location="${dir.build.dl}/apache-tomcat-9.0.16.zip"/>
+  <property name="url" value="https://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.24/bin/apache-tomcat-9.0.24.zip"/>
+  <property name="zip" location="${dir.build.dl}/apache-tomcat-9.0.24.zip"/>
   <property name="dir.unzip" location="${dir.build.bin}"/>
   <get src="${url}" dest="${zip}"/>
   <unzip src="${zip}" dest="${dir.unzip}"/>
