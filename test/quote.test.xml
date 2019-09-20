@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="res/xslbook.xsl"?>
+
+<xslbook>
+ <title>Quote</title>
+
+ <chapter>
+  <title>Quote with no title </title>
+  <body>
+   <quote>
+    <body>
+This is a quoted text.
+This is a quoted text.
+This is a quoted text.
+This is a quoted text.
+This is a quoted text.
+    </body>
+   </quote>
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Quote with title</title>
+  <body>
+   <quote>
+    <body>
+This is a quoted message.
+This is a quoted message.
+This is a quoted message.
+This is a quoted message.
+This is a quoted message.
+    </body>
+    <source>by Someone</source>
+   </quote>
+  </body>
+ </chapter>
+</xslbook>

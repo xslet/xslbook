@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 14px; }
 
@@ -251,6 +252,18 @@ p {
   padding: 0rem;
   line-height: 1.5rem; }
 
+code {
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  color: #68a;
+  background-color: #eee;
+  padding: 0px 2px;
+  font-family: monospace; }
+
+span.bar, span.dots {
+  letter-spacing: -0.3px;
+  padding: 0px 0.15px; }
+
 ul.list, ul.dict {
   margin: 0px;
   padding: 0px 0px 0px 2rem;
@@ -315,3 +328,18 @@ li.item > ul.dict[data-mark]:not([data-mark=""]) {
 .nolink {
   color: #a68;
   text-decoration: underline; }
+
+blockquote {
+  margin-left: 0px;
+  color: #888;
+  border-left: solid 4px #ddd;
+  padding: 0.3rem 0rem 0.3rem 1rem;
+  font-style: italic; }
+
+blockquote > div.quote-source {
+  text-align: right; }
+
+blockquote > div.quote-source > span.quote-source::before {
+  content: '────';
+  letter-spacing: -0.3px;
+  margin-right: 0.3rem; }
