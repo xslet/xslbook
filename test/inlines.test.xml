@@ -49,4 +49,25 @@
   </body>
  </chapter>
 
+ <chapter>
+  <title>Code</title>
+  <body>
+   A <code>text</code> surrounded by &lt;code&gt; tags is styled into add border and background color.
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Bar</title>
+  <body>
+   A &lt;bar&gt; tag displays <bar/> text.
+  </body>
+ </chapter>
+
+ <chapter>
+  <title>Dots</title>
+  <body>
+   A &lt;dots&gt; tag displays <dots/> text.
+  </body>
+ </chapter>
+
 </xslbook>

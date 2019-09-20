@@ -4,7 +4,7 @@
  xmlns:book="https://github.com/sttk/xslet/2019/xslbook"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
- <xsl:template match="p|br|b|i|u|sup|sub|hr">
+ <xsl:template match="p|br|b|i|u|sup|sub|hr|code">
   <xsl:param name="data_url"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="book:get_data_url">
@@ -21,6 +21,14 @@
     <xsl:with-param name="data_url" select="$_data_url"/>
    </xsl:apply-templates>
   </xsl:element>
+ </xsl:template>
+
+ <xsl:template match="bar">
+  <span class="bar">──</span>
+ </xsl:template>
+
+ <xsl:template match="dots">
+  <span class="dots">････</span>
  </xsl:template>
 
 </xsl:stylesheet>
