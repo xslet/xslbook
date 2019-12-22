@@ -1,11 +1,8 @@
 {
-  "name": "xslbook",
-  "version": "0.0.0",
+  "name": "xslbook-builder",
+  "version": "0.1.0",
   "description": "xslbook build environment with Node.js",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "lint": "eslint .",
     "sass:build": "node-sass ../../src/scss/xslbook.scss ../../dist/xslbook.css",
@@ -14,17 +11,19 @@
   },
   "keywords": [
     "xslbook",
-    "css",
-    "sass",
-    "javascript",
-    "js",
+    "book",
+    "xsl",
     "xslet"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xslet/xslbook.git"
+  },
   "author": "Takayuki Sato",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^16.5.0",
-    "eslint": "^6.3.0",
+    "eslint": "^6.4.0",
     "node-sass": "^4.12.0",
     "uglify-js": "^3.6.0"
   },

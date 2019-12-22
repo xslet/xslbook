@@ -1,7 +1,8 @@
+node_modules
+
 build_aux/downloads
 build_aux/lib
 build_aux/bin
-build_aux/js/node_modules
 
 .DS_Store
 *.swp
