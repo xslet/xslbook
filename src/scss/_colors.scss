@@ -1,0 +1,7 @@
+@mixin colors($page-title: black) {
+
+  h1 {
+    color: $page-title;
+  }
+
+}

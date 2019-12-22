@@ -71,10 +71,12 @@
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
+     <!--
      <xsl:merge-source for-each-source="uri-collection($extdir)"
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
+     -->
      <xsl:merge-action>
       <xsl:copy-of select="current-merge-group()"/>
      </xsl:merge-action>

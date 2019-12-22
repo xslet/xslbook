@@ -248,7 +248,7 @@
  </target>
 
  <target name="deploy">
-  <copy todir="${dir.docs}/examples">
+  <copy todir="${dir.test}">
    <fileset dir="${dir.dist}"/>
   </copy>
   <copy todir="${dir.docs}/api/xsldoc">

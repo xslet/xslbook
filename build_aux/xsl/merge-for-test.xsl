@@ -12,7 +12,7 @@
 
  <xsl:template match="/">
   <xsl:call-template name="merge">
-   <xsl:with-param name="destfile" select="'unit.test.xsl'"/>
+   <xsl:with-param name="destfile" select="'lib/unit.test.xsl'"/>
    <xsl:with-param name="libdir" select="'../../src/xsl/lib'"/>
    <xsl:with-param name="extdir" select="'../../src/xsl/ext'"/>
   </xsl:call-template>
@@ -31,10 +31,12 @@
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
+     <!--
      <xsl:merge-source for-each-source="uri-collection($extdir)"
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
+     -->
      <xsl:merge-action>
       <xsl:copy-of select="current-merge-group()"/>
       <xsl:apply-templates select="current-merge-group()"

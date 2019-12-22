@@ -1,0 +1,33 @@
+{
+  "name": "xslbook-builder",
+  "version": "0.1.0",
+  "description": "xslbook build environment with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "sass:build": "node-sass ../../src/scss/xslbook.scss ../../dist/xslbook.css",
+    "sass:watch": "node-sass --watch ../../src/scss/xslbook.scss ../../dist/xslbook.css",
+    "js:build": "browserify index.js --standalone xslet -o ../../dist/xslbook.js && cd ../../dist && uglifyjs xslbook.js --compress --mangle -o xslbook.min.js --source-map url=xslbook.min.js.map"
+  },
+  "keywords": [
+    "xslbook",
+    "book",
+    "xsl",
+    "xslet"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xslet/xslbook.git"
+  },
+  "author": "Takayuki Sato",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "eslint": "^6.4.0",
+    "node-sass": "^4.12.0",
+    "uglify-js": "^3.6.0"
+  },
+  "dependencies": {
+    "@xslet/platform": "^0.2.1"
+  }
+}

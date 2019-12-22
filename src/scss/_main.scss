@@ -1,0 +1,40 @@
+@mixin page-style(
+    $font-family,
+    $font-size,
+    $text-color,
+    $sheet-color,
+    $sheet-padding,
+    $sheet-border: '',
+    $sheet-shadow: '',
+    $bg-color: '',
+    $bg-margin: 0rem) {
+
+  html {
+    font-size: $font-size;
+  }
+
+  body {
+    font-family: $font-family;
+    color: $text-color;
+    margin: $bg-margin;
+    padding: 0rem;
+
+    @if $bg-color != '' {
+      background-color: $bg-color;
+    }
+  }
+  
+  main {
+    background-color: $sheet-color;
+    margin: 0rem;
+    padding: $sheet-padding;
+
+    @if $sheet-border != '' {
+      border: $sheet-border;
+    }
+
+    @if $sheet-shadow != '' {
+      box-shadow: $sheet-shadow;
+    }
+  }
+}

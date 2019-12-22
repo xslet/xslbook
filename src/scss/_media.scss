@@ -1,0 +1,50 @@
+$font-family: Helvetica, arial, sans-serif;
+$sheet-color: white;
+$sheet-padding: 2rem 4rem 3rem;
+
+@media screen {
+  $font-size: 14px;
+  $text-color: #333;
+  $sheet-border: solid 1px #ccc;
+  $sheet-shadow: 0.4rem 0.44rem 0.3rem rgba(112, 112, 112, 1.0);
+  $bg-color: #ddd;
+  $bg-margin: 0rem 2rem 2rem;
+  $title-color: #27a;
+
+  @include page-style(
+    $font-family,
+    $font-size,
+    $text-color,
+    $sheet-color,
+    $sheet-padding,
+    $sheet-border,
+    $sheet-shadow,
+    $bg-color,
+    $bg-margin);
+
+  @include colors(
+    $title-color);
+
+  main {
+    min-height: calc(100vh - 2rem - 2rem - 2rem);
+  }
+}
+
+@media print {
+  @page {
+    size: portrait;
+    margin: 0;
+  }
+
+  $font-size: 4mm;
+  $text-color: black;
+
+  @include page-style(
+    $font-family,
+    $font-size,
+    $text-color,
+    $sheet-color,
+    $sheet-padding);
+
+  @include colors();
+}
