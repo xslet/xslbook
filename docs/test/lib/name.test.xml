@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="name" xmlns:ns="aaa.bbb.ccc">
+
+ <assert-equal case="Get a name of an element by an absolute path">
+  <result><name of="//Aaa/Bbb/Ccc"/></result>
+  <expect>Ccc</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a name of an element by an absolute path">
+  <result><name of="//Aaa[2]/Bbb/Ccc[3]"/></result>
+  <expect>Ccc</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a name of an element by a relative path">
+  <result><name of="Sss/Ttt">
+   <Sss>
+    <Ttt>987</Ttt>
+    <Ttt>654</Ttt>
+    <Ttt>321</Ttt>
+   </Sss>
+  </name></result>
+  <expect>Ttt</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a name of an elements by a relative path including '..'">
+  <result><name of="../../Sss/Ttt"/></result>
+  <expect>Ttt</expect>
+  <Sss>
+   <Ttt>111</Ttt>
+   <Ttt>222</Ttt>
+  </Sss>
+ </assert-equal>
+
+ <assert-equal case="Get only a local name when using a namespace">
+  <result><name of="ns:Mmm/ns:Nnn">
+   <ns:Mmm>
+    <ns:Nnn>111</ns:Nnn>
+    <ns:Nnn>222</ns:Nnn>
+   </ns:Mmm>
+  </name></result>
+  <expect>Nnn</expect>
+ </assert-equal>
+
+ <assert-equal case="Prefix and suffix">
+  <result><name of="//Aaa/Bbb/Ccc" prefix="(" suffix=")"/></result>
+  <expect>(Ccc)</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>123</Ccc>
+   <Ccc>456</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>789</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>135</Ccc>
+   <Ccc>792</Ccc>
+   <Ccc>468</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>

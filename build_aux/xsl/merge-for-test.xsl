@@ -12,7 +12,7 @@
 
  <xsl:template match="/">
   <xsl:call-template name="merge">
-   <xsl:with-param name="destfile" select="'lib/unit.test.xsl'"/>
+   <xsl:with-param name="destfile" select="'unit.test.xsl'"/>
    <xsl:with-param name="libdir" select="'../../src/xsl/lib'"/>
    <xsl:with-param name="extdir" select="'../../src/xsl/ext'"/>
   </xsl:call-template>
@@ -26,23 +26,23 @@
   <xsl:result-document href="{$destfile}">
    <xsx:stylesheet version="1.0">
 
+    <!--
     <xsl:merge>
      <xsl:merge-source for-each-source="uri-collection($libdir)"
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
-     <!--
      <xsl:merge-source for-each-source="uri-collection($extdir)"
        select="xsl:stylesheet/xsl:import">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
-     -->
      <xsl:merge-action>
       <xsl:copy-of select="current-merge-group()"/>
       <xsl:apply-templates select="current-merge-group()"
         mode="create-matchable-template"/>
      </xsl:merge-action>
     </xsl:merge>
+    -->
 
     <xsl:merge>
      <xsl:merge-source for-each-source="uri-collection($libdir)"
@@ -55,8 +55,10 @@
      </xsl:merge-source>
      <xsl:merge-action>
       <xsl:copy-of select="current-merge-group()"/>
+      <!--
       <xsl:apply-templates select="current-merge-group()"
         mode="create-matchable-template"/>
+      -->
      </xsl:merge-action>
     </xsl:merge>
 
@@ -72,9 +74,34 @@
       <xsl:merge-key select="mode"/>
      </xsl:merge-source>
      <xsl:merge-action>
-      <xsl:copy-of select="current-merge-group()"/>
+      <xsl:for-each select="current-merge-group()">
+       <xsl:choose>
+        <xsl:when test="boolean(@name)">
+         <xsx:template name="{@name}">
+          <xsl:if test="boolean(@mode)">
+           <xsl:attribute name="mode">
+            <xsl:value-of select="@mode"/>
+           </xsl:attribute>
+          </xsl:if>
+          <xsl:apply-templates select="*|text()"/>
+         </xsx:template>
+        </xsl:when>
+        <xsl:when test="boolean(@match)">
+         <xsx:template match="{@match}">
+          <xsl:if test="boolean(@mode)">
+           <xsl:attribute name="mode">
+            <xsl:value-of select="@mode"/>
+           </xsl:attribute>
+          </xsl:if>
+          <xsl:apply-templates select="*|text()"/>
+         </xsx:template>
+        </xsl:when>
+       </xsl:choose>
+      </xsl:for-each>
+      <!--
       <xsl:apply-templates select="current-merge-group()"
         mode="create-matchable-template"/>
+      -->
      </xsl:merge-action>
     </xsl:merge>
 
@@ -87,9 +114,47 @@
       <body>
        <h2><xsx:value-of select="@title"/></h2>
        <hr/>
-       <xsx:apply-templates select="*"/>
+       <xsx:apply-templates select="assert-equal"/>
       </body>
      </html>
+    </xsx:template>
+
+    <xsx:template match="assert-equal">
+     <xsx:variable name="_data_url" select="@data-src"/>
+     <xsx:variable name="_result">
+      <xsx:apply-templates select="result">
+       <xsx:with-param name="data_url" select="$_data_url"/>
+      </xsx:apply-templates>
+     </xsx:variable>
+     <xsx:variable name="_expect">
+      <xsx:apply-templates select="expect"/>
+     </xsx:variable>
+     <div><code>
+      <div style="font-weight: bold">
+       <xsx:value-of select="@case"/>
+       <xsl:text> … </xsl:text>
+       <xsx:choose>
+        <xsx:when test="$_result = $_expect">
+         <span style="color:#0d0">PASS</span>
+        </xsx:when>
+        <xsx:otherwise>
+         <span style="color:#d00">FAIL</span>
+         <style>h2 { background-color: #f00 }</style>
+        </xsx:otherwise>
+       </xsx:choose>
+      </div>
+      <div style="padding-left: 1rem">
+       <xsl:text>- Expect[</xsl:text>
+       <xsx:value-of select="$_expect"/>
+       <xsl:text>]</xsl:text>
+      </div>
+      <div style="padding-left: 1rem">
+       <xsl:text>- Result[</xsl:text>
+       <xsx:value-of select="$_result"/>
+       <xsl:text>]</xsl:text>
+      </div>
+     </code></div>
+     <hr/>
     </xsx:template>
 
    </xsx:stylesheet>
@@ -97,6 +162,7 @@
   </xsl:result-document>
  </xsl:template>
 
+ <!--
  <xsl:template match="xsl:param" mode="create-matchable-template">
   <xsx:template match="assert-not-empty[@name='{@name}']">
   </xsx:template>
@@ -235,5 +301,13 @@
    <hr/>
   </xsx:template>
  </xsl:template>
+ -->
+
+ <xsl:template match="*|text()|@*">
+  <xsl:copy>
+   <xsl:apply-templates select="*|text()|@*"/>
+  </xsl:copy>
+ </xsl:template>
+
 
 </xsl:stylesheet>

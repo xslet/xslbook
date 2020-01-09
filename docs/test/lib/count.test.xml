@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="count">
+
+ <assert-equal case="Count elements by an absolute path">
+  <result><count of="//Aaa/Bbb/Ccc"/></result>
+  <expect>6</expect>
+ </assert-equal>
+
+ <assert-equal case="Count elements by a relative path">
+  <result><count of="Sss/Ttt">
+   <Sss>
+    <Ttt>123</Ttt>
+    <Ttt>456</Ttt>
+    <Ttt>789</Ttt>
+   </Sss>
+  </count></result>
+  <expect>3</expect>
+ </assert-equal>
+
+ <assert-equal case="Count elements by a relative path including '..'">
+  <result><count of="../../Sss/Ttt"/></result>
+  <expect>2</expect>
+  <Sss>
+   <Ttt>123</Ttt>
+   <Ttt>456</Ttt>
+  </Sss>
+ </assert-equal>
+
+ <assert-equal case="Prefix and suffix">
+  <result><count of="//Aaa/Bbb/Ccc" prefix="(" suffix=")"/></result>
+  <expect>(6)</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Abc1</Ccc>
+   <Ccc>Abc2</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>Abc3</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>Abc4</Ccc>
+   <Ccc>Abc5</Ccc>
+   <Ccc>Abc6</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="number">
+
+ <assert-equal case="Get a number value of an element by an absolute path">
+  <result><number of="//Aaa/Bbb/Ccc"/></result>
+  <expect>123</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a number value of an element by an absolute path">
+  <result><number of="//Aaa[2]/Bbb/Ccc[3]"/></result>
+  <expect>468</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a number value of an element by a relative path">
+  <result><number of="Sss/Ttt">
+   <Sss>
+    <Ttt>987</Ttt>
+    <Ttt>654</Ttt>
+    <Ttt>321</Ttt>
+   </Sss>
+  </number></result>
+  <expect>987</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a number value of an elements by a relative path including '..'">
+  <result><number of="../../Sss/Ttt"/></result>
+  <expect>111</expect>
+  <Sss>
+   <Ttt>111</Ttt>
+   <Ttt>222</Ttt>
+  </Sss>
+ </assert-equal>
+
+ <assert-equal case="Get an 'NaN' when the value is NaN">
+  <result><number of="../../Sss/Ttt"/></result>
+  <expect>NaN</expect>
+  <Sss>
+   <Ttt>ABC</Ttt>
+  </Sss>
+ </assert-equal>
+
+ <assert-equal case="Prefix and suffix">
+  <result><number of="//Aaa/Bbb/Ccc" prefix="(" suffix=")"/></result>
+  <expect>(123)</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>123</Ccc>
+   <Ccc>456</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>789</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>135</Ccc>
+   <Ccc>792</Ccc>
+   <Ccc>468</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>

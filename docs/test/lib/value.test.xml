@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="value">
+
+ <assert-equal case="Get a value of an element by an absolute path">
+  <result><value of="//Aaa/Bbb/Ccc"/></result>
+  <expect>A1b</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a value of an element by an absolute path">
+  <result><value of="//Aaa[2]/Bbb/Ccc[3]"/></result>
+  <expect>A6b</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a value of an element by a relative path">
+  <result><value of="Sss/Ttt">
+   <Sss>
+    <Ttt>123</Ttt>
+    <Ttt>456</Ttt>
+    <Ttt>789</Ttt>
+   </Sss>
+  </value></result>
+  <expect>123</expect>
+ </assert-equal>
+
+ <assert-equal case="Get a value of an elements by a relative path including '..'">
+  <result><value of="../../Sss/Ttt"/></result>
+  <expect>III</expect>
+  <Sss>
+   <Ttt>III</Ttt>
+   <Ttt>JJJ</Ttt>
+  </Sss>
+ </assert-equal>
+
+ <assert-equal case="Prefix and suffix">
+  <result><value of="//Aaa/Bbb/Ccc" prefix="(" suffix=")"/></result>
+  <expect>(A1b)</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>A1b<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>A2b<Ddd>cd</Ddd>2</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>A3b<Ddd>cd</Ddd>3</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>A4b<Ddd>cd</Ddd>4</Ccc>
+   <Ccc>A5b<Ddd>cd</Ddd>5</Ccc>
+   <Ccc>A6b<Ddd>cd</Ddd>6</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>

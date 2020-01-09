@@ -73,6 +73,7 @@
 
    <xsx:stylesheet version="1.0">
 
+    <!--
     <xsl:merge>
      <xsl:merge-source for-each-source="uri-collection($srcdir)"
        select="xsl:stylesheet/xsl:import|xsl:stylesheet/comment()[following-sibling::*[1]/name() = 'xsl:import']">
@@ -82,16 +83,15 @@
        select="xsl:stylesheet/xsl:import|xsl:stylesheet/comment()[following-sibling::*[1]/name() = 'xsl:import']">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
-     <!--
      <xsl:merge-source for-each-source="uri-collection($extdir)"
        select="xsl:stylesheet/xsl:import|xsl:stylesheet/comment()[following-sibling::*[1]/name() = 'xsl:import']">
       <xsl:merge-key select="href"/>
      </xsl:merge-source>
-     -->
      <xsl:merge-action>
       <xsl:copy-of select="current-merge-group()"/>
      </xsl:merge-action>
     </xsl:merge>
+    -->
 
     <xsl:merge>
      <xsl:merge-source for-each-source="uri-collection($srcdir)"
