@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="for">
+
+ <assert-equal case="Get each content of elements by an absolute path">
+  <result><for each="//Aaa/Bbb">
+   <content of="Ccc"/>
+  </for></result>
+  <expect>Abcd1Abcd3Abcd4</expect>
+ </assert-equal>
+
+ <assert-equal case="Get each content of elements by an absolute path">
+  <result><for each="//Aaa[2]/Bbb/Ccc">
+   <content of="."/>
+  </for></result>
+  <expect>Abcd4Abcd5Abcd6</expect>
+ </assert-equal>
+
+ <assert-equal case="Get each content of elements by a relative path">
+  <result><for each="../../Sss/Ttt">
+   <content of="."/>
+  </for></result>
+  <Sss>
+   <Ttt>123</Ttt>
+   <Ttt>456</Ttt>
+   <Ttt>789</Ttt>
+  </Sss>
+  <expect>123456789</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>3</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>4</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>5</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>6</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>
