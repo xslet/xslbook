@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book>
+ <title>Page Title</title>
+ <title><value of="//DataSource/Page/Title"/></title>
+ <title><value of="/doc/name" data-src="data.xml"/></title>
+
+ <for each="//DataSource/Page">
+  <title><content of="Title" prefix="**" suffix="**"/></title>
+ </for>
+
+ <DataSource>
+  <Page>
+   <Title>Page Title From Data Source</Title>
+  </Page>
+ </DataSource>
+</book>
