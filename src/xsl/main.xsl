@@ -50,7 +50,9 @@
        <xsl:with-param name="arg0">h1</xsl:with-param>
       </xsl:apply-templates>
       <div class="body">
-       <xsl:apply-templates select="body"/>
+       <xsl:apply-templates select="body">
+        <xsl:with-param name="allow_text_node" select="$ut:true"/>
+       </xsl:apply-templates>
       </div>
      </article>
      <footer>
@@ -108,6 +110,35 @@
     </xsl:apply-templates>
    </xsl:otherwise>
   </xsl:choose>
+ </xsl:template>
+
+ <xsl:template match="body">
+  <xsl:param name="data_url"/>
+  <xsl:param name="data_gid"/>
+  <xsl:param name="allow"/>
+  <xsl:param name="allow_text_node"/>
+  <xsl:param name="arg0"/>
+  <xsl:param name="arg1"/>
+  <xsl:param name="arg2"/>
+  <xsl:variable name="_data_url">
+   <xsl:call-template name="bk:get_data_url">
+    <xsl:with-param name="data_url" select="$data_url"/>
+   </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="_data_gid">
+   <xsl:call-template name="bk:get_data_gid">
+    <xsl:with-param name="data_gid" select="$data_gid"/>
+   </xsl:call-template>
+  </xsl:variable>
+  <xsl:apply-templates>
+   <xsl:with-param name="data_url" select="$_data_url"/>
+   <xsl:with-param name="data_gid" select="$_data_gid"/>
+   <xsl:with-param name="allow" select="$allow"/>
+   <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
+   <xsl:with-param name="arg0" select="$arg0"/>
+   <xsl:with-param name="arg1" select="$arg1"/>
+   <xsl:with-param name="arg2" select="$arg2"/>
+  </xsl:apply-templates>
  </xsl:template>
 
 </xsl:stylesheet>

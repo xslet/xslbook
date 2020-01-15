@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book>
+
+ <title>Elements same with HTML</title>
+
+ <body>
+  <p>A paragraph.</p>
+
+  <b>Bold</b>
+
+  <i>Italic</i>
+
+  <u>Underline</u>
+
+  <s>Strike</s>
+
+  (Break line)<br/>
+
+  <code>Code-text</code>
+
+  <q>Quoted</q>
+
+  <sup>Super-script</sup>
+
+  <sub>Sub-script</sub>
+
+  (horizontal line)<hr/>
+
+  <p><content of="//DataSource/Aaa/Bbb"/></p>
+  <b><content of="//DataSource/Aaa/Bbb"/></b>
+  <i><content of="//DataSource/Aaa/Bbb"/></i>
+  <u><content of="//DataSource/Aaa/Bbb"/></u>
+  <s><content of="//DataSource/Aaa/Bbb"/></s>
+  <br/>
+  <code><content of="//DataSource/Aaa/Bbb"/></code>
+  <q><content of="//DataSource/Aaa/Bbb"/></q>
+  <sup><content of="//DataSource/Aaa/Bbb"/></sup>
+  <sub><content of="//DataSource/Aaa/Bbb"/></sub>
+
+  <hr/>
+
+  <for each="//DataSource/Aaa">
+   <p><content of="Bbb"/></p>
+   <b><content of="Bbb"/></b>
+   <i><content of="Bbb"/></i>
+   <u><content of="Bbb"/></u>
+   <s><content of="Bbb"/></s>
+   <br/>
+   <code><content of="Bbb"/></code>
+   <q><content of="Bbb"/></q>
+   <sup><content of="Bbb"/></sup>
+   <sub><content of="Bbb"/></sub>
+   <hr/>
+  </for>
+
+ </body>
+
+ <DataSource>
+  <Aaa>
+   <Bbb>Hello</Bbb>
+  </Aaa>
+  <Aaa>
+   <Bbb>World</Bbb>
+  </Aaa>
+ </DataSource>
+</book>
