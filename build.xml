@@ -11,7 +11,7 @@
  <property name="dep.saxon.version" value="9-9-1-5J"/>
  <property name="dep.tomcat.version" value="9.0.27"/>
  <property name="dep.xslutil.version" value="0.1.1"/>
- <property name="dep.xsldo.version" value="0.2.2"/>
+ <property name="dep.xsldo.version" value="0.2.4"/>
  <property name="dep.xsldoc.version" value="0.1.1"/>
 
  <property name="dir.src"   location="${basedir}/src"/>
