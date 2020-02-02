@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book>
+ <css href="a.css"/>
+ <css rpath="css_and_js/b.css"/>
+
+ <title>Use other CSS files</title>
+
+ <body>
+  <p class="style-by-href-css">Paragraph.</p>
+  <p class="style-by-rpath-css">Paragraph.</p>
+ </body>
+</book>

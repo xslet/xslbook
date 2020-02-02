@@ -19,7 +19,8 @@
  </xsl:param>
 
  <!--**
-   The topmost element of xslbook document.
+  The topmost element of xslbook document.
+  `book` element is the legitimate element. `xslbook` is remained for old xslbook documents.
  -->
  <xsl:template match="/book|/xslbook">
   <xsl:variable name="_data_url">
@@ -33,11 +34,14 @@
     <title>
      <xsl:apply-templates select="title">
       <xsl:with-param name="data_url" select="$_data_url"/>
-      <xsl:with-param name="allow">|title|fo|if|case|</xsl:with-param>
+      <xsl:with-param name="allow">|title|for|if|case|</xsl:with-param>
+      <xsl:with-param name="allow_text_node"/>
      </xsl:apply-templates>
     </title>
     <xsl:call-template name="bk:_load_default_script"/>
+    <xsl:apply-templates select="script"/>
     <xsl:call-template name="bk:_load_default_css"/>
+    <xsl:apply-templates select="css"/>
    </head>
    <body>
     <main>
@@ -47,11 +51,12 @@
       <xsl:apply-templates select="title|for|if|case">
        <xsl:with-param name="data_url" select="$_data_url"/>
        <xsl:with-param name="allow">|title|for|if|case|</xsl:with-param>
+       <xsl:with-param name="allow_text_node"/>
        <xsl:with-param name="arg0">h1</xsl:with-param>
       </xsl:apply-templates>
       <div class="body">
        <xsl:apply-templates select="body">
-        <xsl:with-param name="allow_text_node" select="$ut:true"/>
+        <xsl:with-param name="data_url" select="$_data_url"/>
        </xsl:apply-templates>
       </div>
      </article>
@@ -67,14 +72,17 @@
  </xsl:template>
 
  <xsl:template name="bk:_load_default_css">
-  <xsl:if test="not(boolean(css))">
-   <link rel="stylesheet" href="{concat($bk:xsl_dir, '/xslbook.css')}"/>
-  </xsl:if>
+  <link rel="stylesheet" href="{concat($bk:xsl_dir, '/xslbook.css')}"/>
  </xsl:template>
 
+ <!--
+  The element to print titles of page, chapter, section, etc.
+  `arg0` is used for a element's tag name which encloses a title text if it is needed.
+ -->
  <xsl:template match="title">
   <xsl:param name="data_url"/>
   <xsl:param name="data_gid"/>
+  <xsl:param name="allow"/>
   <xsl:param name="arg0"/><!-- Tag Name -->
   <xsl:param name="arg1"/>
   <xsl:param name="arg2"/>
@@ -94,7 +102,7 @@
      <xsl:apply-templates>
       <xsl:with-param name="data_url" select="$_data_url"/>
       <xsl:with-param name="data_gid" select="$_data_gid"/>
-      <xsl:with-param name="arg0" select="''"/>
+      <xsl:with-param name="arg0"/>
       <xsl:with-param name="arg1" select="$arg1"/>
       <xsl:with-param name="arg2" select="$arg2"/>
      </xsl:apply-templates>
@@ -104,7 +112,7 @@
     <xsl:apply-templates>
      <xsl:with-param name="data_url" select="$_data_url"/>
      <xsl:with-param name="data_gid" select="$_data_gid"/>
-     <xsl:with-param name="arg0" select="''"/>
+     <xsl:with-param name="arg0"/>
      <xsl:with-param name="arg1" select="$arg1"/>
      <xsl:with-param name="arg2" select="$arg2"/>
     </xsl:apply-templates>
@@ -112,6 +120,9 @@
   </xsl:choose>
  </xsl:template>
 
+ <!--**
+  The element to print contents of page, chapter, section, etc.
+ -->
  <xsl:template match="body">
   <xsl:param name="data_url"/>
   <xsl:param name="data_gid"/>
@@ -139,6 +150,28 @@
    <xsl:with-param name="arg1" select="$arg1"/>
    <xsl:with-param name="arg2" select="$arg2"/>
   </xsl:apply-templates>
+ </xsl:template>
+
+ <xsl:template match="/book/script|/xslbook/script">
+  <xsl:choose>
+   <xsl:when test="boolean(@href)">
+    <script src="{@href}"></script>
+   </xsl:when>
+   <xsl:when test="boolean(@rpath)">
+    <script src="{concat($bk:xsl_dir, '/', @rpath)}"></script>
+   </xsl:when>
+  </xsl:choose>
+ </xsl:template>
+
+ <xsl:template match="/book/css|/xslbook/css">
+  <xsl:choose>
+   <xsl:when test="boolean(@href)">
+    <link rel="stylesheet" href="{@href}"/>
+   </xsl:when>
+   <xsl:when test="boolean(@rpath)">
+    <link rel="stylesheet" href="{concat($bk:xsl_dir, '/', @rpath)}"/>
+   </xsl:when>
+  </xsl:choose>
  </xsl:template>
 
 </xsl:stylesheet>

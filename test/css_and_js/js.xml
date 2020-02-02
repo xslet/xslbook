@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book>
+ <script href="c.js"/>
+ <script rpath="css_and_js/d.js"/>
+
+ <title>Use other JavaScript files</title>
+
+ <body>
+  <p class="style-by-href-js">Hello!</p>
+  <p class="style-by-rpath-js">World!</p>
+ </body>
+</book>
