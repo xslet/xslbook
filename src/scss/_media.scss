@@ -8,7 +8,7 @@ $sheet-padding: 2rem 4rem 3rem;
   $sheet-border: solid 1px #ccc;
   $sheet-shadow: 0.4rem 0.44rem 0.3rem rgba(112, 112, 112, 1.0);
   $bg-color: #ddd;
-  $bg-margin: 0rem 2rem 2rem;
+  $bg-margin: 0rem 2rem 1rem;
   $title-color: #27a;
 
   @include page-style(
@@ -26,7 +26,7 @@ $sheet-padding: 2rem 4rem 3rem;
     $title-color);
 
   main {
-    min-height: calc(100vh - 2rem - 2rem - 2rem);
+    min-height: calc(100vh - 2rem - 2rem - 2rem - 2px);
   }
 }
 

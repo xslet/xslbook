@@ -18,7 +18,7 @@ code {
   body {
     font-family: Helvetica, arial, sans-serif;
     color: #333;
-    margin: 0rem 2rem 2rem;
+    margin: 0rem 2rem 1rem;
     padding: 0rem;
     background-color: #ddd; }
   main {
@@ -30,7 +30,7 @@ code {
   h1 {
     color: #27a; }
   main {
-    min-height: calc(100vh - 2rem - 2rem - 2rem); } }
+    min-height: calc(100vh - 2rem - 2rem - 2rem - 2px); } }
 
 @media print {
   @page {
