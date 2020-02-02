@@ -7,8 +7,9 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
  <!--**
-   Loops for each node at a specified path.
+   Loops for each node at a specified path or specified times.
    The path is specfied with `each` attribute.
+   The times is specified with `times` attribute.
  -->
  <xsl:template match="for">
   <!--** An URL of external data file. -->
@@ -44,17 +45,41 @@
     <xsl:with-param name="data_gid" select="$_data_gid"/>
    </xsl:call-template>
   </xsl:variable>
-  <xsl:call-template name="do:for_by_path">
-   <xsl:with-param name="path" select="$_path"/>
-   <xsl:with-param name="data_url" select="$_data_url"/>
-   <xsl:with-param name="data_gid" select="$_data_gid"/>
-   <xsl:with-param name="allow" select="$allow"/>
-   <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
-   <xsl:with-param name="deny" select="'|attr|'"/>
-   <xsl:with-param name="arg0" select="$arg0"/>
-   <xsl:with-param name="arg1" select="$arg1"/>
-   <xsl:with-param name="arg2" select="$arg2"/>
-  </xsl:call-template>
+  <xsl:variable name="_times">
+   <xsl:call-template name="bk:get_attribute">
+    <xsl:with-param name="name">times</xsl:with-param>
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+   </xsl:call-template>
+  </xsl:variable>
+  <xsl:choose>
+   <xsl:when test="string-length($_times) != 0">
+    <xsl:call-template name="do:for_times">
+     <xsl:with-param name="times" select="$_times"/>
+     <xsl:with-param name="data_url" select="$_data_url"/>
+     <xsl:with-param name="data_gid" select="$_data_gid"/>
+     <xsl:with-param name="allow" select="$allow"/>
+     <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
+     <xsl:with-param name="deny" select="'|attr|'"/>
+     <xsl:with-param name="arg0" select="$arg0"/>
+     <xsl:with-param name="arg1" select="$arg1"/>
+     <xsl:with-param name="arg2" select="$arg2"/>
+    </xsl:call-template>
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:call-template name="do:for_by_path">
+     <xsl:with-param name="path" select="$_path"/>
+     <xsl:with-param name="data_url" select="$_data_url"/>
+     <xsl:with-param name="data_gid" select="$_data_gid"/>
+     <xsl:with-param name="allow" select="$allow"/>
+     <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
+     <xsl:with-param name="deny" select="'|attr|'"/>
+     <xsl:with-param name="arg0" select="$arg0"/>
+     <xsl:with-param name="arg1" select="$arg1"/>
+     <xsl:with-param name="arg2" select="$arg2"/>
+    </xsl:call-template>
+   </xsl:otherwise>
+  </xsl:choose>
  </xsl:template>
 
 </xsl:stylesheet>

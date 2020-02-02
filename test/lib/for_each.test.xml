@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
-<unit-test title="for">
+<unit-test title="for @each">
 
  <assert-equal case="Get each content of elements by an absolute path">
   <result><for each="//Aaa/Bbb">

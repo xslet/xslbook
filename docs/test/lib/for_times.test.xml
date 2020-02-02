@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="for @times">
+
+ <assert-equal case="Repeat 3 times by @times attribute">
+  <result><for times="3"><content of="//Aaa/Bbb/Ccc"/></for></result>
+  <expect>Abcd1Abcd1Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="Repeat 3 times by `attr` element">
+  <result><for><attr name="times">3</attr><content of="//Aaa/Bbb/Ccc"/></for></result>
+  <expect>Abcd1Abcd1Abcd1</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+  </Bbb>
+ </Aaa>
+</unit-test>
