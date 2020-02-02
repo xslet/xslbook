@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book>
+ <title>Bar and dots.</title>
+
+ <body>
+  <p>This is a bar.<bar/>This is a bar.<bar/></p>
+  <p>This is a dots.<dots/>This is a dots.<dots/></p>
+ </body>
+</book>
