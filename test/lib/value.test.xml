@@ -37,6 +37,15 @@
   <expect>(A1b)</expect>
  </assert-equal>
 
+ <assert-equal case="Attribute by `attr` element">
+  <result><value>
+   <attr name="of">//Aaa/Bbb/Ccc</attr>
+   <attr name="prefix">(</attr>
+   <attr name="suffix">)</attr>
+  </value></result>
+  <expect>(A1b)</expect>
+ </assert-equal>
+
  <Aaa>
   <Bbb>
    <Ccc>A1b<Ddd>cd</Ddd>1</Ccc>

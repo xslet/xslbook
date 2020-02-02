@@ -32,6 +32,15 @@
   <expect>(6)</expect>
  </assert-equal>
 
+ <assert-equal case="Attribute by `attr` element">
+  <result><count>
+   <attr name="of">//Aaa/Bbb/Ccc</attr>
+   <attr name="prefix">(</attr>
+   <attr name="suffix">)</attr>
+  </count></result>
+  <expect>(6)</expect>
+ </assert-equal>
+
  <Aaa>
   <Bbb>
    <Ccc>Abc1</Ccc>

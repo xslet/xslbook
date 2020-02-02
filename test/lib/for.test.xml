@@ -28,6 +28,14 @@
   <expect>123456789</expect>
  </assert-equal>
 
+ <assert-equal case="Attribute by `attr` element">
+  <result><for>
+   <attr name="each">//Aaa/Bbb</attr>
+   <content of="Ccc" prefix="[" suffix="]"/>
+  </for></result>
+  <expect>[Abcd1][Abcd3][Abcd4]</expect>
+ </assert-equal>
+
  <Aaa>
   <Bbb>
    <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>

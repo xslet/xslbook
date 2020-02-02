@@ -26,13 +26,34 @@
     <xsl:with-param name="data_gid" select="$data_gid"/>
    </xsl:call-template>
   </xsl:variable>
+  <xsl:variable name="_path">
+   <xsl:call-template name="bk:get_attribute">
+    <xsl:with-param name="name">of</xsl:with-param>
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+   </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="_prefix">
+   <xsl:call-template name="bk:get_attribute">
+    <xsl:with-param name="name">prefix</xsl:with-param>
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+   </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="_suffix">
+   <xsl:call-template name="bk:get_attribute">
+    <xsl:with-param name="name">suffix</xsl:with-param>
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+   </xsl:call-template>
+  </xsl:variable>
   <xsl:call-template name="do:first_object_by_path">
-   <xsl:with-param name="path" select="@of"/>
+   <xsl:with-param name="path" select="$_path"/>
    <xsl:with-param name="what">content</xsl:with-param>
    <xsl:with-param name="data_url" select="$_data_url"/>
    <xsl:with-param name="data_gid" select="$_data_gid"/>
-   <xsl:with-param name="prefix" select="@prefix"/>
-   <xsl:with-param name="suffix" select="@suffix"/>
+   <xsl:with-param name="prefix" select="$_prefix"/>
+   <xsl:with-param name="suffix" select="$_suffix"/>
   </xsl:call-template>
  </xsl:template>
 

@@ -7,18 +7,17 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
  <!--**
-   Loops for each node at a specified path.
-   The path is specfied with `each` attribute.
+  Prints a HTML element.
  -->
- <xsl:template match="for">
+ <xsl:template match="p|br|hr|b|i|u|s|code|sup|sub|q">
   <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
   <!--** A generate-id of a base node. -->
   <xsl:param name="data_gid"/>
-  <!--** Elements which are allowed to be applied. -->
-  <xsl:param name="allow"/>
-  <!--** A flag if test node is allowed. -->
-  <xsl:param name="allow_text_node"/>
+  <!--** A flag if text node is allowed. -->
+  <xsl:param name="allow_text_node" select="$ut:true"/>
+  <!--** Elements which are denied to be applied. -->
+  <xsl:param name="deny">|attr|</xsl:param>
   <!--** Any argument 0. -->
   <xsl:param name="arg0"/>
   <!--** Any argument 1. -->
@@ -35,16 +34,25 @@
     <xsl:with-param name="data_gid" select="$data_gid"/>
    </xsl:call-template>
   </xsl:variable>
-  <xsl:call-template name="do:for_by_path">
-   <xsl:with-param name="path" select="@each"/>
-   <xsl:with-param name="data_url" select="$_data_url"/>
-   <xsl:with-param name="data_gid" select="$_data_gid"/>
-   <xsl:with-param name="allow" select="$allow"/>
-   <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
-   <xsl:with-param name="arg0" select="$arg0"/>
-   <xsl:with-param name="arg1" select="$arg1"/>
-   <xsl:with-param name="arg2" select="$arg2"/>
-  </xsl:call-template>
+  <xsl:element name="{name()}">
+   <xsl:for-each select="attribute::*">
+    <xsl:attribute name="{name()}">
+     <xsl:value-of select="."/>
+    </xsl:attribute>
+   </xsl:for-each>
+   <xsl:for-each select="attr">
+    <xsl:attribute name="{@name}">
+     <xsl:apply-templates>
+      <xsl:with-param name="data_url" select="$_data_url"/>
+      <xsl:with-param name="data_gid" select="$_data_gid"/>
+     </xsl:apply-templates>
+    </xsl:attribute>
+   </xsl:for-each>
+   <xsl:apply-templates select="node()[name()!='attr']">
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+   </xsl:apply-templates>
+  </xsl:element>
  </xsl:template>
 
 </xsl:stylesheet>

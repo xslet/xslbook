@@ -37,6 +37,16 @@
   <expect>(Abcd1)</expect>
  </assert-equal>
 
+ <assert-equal case="Attribute by `attr` element">
+  <result><content>
+   <attr name="of"><value of="../../../../paths"/></attr>
+   <attr name="prefix">(</attr>
+   <attr name="suffix">)</attr>
+  </content></result>
+  <expect>(Abcd1)</expect>
+  <paths>//Aaa/Bbb/Ccc</paths>
+ </assert-equal>
+
  <Aaa>
   <Bbb>
    <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>

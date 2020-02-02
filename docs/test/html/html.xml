@@ -3,10 +3,10 @@
 
 <book>
 
- <title>Elements same with HTML</title>
+ <title>HTML elements</title>
 
  <body>
-  <p>A paragraph.</p>
+  <p>A paragraph.<br/>Another paragraph.</p>
 
   <b>Bold</b>
 
@@ -28,7 +28,7 @@
 
   (horizontal line)<hr/>
 
-  <p><content of="//DataSource/Aaa/Bbb"/></p>
+  <p><content of="//DataSource/Aaa[1]/Bbb"/><br/><content of="//DataSource/Aaa[2]/Bbb"/></p>
   <b><content of="//DataSource/Aaa/Bbb"/></b>
   <i><content of="//DataSource/Aaa/Bbb"/></i>
   <u><content of="//DataSource/Aaa/Bbb"/></u>
@@ -54,6 +54,18 @@
    <sub><content of="Bbb"/></sub>
    <hr/>
   </for>
+
+  <hr/>
+
+  <p style="background-color: cyan;">Attribute test</p>
+  <u style="background-color: yellow;">Attribute test</u>
+  <s style="background-color: magenta;">Attribute test</s>
+
+  <hr/>
+
+  <p><attr name="style">background-color: cyan;</attr>Attribute test</p>
+  <u><attr name="style">background-color: yellow;</attr>Attribute test</u>
+  <s><attr name="style">background-color: magenta;</attr>Attribute test</s>
 
  </body>
 
