@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="if @of">
+
+ <assert-equal case="The condition matches (@of and @eq)">
+  <result><if of="//Aaa/Bbb/Ccc" eq="Abcd1">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@of and @eq)">
+  <result><if of="//Aaa/Bbb/Ccc" eq="Abcd3">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of, @eq and else)">
+  <result><if of="//Aaa/Bbb/Ccc" eq="Abcd1">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+   <else><content of="//Aaa/Bbb[2]/Ccc"/></else>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@of, @eq and else)">
+  <result><if of="//Aaa/Bbb/Ccc" eq="Abcd3">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+   <else><content of="//Aaa/Bbb[2]/Ccc"/></else>
+  </if></result>
+  <expect>Abcd3</expect>
+ </assert-equal>
+
+ <assert-equal case="Use `attr` element instead of @of and @eq">
+  <result><if>
+   <attr name="of">//Aaa/Bbb/Ccc</attr>
+   <attr name="eq">Abcd1</attr>
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="Use `attr` element instead of @of and @eq">
+  <result><if>
+   <attr name="of">//Aaa/Bbb/Ccc[2]</attr>
+   <attr name="eq">Abcd1</attr>
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @ne)">
+  <result><if of="//Aaa/Bbb/Ccc" ne="Abcd1">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@of and @ne)">
+  <result><if of="//Aaa/Bbb/Ccc" ne="Abcd3">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" le="124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" le="123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" le="122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" lt="124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" lt="123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" lt="122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" ge="124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" ge="123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" ge="122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" gt="124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" gt="123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le)">
+  <result><if of="//Eee/Fff" gt="122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>3</Ccc>
+  </Bbb>
+ </Aaa>
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>4</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>5</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>6</Ccc>
+  </Bbb>
+ </Aaa>
+
+ <Eee><Fff>123</Fff></Eee>
+</unit-test>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="if @test">
+
+ <assert-equal case="The condition matches (@test)">
+  <result><if test="//Aaa/Bbb/Ccc='Abcd1'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test)">
+  <result><if test="//Aaa/Bbb/Ccc eq 'Abcd2'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test)">
+  <result><if test="//Aaa/Bbb/Ccc != 'Abcd1'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test)">
+  <result><if test="//Aaa/Bbb/Ccc ne 'Abcd2'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and else)">
+  <result><if test="//Aaa/Bbb/Ccc='Abcd1'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+   <else>
+    <content of="//Aaa/Bbb[2]/Ccc"/>
+   </else>
+  </if></result>
+  <expect>Abcd2</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and else)">
+  <result><if test="//Aaa/Bbb/Ccc = 'Abcd2'">
+   <content of="//Aaa/Bbb/Ccc[2]"/>
+   <else>
+    <content of="//Aaa/Bbb[2]/Ccc"/>
+   </else>
+  </if></result>
+  <expect>Abcd3</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not  match (@test and operator is 'eq')">
+  <result><if test="//Eee/Fff eq 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'eq')">
+  <result><if test="//Eee/Fff eq 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'eq')">
+  <result><if test="//Eee/Fff eq 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'ne')">
+  <result><if test="//Eee/Fff ne 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'ne')">
+  <result><if test="//Eee/Fff ne 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'ne')">
+  <result><if test="//Eee/Fff ne 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'le')">
+  <result><if test="//Eee/Fff le 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'le')">
+  <result><if test="//Eee/Fff le 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'le')">
+  <result><if test="//Eee/Fff le 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'lt')">
+  <result><if test="//Eee/Fff lt 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'lt')">
+  <result><if test="//Eee/Fff lt 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'lt')">
+  <result><if test="//Eee/Fff lt 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'ge')">
+  <result><if test="//Eee/Fff ge 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'ge')">
+  <result><if test="//Eee/Fff ge 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'ge')">
+  <result><if test="//Eee/Fff ge 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and operator is 'gt')">
+  <result><if test="//Eee/Fff gt 122">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'gt')">
+  <result><if test="//Eee/Fff gt 123">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <assert-equal case="The condition does not match (@test and operator is 'gt')">
+  <result><if test="//Eee/Fff gt 124">
+   <content of="//Aaa/Bbb/Ccc"/>
+  </if></result>
+  <expect></expect>
+ </assert-equal>
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+  </Bbb>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>3</Ccc>
+  </Bbb>
+ </Aaa>
+
+ <Eee><Fff>123</Fff></Eee>
+</unit-test>
