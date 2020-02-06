@@ -85,63 +85,63 @@
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @lt)">
   <result><if of="//Eee/Fff" lt="124">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect>Abcd1</expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @lt)">
   <result><if of="//Eee/Fff" lt="123">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @lt)">
   <result><if of="//Eee/Fff" lt="122">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @ge)">
   <result><if of="//Eee/Fff" ge="124">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @ge)">
   <result><if of="//Eee/Fff" ge="123">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect>Abcd1</expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @ge)">
   <result><if of="//Eee/Fff" ge="122">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect>Abcd1</expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @gt)">
   <result><if of="//Eee/Fff" gt="124">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @gt)">
   <result><if of="//Eee/Fff" gt="123">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>
   <expect></expect>
  </assert-equal>
 
- <assert-equal case="The condition matches (@of and @le)">
+ <assert-equal case="The condition matches (@of and @gt)">
   <result><if of="//Eee/Fff" gt="122">
    <content of="//Aaa/Bbb/Ccc"/>
   </if></result>

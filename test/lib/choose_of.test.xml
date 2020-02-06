@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="if @of">
+
+ <assert-equal case="The condition matches (@of and @eq and match pos=1)">
+  <result><choose of="//Aaa/Bbb/Ccc">
+   <when eq="Abcd1"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when eq="Abcd2"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when eq="Abcd3"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when eq="Abcd4"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>12</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @eq and match pos=2)">
+  <result><choose of="//Aaa/Bbb/Ccc[2]">
+   <when eq="Abcd1"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when eq="Abcd2"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when eq="Abcd3"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when eq="Abcd4"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>34</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @eq and match pos=3)">
+  <result><choose of="//Aaa/Bbb/Ccc[3]">
+   <when eq="Abcd1"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when eq="Abcd2"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when eq="Abcd3"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when eq="Abcd4"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>56</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @eq and match pos=4)">
+  <result><choose of="//Aaa/Bbb/Ccc[4]">
+   <when eq="Abcd1"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when eq="Abcd2"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when eq="Abcd3"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when eq="Abcd4"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <when eq="Abcd5"><content of="//Eee/Fff/Ggg[5]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>78</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @eq and unmatch)">
+  <result><choose of="//Aaa/Bbb/Ccc[6]">
+   <when eq="Abcd1"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when eq="Abcd2"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when eq="Abcd3"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when eq="Abcd4"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <when eq="Abcd5"><content of="//Eee/Fff/Ggg[5]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+
+ <assert-equal case="The condition matches (@of and @ne and match pos=1)">
+  <result><choose of="//Aaa/Bbb/Ccc">
+   <when ne="Abcd2"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>12</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @ne and unmatch)">
+  <result><choose of="//Aaa/Bbb/Ccc[2]">
+   <when ne="Abcd2"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+
+ <assert-equal case="The condition matches (@of and @le and match pos=1)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when le="13"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le and match pos=1)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when le="12"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @le and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when le="11"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+
+ <assert-equal case="The condition matches (@of and @lt and match pos=1)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when lt="13"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @lt and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when lt="12"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @lt and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when lt="11"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+
+ <assert-equal case="The condition matches (@of and @ge and match pos=1)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when ge="13"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @ge and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when ge="12"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @ge and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when ge="11"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+
+ <assert-equal case="The condition matches (@of and @gt and match pos=1)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when gt="13"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @gt and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when gt="12"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@of and @gt and unmatch)">
+  <result><choose of="//Eee/Fff/Ggg">
+   <when gt="11"><content of="//Aaa/Bbb/Ccc[1]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>Abcd1</expect>
+ </assert-equal>
+
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>3</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>4</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>5</Ccc>
+  </Bbb>
+ </Aaa>
+
+ <Eee>
+  <Fff>
+   <Ggg>12</Ggg>
+   <Ggg>34</Ggg>
+   <Ggg>56</Ggg>
+   <Ggg>78</Ggg>
+   <Ggg>90</Ggg>
+  </Fff>
+ </Eee>
+
+ <Hhh>No match condition</Hhh>
+</unit-test>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
+<unit-test title="if @of">
+
+ <assert-equal case="The condition matches (@test and match pos=1)">
+  <result><choose>
+   <when test="//Aaa/Bbb/Ccc='Abcd1'"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd2'"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd3'"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd4'"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>12</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and match pos=2)">
+  <result><choose>
+   <when test="//Aaa/Bbb/Ccc='AbcdX'"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd1'"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd3'"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd4'"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>34</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and match pos=3)">
+  <result><choose>
+   <when test="//Aaa/Bbb/Ccc='AbcdX'"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdY'"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd1'"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd1'"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>56</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and match pos=3)">
+  <result><choose>
+   <when test="//Aaa/Bbb/Ccc='AbcdX'"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdY'"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdZ'"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when test="//Aaa/Bbb/Ccc='Abcd1'"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>78</expect>
+ </assert-equal>
+
+ <assert-equal case="The condition matches (@test and unmatch)">
+  <result><choose>
+   <when test="//Aaa/Bbb/Ccc='AbcdX'"><content of="//Eee/Fff/Ggg[1]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdY'"><content of="//Eee/Fff/Ggg[2]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdZ'"><content of="//Eee/Fff/Ggg[3]"/></when>
+   <when test="//Aaa/Bbb/Ccc='AbcdA'"><content of="//Eee/Fff/Ggg[4]"/></when>
+   <otherwise><content of="//Hhh"/></otherwise>
+  </choose></result>
+  <expect>No match condition</expect>
+ </assert-equal>
+
+
+ <Aaa>
+  <Bbb>
+   <Ccc>Ab<Ddd>cd</Ddd>1</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>2</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>3</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>4</Ccc>
+   <Ccc>Ab<Ddd>cd</Ddd>5</Ccc>
+  </Bbb>
+ </Aaa>
+
+ <Eee>
+  <Fff>
+   <Ggg>12</Ggg>
+   <Ggg>34</Ggg>
+   <Ggg>56</Ggg>
+   <Ggg>78</Ggg>
+   <Ggg>90</Ggg>
+  </Fff>
+ </Eee>
+
+ <Hhh>No match condition</Hhh>
+</unit-test>
