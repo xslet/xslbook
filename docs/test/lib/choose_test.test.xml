@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="application/xml" href="unit.test.xsl"?>
-<unit-test title="if @of">
+<unit-test title="choose/when @test/otherwise">
 
  <assert-equal case="The condition matches (@test and match pos=1)">
   <result><choose>

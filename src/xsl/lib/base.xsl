@@ -27,7 +27,7 @@
    If `data-src` attribute is presented, this returns an empty string.
  -->
  <xsl:template name="bk:get_data_gid">
-  <!--** A generate-id of a base node from an ancestor element. -->
+  <!--** A generated ID of a base node from an ancestor element. -->
   <xsl:param name="data_gid"/>
   <xsl:if test="not(boolean(@data-src))">
    <xsl:value-of select="$data_gid"/>

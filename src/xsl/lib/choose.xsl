@@ -6,13 +6,23 @@
  xmlns:ut="https://github.com/xslet/2020/xslutil"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+ <!--**
+   An element to choice among multiple conditions which are expressed by `when` and `otherwise` elements.
+ -->
  <xsl:template match="choose">
+  <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
+  <!--** A generate ID of a base node. -->
   <xsl:param name="data_gid"/>
+  <!--** Elements which are allowed to be applied. -->
   <xsl:param name="allow"/>
+  <!--** A flag if test node is allowed. -->
   <xsl:param name="allow_text_node"/>
+  <!--** Any argument 0. -->
   <xsl:param name="arg0"/>
+  <!--** Any argument 1. -->
   <xsl:param name="arg1"/>
+  <!--** Any argument 2. -->
   <xsl:param name="arg2"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">

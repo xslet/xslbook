@@ -14,7 +14,7 @@
  <xsl:template match="for">
   <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
-  <!--** A generate-id of a base node. -->
+  <!--** A generated ID of a base node. -->
   <xsl:param name="data_gid"/>
   <!--** Elements which are allowed to be applied. -->
   <xsl:param name="allow"/>

@@ -10,11 +10,17 @@
    Gets an attribute value if it exists, 
  -->
  <xsl:template name="bk:get_attribute">
+  <!--** An attribute name. -->
   <xsl:param name="name"/>
+  <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
+  <!--** A generated ID of a base node. -->
   <xsl:param name="data_gid"/>
+  <!--** Any argument 0. -->
   <xsl:param name="arg0"/>
+  <!--** Any argument 1. -->
   <xsl:param name="arg1"/>
+  <!--** Any argument 2. -->
   <xsl:param name="arg2"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">

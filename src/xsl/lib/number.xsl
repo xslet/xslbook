@@ -14,7 +14,7 @@
  <xsl:template match="number">
   <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
-  <!--** A generate-id of a base node. -->
+  <!--** A generated ID of a base node. -->
   <xsl:param name="data_gid"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">

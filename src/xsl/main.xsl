@@ -75,16 +75,22 @@
   <link rel="stylesheet" href="{concat($bk:xsl_dir, '/xslbook.css')}"/>
  </xsl:template>
 
- <!--
-  The element to print titles of page, chapter, section, etc.
+ <!--**
+  The element to print a title of page, chapter, section, etc.
   `arg0` is used for a element's tag name which encloses a title text if it is needed.
  -->
  <xsl:template match="title">
+  <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
+  <!--** A generated-id of a base node. -->
   <xsl:param name="data_gid"/>
+  <!--** Elements which are allowed to be applied. -->
   <xsl:param name="allow"/>
-  <xsl:param name="arg0"/><!-- Tag Name -->
+  <!--** Any argument 0. In this element, `arg0` is used as a tag name which surrounds this title. -->
+  <xsl:param name="arg0"/>
+  <!--** Any argument 1. -->
   <xsl:param name="arg1"/>
+  <!--** Any argument 2. -->
   <xsl:param name="arg2"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">
@@ -124,12 +130,19 @@
   The element to print contents of page, chapter, section, etc.
  -->
  <xsl:template match="body">
+  <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
+  <!--** A generated-id of a base node. -->
   <xsl:param name="data_gid"/>
+  <!--** Elements which are allowed to be applied. -->
   <xsl:param name="allow"/>
+  <!--** A flag if text node if allowed. -->
   <xsl:param name="allow_text_node"/>
+  <!--** Any argument 0. -->
   <xsl:param name="arg0"/>
+  <!--** Any argument 1. -->
   <xsl:param name="arg1"/>
+  <!--** Any argument 2. -->
   <xsl:param name="arg2"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">
@@ -152,6 +165,9 @@
   </xsl:apply-templates>
  </xsl:template>
 
+ <!--**
+   Load JavaScript files.
+ -->
  <xsl:template match="/book/script|/xslbook/script">
   <xsl:choose>
    <xsl:when test="boolean(@href)">
@@ -163,6 +179,9 @@
   </xsl:choose>
  </xsl:template>
 
+ <!--**
+   Load CSS files.
+ -->
  <xsl:template match="/book/css|/xslbook/css">
   <xsl:choose>
    <xsl:when test="boolean(@href)">

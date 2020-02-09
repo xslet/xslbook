@@ -11,7 +11,7 @@
  </xsl:template>
 
  <!--**
-   Prints a set of dots in text.
+   Prints a sequence of dots in text.
  -->
  <xsl:template match="dots">
   <span class="dots">･･････</span>

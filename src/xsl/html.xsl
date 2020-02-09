@@ -12,7 +12,7 @@
  <xsl:template match="p|br|hr|b|i|u|s|code|sup|sub|q">
   <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
-  <!--** A generate-id of a base node. -->
+  <!--** A generated-id of a base node. -->
   <xsl:param name="data_gid"/>
   <!--** A flag if text node is allowed. -->
   <xsl:param name="allow_text_node" select="$ut:true"/>

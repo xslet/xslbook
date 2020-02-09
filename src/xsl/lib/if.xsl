@@ -6,6 +6,9 @@
  xmlns:ut="https://github.com/xslet/2020/xslutil"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+ <!--**
+   An element to evaluate a condition and its child template is processed if the condition is true. If the condition is false and there is a child `else` element, the child template of the `else` element is processed.
+ -->
  <xsl:template match="if">
   <!--** An URL of external data file. -->
   <xsl:param name="data_url"/>
