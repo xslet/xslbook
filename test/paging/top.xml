@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book toc="top.xml">
+ <title>Paging</title>
+ <toc>
+  <page href="top.xml"/>
+  <part>
+   <page href="second.xml"/>
+  </part>
+  <part>
+   <page href="third.xml"/>
+  </part>
+  <page href="fourth.xml"/>
+ </toc>
+</book>

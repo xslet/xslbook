@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<book>
+ <toc>
+  <page href="first.xml"/>
+  <page href="second.xml"/>
+  <part>
+   <page href="third.xml"/>
+   <page href="fourth.xml"/>
+  </part>
+  <page href="fifth.xml"/>
+ </toc>
+</book>

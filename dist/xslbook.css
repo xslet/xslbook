@@ -16,12 +16,12 @@ code {
   html {
     font-size: 16px; }
   body {
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
     color: #333;
-    margin: 0rem 2rem 1rem;
+    margin: 0rem 2rem 0.5rem;
     padding: 0rem;
     background-color: #ddd; }
-  main {
+  article {
     background-color: white;
     margin: 0rem;
     padding: 2rem 4rem 3rem;
@@ -29,8 +29,28 @@ code {
     box-shadow: 0.4rem 0.44rem 0.3rem #707070; }
   h1 {
     color: #27a; }
-  main {
-    min-height: calc(100vh - 2rem - 2rem - 2rem - 2px); } }
+  nav.navi {
+    text-align: center; }
+    nav.navi > .navi-page a {
+      color: #00e; }
+      nav.navi > .navi-page a.disabled {
+        color: #999; }
+    nav.navi > .navi-page:not(:first-of-type) {
+      padding-left: 0.5rem; }
+    nav.navi > .navi-page:not(:last-of-type) {
+      padding-right: 0.5rem;
+      border-right: solid 1px #333; }
+  header {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle; }
+  footer {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle;
+    margin-top: 0.5rem; }
+  article {
+    min-height: calc(100vh - 1.7rem - 2rem - 3rem - 1.1rem - 1.7rem); } }
 
 @media print {
   @page {
@@ -39,13 +59,15 @@ code {
   html {
     font-size: 4mm; }
   body {
-    font-family: Helvetica, arial, sans-serif;
+    font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
     color: black;
     margin: 0rem;
     padding: 0rem; }
-  main {
+  article {
     background-color: white;
     margin: 0rem;
     padding: 2rem 4rem 3rem; }
   h1 {
-    color: black; } }
+    color: black; }
+  nav.navi {
+    display: none; } }

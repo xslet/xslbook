@@ -34,7 +34,7 @@
     <title>
      <xsl:apply-templates select="title">
       <xsl:with-param name="data_url" select="$_data_url"/>
-      <xsl:with-param name="allow">|title|for|if|case|</xsl:with-param>
+      <xsl:with-param name="allow">|title|for|if|choose|</xsl:with-param>
       <xsl:with-param name="allow_text_node"/>
      </xsl:apply-templates>
     </title>
@@ -46,11 +46,12 @@
    <body>
     <main>
      <header>
+      <xsl:call-template name="bk:print_navi"/>
      </header>
      <article class="book">
-      <xsl:apply-templates select="title|for|if|case">
+      <xsl:apply-templates select="title|for|if|choose">
        <xsl:with-param name="data_url" select="$_data_url"/>
-       <xsl:with-param name="allow">|title|for|if|case|</xsl:with-param>
+       <xsl:with-param name="allow">|title|for|if|choose|</xsl:with-param>
        <xsl:with-param name="allow_text_node"/>
        <xsl:with-param name="arg0">h1</xsl:with-param>
       </xsl:apply-templates>
@@ -61,6 +62,7 @@
       </div>
      </article>
      <footer>
+      <xsl:call-template name="bk:print_navi"/>
      </footer>
     </main>
    </body>
@@ -190,6 +192,32 @@
    <xsl:when test="boolean(@rpath)">
     <link rel="stylesheet" href="{concat($bk:xsl_dir, '/', @rpath)}"/>
    </xsl:when>
+  </xsl:choose>
+ </xsl:template>
+
+ <!--**
+   Set an unique ID to an element.
+ -->
+ <xsl:template name="bk:set_id">
+  <xsl:attribute name="id">
+   <xsl:call-template name="bk:get_id"/>
+  </xsl:attribute>
+ </xsl:template>
+
+ <!--**
+   Get a value of the attribute 'id' if it is specified, or create an unique ID otherwise.
+ -->
+ <xsl:template name="bk:get_id">
+  <xsl:choose>
+   <xsl:when test="string-length(@id) != 0">
+    <xsl:value-of select="@id"/>
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:text>idxbk</xsl:text>
+    <xsl:variable name="_tagname" select="local-name()"/>
+    <xsl:value-of select="$_tagname"/>
+    <xsl:number level="any" format="1" count="*[name() = $_tagname]"/>
+   </xsl:otherwise>
   </xsl:choose>
  </xsl:template>
 

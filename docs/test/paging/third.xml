@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book toc="top.xml">
+ <chapter>
+  <title>Paging - 3</title>
+ </chapter>
+</book>

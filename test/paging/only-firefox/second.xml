@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="#paging"?>
+
+<book toc="toc.xml#id123">
+ <title>Paging (only firefox) - 2</title>
+ <body>
+
+  <xsl:stylesheet id="paging" version="1.0"
+   xmlns:bk="https://github.com/xslet/2020/xslbook"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:import href="../../xslbook.xsl"/>
+   <xsl:template match="/book/body/xsl:stylesheet">
+    <div>
+     <a href="first.xml">first.xml</a> |
+     <a href="second.xml">second.xml</a> |
+     <a href="third.xml">third.xml</a> |
+     <a href="fourth.xml">fourth.xml</a> |
+     <a href="fifth.xml">fifth.xml</a> |
+     <a href="toc.xml">toc.xml</a>
+    </div>
+
+    <hr/>
+
+    <div>
+     <xsl:text>bk:toc_url=[</xsl:text>
+     <xsl:value-of select="$bk:toc_url"/>
+     <xsl:text>] (expected: toc.xml)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:page_index=[</xsl:text>
+     <xsl:value-of select="$bk:page_index"/>
+     <xsl:text>] (expected: 2)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:_get_page_index_by_gid=[</xsl:text>
+     <xsl:call-template name="bk:_get_page_index_by_gid"/>
+     <xsl:text>] (expected: 2)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:_get_page_index_by_titles=[</xsl:text>
+     <xsl:call-template name="bk:_get_page_index_by_titles"/>
+     <xsl:text>] (expected: 2)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:page_url=[</xsl:text>
+     <xsl:value-of select="$bk:page_url"/>
+     <xsl:text>] (expected: second.xml)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:prev_page_url=[</xsl:text>
+     <xsl:value-of select="$bk:prev_page_url"/>
+     <xsl:text>] (expected: first.xml)</xsl:text>
+    </div>
+
+    <div>
+     <xsl:text>bk:next_page_url=[</xsl:text>
+     <xsl:value-of select="$bk:next_page_url"/>
+     <xsl:text>] (expected: third.xml)</xsl:text>
+    </div>
+
+    <div>
+     <style>
+      span.navi-page { padding-left: 5px; padding-right: 5px; }
+     </style>
+     <xsl:text>bk:print_navi=[</xsl:text>
+     <xsl:call-template name="bk:print_navi"/>
+     <xsl:text>]</xsl:text>
+    </div>
+
+   </xsl:template>
+  </xsl:stylesheet>
+
+ </body>
+</book>

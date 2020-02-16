@@ -1,4 +1,4 @@
-$font-family: Helvetica, arial, sans-serif;
+$font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
 $sheet-color: white;
 $sheet-padding: 2rem 4rem 3rem;
 
@@ -8,8 +8,10 @@ $sheet-padding: 2rem 4rem 3rem;
   $sheet-border: solid 1px #ccc;
   $sheet-shadow: 0.4rem 0.44rem 0.3rem rgba(112, 112, 112, 1.0);
   $bg-color: #ddd;
-  $bg-margin: 0rem 2rem 1rem;
+  $bg-margin: 0rem 2rem 0.5rem;
   $title-color: #27a;
+  $link-color: #00e;
+  $disabled-color: #999;
 
   @include page-style(
     $font-family,
@@ -25,8 +27,24 @@ $sheet-padding: 2rem 4rem 3rem;
   @include colors(
     $title-color);
 
-  main {
-    min-height: calc(100vh - 2rem - 2rem - 2rem - 2px);
+  @include navi-style(
+    $link-color,
+    $disabled-color,
+    $text-color);
+
+  header {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle;
+  }
+  footer {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+  }
+  article {
+    min-height: calc(100vh - 1.7rem - 2rem - 3rem - 1.1rem - 1.7rem);
   }
 }
 
@@ -47,4 +65,8 @@ $sheet-padding: 2rem 4rem 3rem;
     $sheet-padding);
 
   @include colors();
+
+  nav.navi {
+    display: none;
+  }
 }

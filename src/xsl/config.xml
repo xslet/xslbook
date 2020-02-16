@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xsl:stylesheet version="1.0"
+ xmlns:bk="https://github.com/xslet/2020/xslbook"
+ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+ <xsl:param name="bk:label_navi_prev">previous</xsl:param>
+ <xsl:param name="bk:label_navi_next">next</xsl:param>
+ <xsl:param name="bk:label_navi_toc">table of contents</xsl:param>
+
+</xsl:stylesheet>
