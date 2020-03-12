@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book toc="top.xml">
+ <title>Paging</title>
+ <body>Body</body>
+
+ <toc>
+  <page href="top.xml"/>
+  <part>
+   <page href="second.xml"/>
+  </part>
+  <part>
+   <page href="third.xml"/>
+  </part>
+  <page href="fourth.xml"/>
+ </toc>
+
+ <preface>
+  <title>Preface 1</title>
+  <body>Body</body>
+  <section>
+   <title>Section 1.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 1.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.2.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.2.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </preface>
+
+ <preface>
+  <title>Preface 2</title>
+  <body>Body</body>
+  <section>
+   <title>Section 2.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 2.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </preface>
+
+ <chapter>
+  <title>Chapter 1</title>
+  <body>Body</body>
+  <section>
+   <title>Section 1.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 1.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.2.1</title>
+    <body>Body</body>
+    <section>
+     <title>Section 1.2.1.1</title>
+     <body>Body</body>
+    </section>
+    <section>
+     <title>Section 1.2.1.2</title>
+     <body>Body</body>
+    </section>
+   </section>
+   <section>
+    <title>Section 1.2.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </chapter>
+
+ <chapter>
+  <title>Chapter 2</title>
+  <body>Body</body>
+  <section>
+   <title>Section 2.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 2.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 2.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 2.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 2.2.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 2.2.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </chapter>
+
+ <appendix>
+  <title>Appendix 1</title>
+  <body>Body</body>
+  <section>
+   <title>Section 1.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 1.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.2.1</title>
+    <body>Body</body>
+    <section>
+     <title>Section 1.2.1.1</title>
+     <body>Body</body>
+    </section>
+    <section>
+     <title>Section 1.2.1.2</title>
+     <body>Body</body>
+    </section>
+   </section>
+   <section>
+    <title>Section 1.2.2</title>
+    <body>Body</body>
+    <section>
+     <title>Section 1.2.2.1</title>
+     <body>Body</body>
+    </section>
+    <section>
+     <title>Section 1.2.2.2</title>
+     <body>Body</body>
+    </section>
+   </section>
+  </section>
+ </appendix>
+
+ <appendix>
+  <title>Appendix 2</title>
+  <body>Body</body>
+  <section>
+   <title>Section 2.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 2.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 2.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 2.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 2.2.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 2.2.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </appendix>
+
+ <postface>
+  <title>Postface 1</title>
+  <body>Body</body>
+  <section>
+   <title>Section 1.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.1.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.1.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+  <section>
+   <title>Section 1.2</title>
+   <body>Body</body>
+   <section>
+    <title>Section 1.2.1</title>
+    <body>Body</body>
+   </section>
+   <section>
+    <title>Section 1.2.2</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </postface>
+
+ <postface>
+  <title>Postface 2</title>
+  <body>Body</body>
+  <section>
+   <title>Section 2.1</title>
+   <body>Body</body>
+  </section>
+ </postface>
+</book>

@@ -7,11 +7,11 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
  <!--**
-   The URL of table of contents from `/book@toc` or `/xslbook@toc`. 
+   The URL of table of contents from `/book@toc`.
  -->
  <xsl:param name="bk:toc_url">
   <xsl:variable name="_url">
-   <xsl:value-of select="/book/@toc|/xslbook/@toc"/>
+   <xsl:value-of select="/book/@toc"/>
   </xsl:variable>
   <xsl:choose>
    <xsl:when test="contains($_url, '#')">
@@ -53,13 +53,11 @@
 
  <xsl:template name="bk:_get_page_index_by_gid">
   <xsl:variable name="_current_gid" select="generate-id(/)"/>
-  <xsl:for-each select="document($bk:toc_url, /)">
-   <xsl:for-each select="/book/toc[1]|/xslbook/toc[1]">
-    <xsl:for-each select=".//page">
-     <xsl:if test="generate-id(document(@href, /)) = $_current_gid">
-      <xsl:value-of select="position()"/>
-     </xsl:if>
-    </xsl:for-each>
+  <xsl:for-each select="document($bk:toc_url, /)/book/toc[1]">
+   <xsl:for-each select=".//page">
+    <xsl:if test="generate-id(document(@href, /)) = $_current_gid">
+     <xsl:value-of select="position()"/>
+    </xsl:if>
    </xsl:for-each>
   </xsl:for-each>
  </xsl:template>
@@ -68,41 +66,33 @@
   <xsl:variable name="_current_titles">
    <xsl:apply-templates select="//title"/>
   </xsl:variable>
-  <xsl:for-each select="document($bk:toc_url, /)">
-   <xsl:for-each select="/book/toc[1]|/xslbook/toc[1]">
-    <xsl:for-each select=".//page">
-     <xsl:variable name="_titles">
-      <xsl:apply-templates select="document(@href, /)//title"/>
-     </xsl:variable>
-     <xsl:if test="$_titles = $_current_titles">
-      <xsl:value-of select="position()"/>
-     </xsl:if>
-    </xsl:for-each>
+  <xsl:for-each select="document($bk:toc_url, /)/book/toc[1]">
+   <xsl:for-each select=".//page">
+    <xsl:variable name="_titles">
+     <xsl:apply-templates select="document(@href, /)//title"/>
+    </xsl:variable>
+    <xsl:if test="$_titles = $_current_titles">
+     <xsl:value-of select="position()"/>
+    </xsl:if>
    </xsl:for-each>
   </xsl:for-each>
  </xsl:template>
 
  <xsl:param name="bk:page_url">
-  <xsl:for-each select="document($bk:toc_url,/)">
-   <xsl:for-each select="/book/toc[1]|/xslbook/toc[1]">
-    <xsl:value-of select="(.//page)[position() = $bk:page_index]/@href"/>
-   </xsl:for-each>
+  <xsl:for-each select="document($bk:toc_url,/)/book/toc[1]">
+   <xsl:value-of select="(.//page)[position() = $bk:page_index]/@href"/>
   </xsl:for-each>
  </xsl:param>
 
  <xsl:param name="bk:prev_page_url">
-  <xsl:for-each select="document($bk:toc_url,/)">
-   <xsl:for-each select="/book/toc[1]|/xslbook/toc[1]">
-    <xsl:value-of select="(.//page)[position() = $bk:page_index - 1]/@href"/>
-   </xsl:for-each>
+  <xsl:for-each select="document($bk:toc_url,/)/book/toc[1]">
+   <xsl:value-of select="(.//page)[position() = $bk:page_index - 1]/@href"/>
   </xsl:for-each>
  </xsl:param>
 
  <xsl:param name="bk:next_page_url">
-  <xsl:for-each select="document($bk:toc_url,/)">
-   <xsl:for-each select="/book/toc[1]|/xslbook/toc[1]">
-    <xsl:value-of select="(.//page)[position() = $bk:page_index + 1]/@href"/>
-   </xsl:for-each>
+  <xsl:for-each select="document($bk:toc_url,/)/book/toc[1]">
+   <xsl:value-of select="(.//page)[position() = $bk:page_index + 1]/@href"/>
   </xsl:for-each>
  </xsl:param>
 

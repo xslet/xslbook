@@ -3,6 +3,20 @@
 
 <book toc="top.xml">
  <chapter>
-  <title>Paging - 4</title>
+  <title>Chapter 7</title>
+  <body>Body</body>
+  <section>
+   <title>Section 7.1</title>
+   <body>Body</body>
+  </section>
+ </chapter>
+
+ <chapter>
+  <title>Chapter 8</title>
+  <body>Body</body>
+  <section>
+   <title>Section 8.1</title>
+   <body>Body</body>
+  </section>
  </chapter>
 </book>

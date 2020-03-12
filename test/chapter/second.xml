@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../xslbook.xsl"?>
+
+<book toc="top.xml">
+ <preface>
+  <title>Preface 3</title>
+  <body>Body</body>
+  <section>
+   <title>Section 3.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 3.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </preface>
+
+ <preface>
+  <title>Preface 4</title>
+  <body>Body</body>
+  <section>
+   <title>Section 4.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 4.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </preface>
+
+ <chapter>
+  <title>Chapter 3</title>
+  <body>Body</body>
+  <section>
+   <title>Section 3.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 3.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </chapter>
+
+ <chapter>
+  <title>Chapter 4</title>
+  <body>Body</body>
+  <section>
+   <title>Section 4.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 4.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </chapter>
+
+ <appendix>
+  <title>Appendix 3</title>
+  <body>Body</body>
+  <section>
+   <title>Section 3.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 3.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </appendix>
+
+ <appendix>
+  <title>Appendix 4</title>
+  <body>Body</body>
+  <section>
+   <title>Section 4.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 4.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </appendix>
+
+ <postface>
+  <title>Postface 3</title>
+  <body>Body</body>
+  <section>
+   <title>Section 3.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 3.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </postface>
+
+ <postface>
+  <title>Postface 4</title>
+  <body>Body</body>
+  <section>
+   <title>Section 4.1</title>
+   <body>Body</body>
+   <section>
+    <title>Section 4.1.1</title>
+    <body>Body</body>
+   </section>
+  </section>
+ </postface>
+</book>

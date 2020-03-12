@@ -10,9 +10,9 @@
       a {
         color: $link-color;
 
-	&.disabled {
+        &.disabled {
           color: $disabled-color;
-	}
+        }
       }
 
       &:not(:first-of-type) {
@@ -21,8 +21,25 @@
 
       &:not(:last-of-type) {
         padding-right: 0.5rem;
-	border-right: solid 1px $separator-color;
+        border-right: solid 1px $separator-color;
       }
     }
+  }
+
+  header {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle;
+  }
+
+  footer {
+    height: 1.7rem;
+    line-height: 1.7rem;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+  }
+
+  article {
+    min-height: calc(100vh - 1.7rem - 2rem - 3rem - 1.1rem - 1.7rem);
   }
 }

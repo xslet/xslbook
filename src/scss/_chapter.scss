@@ -1,0 +1,121 @@
+$chapter-configs: /* (chapter-type, title-index-separator) */
+  (preface, '')
+  (chapter, ' ')
+  (appendix, ' ')
+  (postface, '');
+
+@each $_chapter-type, $_title-index-separator in $chapter-configs {
+  .index-in-#{$_chapter-type} + .label::before {
+    content: $_title-index-separator;
+  }
+}
+
+@mixin _title-style($_font-size, $_color) {
+  & > .title {
+    font-size: $_font-size;
+    @if $_color != '' {
+      color: $_color;
+    }
+  }
+}
+
+@mixin _body-style {
+  & > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin chapter-style(
+  $_page-title-size, $_page-title-color,
+  $_chapter-title-size, $_chapter-title-color,
+  $_section-title-size, $_section-title-color,
+  $_subsection-title-size, $_subsection-title-color,
+  $_subsubsection-title-size, $_subsubsection-title-color) {
+
+  article.book {
+    @include _title-style($_page-title-size, $_page-title-color);
+    @include _body-style;
+
+    @each $_chapter-type in $chapter_configs {
+      & > section.#{$_chapter-type} {
+        @include _title-style($_chapter-title-size, $_chapter-title-color);
+        @include _body-style;
+
+        & > .section {
+          @include _title-style($_section-title-size, $_section-title-color);
+          @include _body-style;
+
+          & > .section {
+            @include _title-style($_subsection-title-size,
+                                  $_subsection-title-color);
+            @include _body-style;
+
+            & > .section {
+              @include _title-style($_subsubsection-title-size,
+                                    $_subsubsection-title-color);
+              @include _body-style;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+article.book {
+
+  & > h1.title {
+    margin: 0rem 0rem 1.3rem;
+    padding: 0rem;
+  }
+
+  & > div.body {
+    & + section.preface,
+    & + section.chapter,
+    & + section.appendix,
+    & + section.postface {
+      margin-top: 2.3rem;
+    }
+  }
+
+  & > section.preface,
+  & > section.chapter,
+  & > section.appendix,
+  & > section.postface {
+    & + section.preface,
+    & + section.chapter,
+    & + section.appendix,
+    & + section.postface {
+      margin-top: 2rem;
+    }
+
+    & > h2.title {
+      margin: 0rem;
+      padding: 0rem;
+    }
+
+    & > div.body {
+      & + section.section {
+        margin-top: 2rem;
+      }
+    }
+
+    & section.section {
+      & + section.section {
+        margin-top: 2rem;
+      }
+
+      & > h3.title {
+        margin: 0rem;
+        padding: 0rem;
+      }
+
+      & > div.body {
+        & + section.section {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}

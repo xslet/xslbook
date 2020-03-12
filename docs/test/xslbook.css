@@ -1,7 +1,9 @@
 p {
-  margin: 0.75rem 0rem;
   padding: 0rem;
   line-height: 1.5rem; }
+
+p + p {
+  margin-top: 1rem; }
 
 code {
   border: solid 1px #ccc;
@@ -11,6 +13,78 @@ code {
   padding: 0px 3px;
   margin: 0px 1px;
   font-family: monospace; }
+
+.index-in-preface + .label::before {
+  content: ""; }
+
+.index-in-chapter + .label::before {
+  content: " "; }
+
+.index-in-appendix + .label::before {
+  content: " "; }
+
+.index-in-postface + .label::before {
+  content: ""; }
+
+article.book > h1.title {
+  margin: 0rem 0rem 1.3rem;
+  padding: 0rem; }
+
+article.book > div.body + section.preface,
+article.book > div.body + section.chapter,
+article.book > div.body + section.appendix,
+article.book > div.body + section.postface {
+  margin-top: 2.3rem; }
+
+article.book > section.preface + section.preface,
+article.book > section.preface + section.chapter,
+article.book > section.preface + section.appendix,
+article.book > section.preface + section.postface,
+article.book > section.chapter + section.preface,
+article.book > section.chapter + section.chapter,
+article.book > section.chapter + section.appendix,
+article.book > section.chapter + section.postface,
+article.book > section.appendix + section.preface,
+article.book > section.appendix + section.chapter,
+article.book > section.appendix + section.appendix,
+article.book > section.appendix + section.postface,
+article.book > section.postface + section.preface,
+article.book > section.postface + section.chapter,
+article.book > section.postface + section.appendix,
+article.book > section.postface + section.postface {
+  margin-top: 2rem; }
+
+article.book > section.preface > h2.title,
+article.book > section.chapter > h2.title,
+article.book > section.appendix > h2.title,
+article.book > section.postface > h2.title {
+  margin: 0rem;
+  padding: 0rem; }
+
+article.book > section.preface > div.body + section.section,
+article.book > section.chapter > div.body + section.section,
+article.book > section.appendix > div.body + section.section,
+article.book > section.postface > div.body + section.section {
+  margin-top: 2rem; }
+
+article.book > section.preface section.section + section.section,
+article.book > section.chapter section.section + section.section,
+article.book > section.appendix section.section + section.section,
+article.book > section.postface section.section + section.section {
+  margin-top: 2rem; }
+
+article.book > section.preface section.section > h3.title,
+article.book > section.chapter section.section > h3.title,
+article.book > section.appendix section.section > h3.title,
+article.book > section.postface section.section > h3.title {
+  margin: 0rem;
+  padding: 0rem; }
+
+article.book > section.preface section.section > div.body + section.section,
+article.book > section.chapter section.section > div.body + section.section,
+article.book > section.appendix section.section > div.body + section.section,
+article.book > section.postface section.section > div.body + section.section {
+  margin-top: 2rem; }
 
 @media screen {
   html {
@@ -24,11 +98,9 @@ code {
   article {
     background-color: white;
     margin: 0rem;
-    padding: 2rem 4rem 3rem;
+    padding: 4rem 4rem 3rem;
     border: solid 1px #ccc;
     box-shadow: 0.4rem 0.44rem 0.3rem #707070; }
-  h1 {
-    color: #27a; }
   nav.navi {
     text-align: center; }
     nav.navi > .navi-page a {
@@ -50,14 +122,116 @@ code {
     vertical-align: middle;
     margin-top: 0.5rem; }
   article {
-    min-height: calc(100vh - 1.7rem - 2rem - 3rem - 1.1rem - 1.7rem); } }
+    min-height: calc(100vh - 1.7rem - 2rem - 3rem - 1.1rem - 1.7rem); }
+  article.book > .title {
+    font-size: 2rem;
+    color: #27a; }
+  article.book > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .title {
+    font-size: 1.5rem;
+    color: #27a; }
+  article.book > section.preface > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .title {
+    font-size: 1.3rem;
+    color: #27a; }
+  article.book > section.preface > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .section > .title {
+    font-size: 1.2rem;
+    color: #27a; }
+  article.book > section.preface > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: #27a; }
+  article.book > section.preface > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .title {
+    font-size: 1.5rem;
+    color: #27a; }
+  article.book > section.chapter > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .title {
+    font-size: 1.3rem;
+    color: #27a; }
+  article.book > section.chapter > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .section > .title {
+    font-size: 1.2rem;
+    color: #27a; }
+  article.book > section.chapter > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: #27a; }
+  article.book > section.chapter > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .title {
+    font-size: 1.5rem;
+    color: #27a; }
+  article.book > section.appendix > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .title {
+    font-size: 1.3rem;
+    color: #27a; }
+  article.book > section.appendix > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .section > .title {
+    font-size: 1.2rem;
+    color: #27a; }
+  article.book > section.appendix > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: #27a; }
+  article.book > section.appendix > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .title {
+    font-size: 1.5rem;
+    color: #27a; }
+  article.book > section.postface > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .title {
+    font-size: 1.3rem;
+    color: #27a; }
+  article.book > section.postface > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .section > .title {
+    font-size: 1.2rem;
+    color: #27a; }
+  article.book > section.postface > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: #27a; }
+  article.book > section.postface > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; } }
 
 @media print {
   @page {
     size: portrait;
     margin: 0; }
   html {
-    font-size: 4mm; }
+    font-size: 3mm; }
   body {
     font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
     color: black;
@@ -66,8 +240,108 @@ code {
   article {
     background-color: white;
     margin: 0rem;
-    padding: 2rem 4rem 3rem; }
-  h1 {
+    padding: 4rem 4rem 3rem; }
+  header, footer {
+    display: none; }
+  article.book > .title {
+    font-size: 2rem;
     color: black; }
-  nav.navi {
-    display: none; } }
+  article.book > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .title {
+    font-size: 1.5rem;
+    color: black; }
+  article.book > section.preface > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .title {
+    font-size: 1.3rem;
+    color: black; }
+  article.book > section.preface > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .section > .title {
+    font-size: 1.2rem;
+    color: black; }
+  article.book > section.preface > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.preface > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: black; }
+  article.book > section.preface > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .title {
+    font-size: 1.5rem;
+    color: black; }
+  article.book > section.chapter > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .title {
+    font-size: 1.3rem;
+    color: black; }
+  article.book > section.chapter > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .section > .title {
+    font-size: 1.2rem;
+    color: black; }
+  article.book > section.chapter > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.chapter > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: black; }
+  article.book > section.chapter > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .title {
+    font-size: 1.5rem;
+    color: black; }
+  article.book > section.appendix > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .title {
+    font-size: 1.3rem;
+    color: black; }
+  article.book > section.appendix > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .section > .title {
+    font-size: 1.2rem;
+    color: black; }
+  article.book > section.appendix > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.appendix > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: black; }
+  article.book > section.appendix > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .title {
+    font-size: 1.5rem;
+    color: black; }
+  article.book > section.postface > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .title {
+    font-size: 1.3rem;
+    color: black; }
+  article.book > section.postface > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .section > .title {
+    font-size: 1.2rem;
+    color: black; }
+  article.book > section.postface > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; }
+  article.book > section.postface > .section > .section > .section > .title {
+    font-size: 1.1rem;
+    color: black; }
+  article.book > section.postface > .section > .section > .section > .body {
+    margin-top: 1rem;
+    margin-left: 0.5rem; } }

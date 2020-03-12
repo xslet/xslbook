@@ -20,9 +20,9 @@
 
  <!--**
   The topmost element of xslbook document.
-  `book` element is the legitimate element. `xslbook` is remained for old xslbook documents.
+  `book` element is the legitimate element.
  -->
- <xsl:template match="/book|/xslbook">
+ <xsl:template match="/book">
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url"/>
   </xsl:variable>
@@ -55,11 +55,20 @@
        <xsl:with-param name="allow_text_node"/>
        <xsl:with-param name="arg0">h1</xsl:with-param>
       </xsl:apply-templates>
-      <div class="body">
-       <xsl:apply-templates select="body">
-        <xsl:with-param name="data_url" select="$_data_url"/>
-       </xsl:apply-templates>
-      </div>
+      <xsl:apply-templates select="toc">
+       <xsl:with-param name="data_url" select="$_data_url"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="body|for|if|choose">
+       <xsl:with-param name="data_url" select="$_data_url"/>
+       <xsl:with-param name="allow">|body|for|if|choose|</xsl:with-param>
+       <xsl:with-param name="allow_text_node"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="toc">
+       <xsl:with-param name="data_url" select="$_data_url"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="preface|chapter|appendix|postface">
+       <xsl:with-param name="data_url" select="$_data_url"/>
+      </xsl:apply-templates>
      </article>
      <footer>
       <xsl:call-template name="bk:print_navi"/>
@@ -94,6 +103,8 @@
   <xsl:param name="arg1"/>
   <!--** Any argument 2. -->
   <xsl:param name="arg2"/>
+  <xsl:variable name="_chapter_type" select="$arg1"/>
+  <xsl:variable name="_chapter_index" select="$arg2"/>
   <xsl:variable name="_data_url">
    <xsl:call-template name="bk:get_data_url">
     <xsl:with-param name="data_url" select="$data_url"/>
@@ -105,18 +116,7 @@
    </xsl:call-template>
   </xsl:variable>
   <xsl:choose>
-   <xsl:when test="string-length($arg0) != 0">
-    <xsl:element name="{$arg0}">
-     <xsl:apply-templates>
-      <xsl:with-param name="data_url" select="$_data_url"/>
-      <xsl:with-param name="data_gid" select="$_data_gid"/>
-      <xsl:with-param name="arg0"/>
-      <xsl:with-param name="arg1" select="$arg1"/>
-      <xsl:with-param name="arg2" select="$arg2"/>
-     </xsl:apply-templates>
-    </xsl:element>
-   </xsl:when>
-   <xsl:otherwise>
+   <xsl:when test="string-length($arg0) = 0">
     <xsl:apply-templates>
      <xsl:with-param name="data_url" select="$_data_url"/>
      <xsl:with-param name="data_gid" select="$_data_gid"/>
@@ -124,6 +124,34 @@
      <xsl:with-param name="arg1" select="$arg1"/>
      <xsl:with-param name="arg2" select="$arg2"/>
     </xsl:apply-templates>
+   </xsl:when>
+   <xsl:when test="$arg0 = 'h1'">
+    <h1 class="title">
+     <xsl:apply-templates>
+      <xsl:with-param name="data_url" select="$_data_url"/>
+      <xsl:with-param name="data_gid" select="$_data_gid"/>
+      <xsl:with-param name="arg0"/>
+      <xsl:with-param name="arg1" select="$arg1"/>
+      <xsl:with-param name="arg2" select="$arg2"/>
+     </xsl:apply-templates>
+    </h1>
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:element name="{$arg0}">
+     <xsl:attribute name="class">title</xsl:attribute>
+     <span class="index index-in-{$_chapter_type}">
+      <xsl:value-of select="$_chapter_index"/>
+     </span>
+     <span class="label">
+      <xsl:apply-templates>
+       <xsl:with-param name="data_url" select="$_data_url"/>
+       <xsl:with-param name="data_gid" select="$_data_gid"/>
+       <xsl:with-param name="arg0"/>
+       <xsl:with-param name="arg1" select="$arg1"/>
+       <xsl:with-param name="arg2" select="$arg2"/>
+      </xsl:apply-templates>
+     </span>
+    </xsl:element>
    </xsl:otherwise>
   </xsl:choose>
  </xsl:template>
@@ -156,21 +184,23 @@
     <xsl:with-param name="data_gid" select="$data_gid"/>
    </xsl:call-template>
   </xsl:variable>
-  <xsl:apply-templates>
-   <xsl:with-param name="data_url" select="$_data_url"/>
-   <xsl:with-param name="data_gid" select="$_data_gid"/>
-   <xsl:with-param name="allow" select="$allow"/>
-   <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
-   <xsl:with-param name="arg0" select="$arg0"/>
-   <xsl:with-param name="arg1" select="$arg1"/>
-   <xsl:with-param name="arg2" select="$arg2"/>
-  </xsl:apply-templates>
+  <div class="body">
+   <xsl:apply-templates>
+    <xsl:with-param name="data_url" select="$_data_url"/>
+    <xsl:with-param name="data_gid" select="$_data_gid"/>
+    <xsl:with-param name="allow" select="$allow"/>
+    <xsl:with-param name="allow_text_node" select="$allow_text_node"/>
+    <xsl:with-param name="arg0" select="$arg0"/>
+    <xsl:with-param name="arg1" select="$arg1"/>
+    <xsl:with-param name="arg2" select="$arg2"/>
+   </xsl:apply-templates>
+  </div>
  </xsl:template>
 
  <!--**
    Load JavaScript files.
  -->
- <xsl:template match="/book/script|/xslbook/script">
+ <xsl:template match="/book/script">
   <xsl:choose>
    <xsl:when test="boolean(@href)">
     <script src="{@href}"></script>
@@ -184,7 +214,7 @@
  <!--**
    Load CSS files.
  -->
- <xsl:template match="/book/css|/xslbook/css">
+ <xsl:template match="/book/css">
   <xsl:choose>
    <xsl:when test="boolean(@href)">
     <link rel="stylesheet" href="{@href}"/>
