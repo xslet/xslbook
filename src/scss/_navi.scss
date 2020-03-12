@@ -16,12 +16,11 @@
       }
 
       &:not(:first-of-type) {
-        padding-left: 0.5rem;
+        padding-left: 1rem;
       }
 
       &:not(:last-of-type) {
-        padding-right: 0.5rem;
-        border-right: solid 1px $separator-color;
+        padding-right: 1rem;
       }
     }
   }

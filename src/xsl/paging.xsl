@@ -100,8 +100,8 @@
   <xsl:if test="string-length($bk:toc_url) &gt; 0">
    <nav class="navi">
     <xsl:call-template name="bk:_print_navi_prev"/>
-    <xsl:call-template name="bk:_print_navi_next"/>
     <xsl:call-template name="bk:_print_navi_toc"/>
+    <xsl:call-template name="bk:_print_navi_next"/>
    </nav>
   </xsl:if>
  </xsl:template>
