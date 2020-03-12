@@ -108,10 +108,9 @@ article.book > section.postface section.section > div.body + section.section {
       nav.navi > .navi-page a.disabled {
         color: #999; }
     nav.navi > .navi-page:not(:first-of-type) {
-      padding-left: 0.5rem; }
+      padding-left: 1rem; }
     nav.navi > .navi-page:not(:last-of-type) {
-      padding-right: 0.5rem;
-      border-right: solid 1px #333; }
+      padding-right: 1rem; }
   header {
     height: 1.7rem;
     line-height: 1.7rem;
