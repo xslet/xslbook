@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit-test.xsl"?>
+
+<describe title="book:get_data_url">
+
+ <it title="should get a value of `data-src` attribute if it is present">
+  <compute name="book:get_data_url" data-src="https://aaa/bbb">
+   <param name="data_url">./xxx/yyy</param>
+  </compute>
+  <expect>https://aaa/bbb</expect>
+ </it>
+
+ <it title="should get a value of child `attr` element instead of `data-src` attribute">
+  <compute name="book:get_data_url">
+   <param name="data_url">./xxx/yyy</param>
+   <attr name="data-src">https://aaa/bbb</attr>
+  </compute>
+  <expect>https://aaa/bbb</expect>
+ </it>
+
+ <it title="should get a value of `data_url` parameter if @data-src attribute is not present">
+  <compute name="book:get_data_url">
+   <param name="data_url">xxx/yyy</param>
+  </compute>
+  <expect>xxx/yyy</expect>
+ </it>
+
+ <it title="should get a value of `data-src` attribute even if it is empty">
+  <compute name="book:get_data_url" data-src="">
+   <param name="data_url">xxx/yyy</param>
+  </compute>
+  <expect></expect>
+ </it>
+
+</describe>

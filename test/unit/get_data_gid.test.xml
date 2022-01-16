@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit-test.xsl"?>
+
+<describe title="book:get_data_gid">
+
+ <it title="should get a value of `data_gid` parameter if `data-src` attribute is not present">
+  <compute name="book:get_data_gid">
+   <param name="data_gid">ABCDEFG</param>
+  </compute>
+  <expect>ABCDEFG</expect>
+ </it>
+
+ <it title="should get an empty string if `data-src` attribute is present">
+  <compute name="book:get_data_gid" data-src="https://aaa/bbb">
+   <param name="data_gid">ABCDEFG</param>
+  </compute>
+  <expect></expect>
+ </it>
+
+ <it title="should get an empty string even if a value of `data-src` attribute is empty">
+  <compute name="book:get_data_gid" data-src="">
+   <param name="data_gid">ABCDEFG</param>
+  </compute>
+  <expect></expect>
+ </it>
+
+ <it title="should get an empty string if child `attr` element for `data-src` is present">
+  <compute name="book:get_data_gid">
+   <param name="data_gid">ABCDEFG</param>
+   <attr name="data-src">https://aaa/bbb"</attr>
+  </compute>
+  <expect></expect>
+ </it>
+
+</describe>

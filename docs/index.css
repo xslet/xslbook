@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
+  margin: 2rem;;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+article:not(:first-of-type) {
+  margin-top: 1rem;
+}
+article a:not(:last-of-type) {
+  padding-right: 0.4rem;
+}
+article a:not(:first-of-type) {
+  border-left: solid 1px black;
+  padding-left: 0.4rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0.5rem;
+  padding: 0rem;
+}
+
+ol {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-left: 3rem;
+}
