@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit-test.xsl"?>
+
+<describe title="&lt;values&gt;">
+
+ <it title="should get values at specified path '.'">
+  <compute><values of=".">A</values></compute>
+  <expect>A</expect>
+ </it>
+
+
+ <it title="should get values at absolute path">
+  <compute><values of="/describe/dataset/aaa/bbb"/></compute>
+  <expect>B1B2B3</expect>
+ </it>
+
+
+ <it title="should get values at relative path">
+  <compute><values of="aaa/bbb">
+   <aaa><bbb>ABC</bbb></aaa>
+  </values></compute>
+  <expect>ABC</expect>
+ </it>
+
+
+ <it title="should get values at a path by &lt;attr&gt;">
+  <compute><values>
+   <attr name="of">/describe/dataset/aaa/bbb</attr>
+  </values></compute>
+  <expect>B1B2B3</expect>
+ </it>
+
+
+ <it title="should get values with @separator">
+  <compute><values of="/describe/dataset/aaa/bbb" separator="||"/></compute>
+  <expect>B1||B2||B3</expect>
+ </it>
+
+
+ <it title="should get values with @prefix and @suffix">
+  <compute><values of="/describe/dataset/aaa/bbb" prefix="[" suffix="]"/></compute>
+  <expect>[B1][B2][B3]</expect>
+ </it>
+
+
+ <it title="should get values with @prefix, @suffix and @separator">
+  <compute><values of="/describe/dataset/aaa/bbb"
+    prefix="[" suffix="]" separator=","/></compute>
+  <expect>[B1],[B2],[B3]</expect>
+ </it>
+
+
+ <it title="should get values with prefix, suffix and separator by attr element">
+  <compute><values of="/describe/dataset/aaa/bbb">
+   <attr name="prefix">[</attr>
+   <attr name="suffix">]</attr>
+   <attr name="separator">/</attr>
+  </values></compute>
+  <expect>[B1]/[B2]/[B3]</expect>
+ </it>
+
+
+ <it title="should get values at relative path with @data-src">
+  <compute><values of="/List/Item" data-src="data/value.data.xml"/></compute>
+  <expect>ABCDEFGHIJKL</expect>
+ </it>
+
+
+ <it title="should get values at relative path with data-src by &lt;attr&gt;">
+  <compute><values of="/List/Item">
+   <attr name="data-src">data/value.data.xml</attr>
+  </values></compute>
+  <expect>ABCDEFGHIJKL</expect>
+ </it>
+
+
+ <it title="should not get values of children or descendant elements at specified path">
+  <compute><values of="/describe/dataset/aaa"/></compute>
+  <expect>A1A2</expect>
+ </it>
+
+
+ <it title="should get values at a path and an index">
+  <compute><values of="/describe/dataset/aaa[1]/bbb"/></compute>
+  <expect>B1B2</expect>
+ </it>
+
+
+ <it title="should get values at a path and indexes">
+  <compute><values of="/describe/dataset/aaa[1]/bbb[2]"/></compute>
+  <expect>B2</expect>
+ </it>
+
+
+ <it title="should get values at a path and attributes">
+  <compute><values of="/describe/dataset/aaa[@type='t1']/bbb[@id='b2']"/></compute>
+  <expect>B2B3</expect>
+ </it>
+
+
+ <dataset>
+  <aaa type="t1">A1
+   <bbb>B1</bbb>
+   <bbb id="b2">B2</bbb>
+  </aaa>
+  <aaa type="t1">A2
+   <bbb id="b2">B3</bbb>
+  </aaa>
+ </dataset>
+
+</describe>
