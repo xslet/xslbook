@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit-test.xsl"?>
+
+<describe title="&lt;contents&gt;">
+
+ <it title="should get contents at specified path '.'">
+  <compute><contents of=".">A<b>B</b>C</contents></compute>
+  <expect>ABC</expect>
+ </it>
+
+
+ <it title="should get contents at absolute path">
+  <compute><contents of="/describe/dataset/aaa" /></compute>
+  <expect>A1 B1 B2A2 B3</expect>
+ </it>
+
+
+ <it title="should get contents at relative path">
+  <compute><contents of="aaa/bbb">
+   <aaa><bbb>ABC</bbb></aaa>
+  </contents></compute>
+  <expect>ABC</expect>
+ </it>
+
+
+ <it title="should get contents at a path by &lt;attr&gt;">
+  <compute><contents>
+   <attr name="of">/describe/dataset/aaa</attr>
+  </contents></compute>
+  <expect>A1 B1 B2A2 B3</expect>
+ </it>
+
+
+ <it title="should get contents with @separator">
+  <compute><contents of="/describe/dataset/aaa" separator="||" /></compute>
+  <expect>A1 B1 B2||A2 B3</expect>
+ </it>
+
+
+ <it title="should get contents with @prefix and @suffix">
+  <compute><contents of="/describe/dataset/aaa" prefix="[" suffix="]" /></compute>
+  <expect>[A1 B1 B2][A2 B3]</expect>
+ </it>
+
+
+ <it title="should get contents with prefix, suffix and separator by attr element">
+  <compute><contents of="/describe/dataset/aaa">
+   <attr name="prefix">[</attr>
+   <attr name="suffix">]</attr>
+   <attr name="separator">/</attr>
+  </contents></compute>
+  <expect>[A1 B1 B2]/[A2 B3]</expect>
+ </it>
+
+
+ <it title="should get contents at relative path with @data-src">
+  <compute><contents of="/List/Item" data-src="data/content.data.xml" /></compute>
+  <expect>ABCDEFGHIJKL</expect>
+ </it>
+
+
+ <it title="should get contents at relative path with data-src by &lt;attr&gt;">
+  <compute><contents of="/List/Item">
+   <attr name="data-src">data/content.data.xml</attr>
+  </contents></compute>
+  <expect>ABCDEFGHIJKL</expect>
+ </it>
+
+
+ <it title="should not get contents of children or descendant elements at specified path">
+  <compute><contents of="/describe/dataset/aaa" /></compute>
+  <expect>A1 B1 B2A2 B3</expect>
+ </it>
+
+
+ <it title="should get contents at a path and an index">
+  <compute><contents of="/describe/dataset/aaa[1]/bbb" /></compute>
+  <expect>B1B2</expect>
+ </it>
+
+
+ <it title="should get contents at a path and indexes">
+  <compute><contents of="/describe/dataset/aaa[1]/bbb[2]" /></compute>
+  <expect>B2</expect>
+ </it>
+
+
+ <it title="should get contents at a path and attributes">
+  <compute><contents of="/describe/dataset/aaa[@type='t1']/bbb[@id='b2']" /></compute>
+  <expect>B2B3</expect>
+ </it>
+
+
+
+ <dataset>
+  <aaa type="t1">A1
+   <bbb>B1</bbb>
+   <bbb id="b2">B2</bbb>
+  </aaa>
+  <aaa type="t1">A2
+   <bbb id="b2">B3</bbb>
+  </aaa>
+ </dataset>
+
+</describe>
