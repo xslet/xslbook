@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="unit-test.xsl"?>
+
+<describe title="&lt;content&gt;">
+
+ <it title="should get a content at specified path '.'">
+  <compute><content of=".">A<b>B<c>C</c>b</b>a</content></compute>
+  <expect>ABCba</expect>
+ </it>
+
+
+ <it title="should print prefix and suffix by @prefix and @suffix">
+  <compute><content of="." prefix="[" suffix="]">A<b>B<c>C</c>b</b>a</content></compute>
+  <expect>[ABCba]</expect>
+ </it>
+
+
+ <it title="should print prefix and suffix by &lt;attr&gt;">
+  <compute><value of=".">A
+   <attr name="prefix">{</attr>
+   <attr name="suffix">}</attr>
+  </value></compute>
+  <expect>{A}</expect>
+ </it>
+
+
+ <it title="should get a cotent at absolute path">
+  <compute><content of="/describe/dataset/aaa" /></compute>
+  <expect>A1 B1 B2</expect>
+ </it>
+
+
+ <it title="should get a content at relative path">
+  <compute><content of="aaa/bbb">
+   <aaa><bbb>CCC</bbb></aaa>
+  </content></compute>
+  <expect>CCC</expect>
+ </it>
+
+
+ <it title="should get a cotent at a path by &lt;attr&gt;">
+  <compute><content>
+   <attr name="of">/describe/dataset/aaa</attr>
+  </content></compute>
+  <expect>A1 B1 B2</expect>
+ </it>
+
+
+ <it title="should get a content at relative path with @data-src">
+  <compute><content of="/List/Item" data-src="data/content.data.xml" /></compute>
+  <expect>ABC</expect>
+ </it>
+
+
+ <it title="should get a content at relative path with data-src by &lt;attr&gt;">
+  <compute><content of="/List/Item">
+   <attr name="data-src">data/content.data.xml</attr>
+  </content></compute>
+  <expect>ABC</expect>
+ </it>
+
+
+ <it title="should not get a content of child or descendant element at specified path">
+  <compute><content of="/describe/dataset/aaa" /></compute>
+  <expect>A1 B1 B2</expect>
+ </it>
+
+
+ <it title="should get a content at a path and an index">
+  <compute><content of="/describe/dataset/aaa/bbb[2]" /></compute>
+  <expect>B2</expect>
+ </it>
+
+
+ <it title="should get a content at a path and indexes">
+  <compute><content of="/describe/dataset/aaa[2]/bbb[1]" /></compute>
+  <expect>B3</expect>
+ </it>
+
+
+ <it title="should get a content at a path and an attribute">
+  <compute><content of="/describe/dataset/aaa/bbb[@id='b2']" /></compute>
+  <expect>B2</expect>
+ </it>
+
+
+ <dataset>
+  <aaa>A1
+   <bbb>B1</bbb>
+   <bbb id="b2">B2</bbb>
+  </aaa>
+  <aaa>
+   <bbb>B3</bbb>
+  </aaa>
+ </dataset>
+
+</describe>

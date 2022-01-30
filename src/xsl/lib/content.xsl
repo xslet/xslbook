@@ -8,11 +8,12 @@
 
 
  <!--**
-  This template gets a value of an element at the specified path.
+  Gets a content text of an element at the specified path.
+  A content text includes values of child or dependency elements.
   The path is specified with `of` attribute.
-  The prefix and suffix for a value can be specified with `prefix` and `suffix` attributes.
+  The prefix and suffix for a content can be specified with `prefix` and `suffix` attributes.
  -->
- <xsl:template match="value">
+ <xsl:template match="content">
   <!--** An URL of data source file from an ancestor element. -->
   <xsl:param name="data_url" />
   <!--** A generated ID of a current node in a data source file. -->
@@ -50,13 +51,12 @@
   </xsl:variable>
   <xsl:call-template name="do:first_object_by_path">
    <xsl:with-param name="path" select="$_path" />
-   <xsl:with-param name="what">text</xsl:with-param>
+   <xsl:with-param name="what">content</xsl:with-param>
    <xsl:with-param name="data_url" select="$_data_url" />
    <xsl:with-param name="data_gid" select="$_data_gid" />
    <xsl:with-param name="prefix" select="$_prefix" />
    <xsl:with-param name="suffix" select="$_suffix" />
   </xsl:call-template>
  </xsl:template>
-
 
 </xsl:stylesheet>
