@@ -8,7 +8,9 @@
 
 
  <!--**
-  This template gets a value of an element at the specified path. The path is specified with `of` attribute. The prefix and suffix for a value can be specified with `prefix` and `suffix` attributes.
+  This template gets a value of an element at the specified path.
+  The path is specified with `of` attribute.
+  The prefix and suffix for a value can be specified with `prefix` and `suffix` attributes.
  -->
  <xsl:template match="value">
   <!--** An URL of data source file from an ancestor element. -->
