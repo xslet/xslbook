@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+div.xslbook-subtitle > span.prefix {
+  display: none;
+}
