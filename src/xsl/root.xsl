@@ -18,6 +18,9 @@
       <xsl:with-param name="data_url" select="$_data_url"/>
      </xsl:call-template>
     </title>
+    <xsl:call-template name="book:use_favicon">
+     <xsl:with-param name="data_url" select="$_data_url"/>
+    </xsl:call-template>
     <xsl:call-template name="book:use_css">
      <xsl:with-param name="data_url" select="$_data_url"/>
     </xsl:call-template>
