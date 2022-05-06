@@ -1,0 +1,11 @@
+node_modules
+
+work
+
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+*.log
+npm-debug-.log*

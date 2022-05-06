@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="xslbook" basedir="." default="build">
+
+ <!-- These properties are used by merge processes -->
+ <property name="product" value="xslbook.xsl"/>
+ <property name="version" value="0.1"/>
+ <property name="copyright" value="Copyright (C) 2022 xslet project"/>
+ <property name="license" value="MIT License"/>
+ <property name="prodtype" value="application"/>
+
+
+ <!-- Dependencies for this project -->
+ <property name="dep.xslutil.version" value="1.0.3"/>
+ <property name="dep.xsldo.version" value="1.0.3"/>
+ <property name="dep.xslbook-do.version" value="0.2.1"/>
+ <property name="dep.xslbook-base.version" value="0.1.1"/>
+ <property name="dep.xslbook-cover.version" value="0.1.2"/>
+ <property name="dep.xslbook-inlines.version" value="0.1.0"/>
+ <property name="dep.xslbook-blocks.version" value="0.1.0"/>
+
+ <target name="setup:deps" depends="setup:deps:base">
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslutil"/>
+   <param name="version" value="${dep.xslutil.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xsldo"/>
+   <param name="version" value="${dep.xsldo.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-do"/>
+   <param name="version" value="${dep.xslbook-do.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-base"/>
+   <param name="version" value="${dep.xslbook-base.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-cover"/>
+   <param name="version" value="${dep.xslbook-cover.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-inlines"/>
+   <param name="version" value="${dep.xslbook-inlines.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-blocks"/>
+   <param name="version" value="${dep.xslbook-blocks.version}"/>
+  </antcall>
+ </target>
+
+
+ <import file="res/ant/build.targets.xml"/>
+ <import file="res/ant/build.dependencies.xml"/>
+ <import file="res/ant/build.directories.xml"/>
+
+</project>
