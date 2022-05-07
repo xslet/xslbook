@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../res/dist/xslbook.xsl"?>
+
+<xslbook>
+ <title>BOOK TITLE</title>
+
+ <body>
+  <p>
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+This is a book description.
+  </p>
+ </body>
+</xslbook>

@@ -1,3 +1,72 @@
+body {
+  font-family: Helvetica, arial, sans-serif;
+  margin: 0rem;
+  padding: 0rem;
+}
 
+main {
+  padding: 3rem;
+}
+
+h1.xslbook-title {
+  margin: 0rem;
+  padding: 0rem;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+div.xslbook-subtitle, span.xslbook-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+h1.xslbook-title + div.xslbook-body, div.xslbook-subtitle + div.xslbook-body {
+  margin-top: 1rem;
+}
+
+div.xslbook-body {
+  line-hright: 1.5;
+  padding-left: 0.5rem;
+}
+
+p {
+  padding: 0.5rem 0rem;
+  margin: 0rem;
+  line-height: 1.5;
+}
+
+u.wavy {
+  text-decoration: underline wavy;
+}
+
+@media screen {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #aaa;
+  }
+
+  main {
+    margin: 2rem;
+    background-color: white;
+    box-shadow: 6px 6px 5px rgb(112, 112, 112);
+    min-height: calc(100vh - 10rem);
+  }
+}
+@page {
+  size: A4;
+}
+@media print {
+  html {
+    font-size: 4.5mm;
+  }
+
+  main {
+    margin: 0rem;
+  }
+}
 
 /*# sourceMappingURL=xslbook.css.map */
