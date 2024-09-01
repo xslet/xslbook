@@ -13,6 +13,7 @@
  <!-- Dependencies for this project -->
  <property name="dep.xslutil.version" value="1.0.3"/>
  <property name="dep.xsldo.version" value="1.0.3"/>
+ <property name="dep.xslbook_do.version" value="0.2.1"/>
 
  <target name="setup:deps" depends="setup:deps:base">
   <antcall target="setup:xslet-lib">
@@ -22,6 +23,10 @@
   <antcall target="setup:xslet-lib">
    <param name="package" value="xsldo"/>
    <param name="version" value="${dep.xsldo.version}"/>
+  </antcall>
+  <antcall target="setup:xslet-lib">
+   <param name="package" value="xslbook-do"/>
+   <param name="version" value="${dep.xslbook_do.version}"/>
   </antcall>
  </target>
 
