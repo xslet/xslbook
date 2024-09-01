@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="./unit-test-extended.xsl"?>
+
+<describe title="book:xsl_url">
+
+ <it title="should get the URL of the XSL file">
+   <compute><value-of-param name="book:xsl_url"/></compute>
+   <expect>./unit-test-extended.xsl</expect>
+ </it>
+
+</describe>
