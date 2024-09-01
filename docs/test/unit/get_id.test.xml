@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="application/xml" href="../res/test/unit-test.xsl"?>
+
+<describe title="book:get_id">
+
+ <it title="should get value of @id attribute">
+  <compute name="book:get_id" id="aaa"/>
+  <expect>aaa</expect>
+ </it>
+
+
+ <it title="should get value of &lt;attr name=&quot;id&quot;&gt; element">
+  <compute name="book:get_id">
+   <attr name="id">bbb</attr>
+  </compute>
+  <expect>bbb</expect>
+ </it>
+
+
+ <it title="should get a created ID when neither @id nor &lt;attr name=&quot;id&quot;&gt; is not present">
+  <compute name="book:get_id"/>
+  <expect>idxbkcompute3</expect>
+ </it>
+
+</describe>

@@ -7,7 +7,7 @@ html {
 body {
   margin: 0rem;
   padding: 0rem;
-  background-color: #cad;
+  background-color: #fce;
 }
 
 a[href] {
@@ -83,12 +83,12 @@ section {
 section > h2 {
   border-top: solid 1px white;
   font-size: 1.6rem;
-  padding: 1rem 0rem 0.5rem 1rem;
+  padding: 1rem 0rem 0rem 1rem;
   margin: 0rem;
 }
 section > h3 {
   font-size: 1.2rem;
-  padding: 0.5rem 0rem 0.5rem 1rem;
+  padding: 0.5rem 0rem 0rem 1rem;
   margin: 0rem;
 }
 section > p {
